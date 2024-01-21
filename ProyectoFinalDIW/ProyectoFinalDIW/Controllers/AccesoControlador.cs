@@ -73,7 +73,7 @@ namespace ProyectoFinalDIW.Controllers
             {
                 string acceso = HttpContext.Session.GetString("acceso");
 
-                if(acceso == "1" || acceso == "2" || acceso == "3")
+                if(acceso == "1" || acceso == "2")
                 {
                     // El usuario ha iniciado sesión, luego devolvemos true
                     return true;                    

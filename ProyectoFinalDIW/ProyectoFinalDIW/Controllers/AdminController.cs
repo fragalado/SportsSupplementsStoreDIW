@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoFinalDIW.Models;
-using System.Diagnostics;
+using ProyectoFinalDIW.Servicios;
 
 namespace ProyectoFinalDIW.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
-        public IActionResult Index()
+        // Inicializamos la interfaz Admin
+        AdminInterfaz adminInterfaz = new AdminImplementacion();
+
+        public IActionResult VistaAdministracionUsuario()
         {
             // Control de sesión
             if (!ControlaSesion())
@@ -16,18 +19,26 @@ namespace ProyectoFinalDIW.Controllers
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
-            return View();
+            // Obtenemos una lista con todos los usuarios
+            List<UsuarioDTO> listaUsuarios = adminInterfaz.ObtieneTodosLosUsuarios().Result;
+
+            return View(listaUsuarios);
         }
 
-        public IActionResult Privacy()
+        public IActionResult VistaAdministracionProducto()
         {
-            return View();
-        }
+            // Control de sesión
+            if (!ControlaSesion())
+            {
+                return RedirectToAction("VistaLogin", "AccesoControlador");
+            }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+
+            // Obtenemos una lista con todos los suplementos
+            List<SuplementoDTO> listaSuplementos = adminInterfaz.ObtieneTodosLosSuplementos().Result;
+
+            return View(listaSuplementos);
         }
 
         // Métodos

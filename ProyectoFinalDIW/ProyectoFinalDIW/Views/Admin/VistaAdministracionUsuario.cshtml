@@ -1,0 +1,60 @@
+﻿﻿@using ProyectoFinalDIW.Models
+@model List<UsuarioDTO>
+@{
+    ViewData["Title"] = "Administración Usuario";
+    int i = 1;
+}
+
+
+<div class="row tablaAdmin">
+    <div class="col">
+        <div style="margin-bottom: 5px;">
+            <a class="btn btn-outline-secondary" asp-controller="Admin" asp-action="VistaAdministracionUsuario" role="button">Usuarios</a>
+            <a class="btn btn-outline-secondary" asp-controller="Admin" asp-action="VistaAdministracionProducto" role="button">Productos</a>
+        </div>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Editar/Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count == 0)
+                {
+                    <tr>
+                        <td colspan="4" style="text-align: center">No existe ningún suplemento.</td>
+                    </tr>
+                }
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@usuario.Nombre_usuario</td>
+                        <td>@usuario.Email_usuario</td>
+                        <td>
+                            <i class="fa-solid fa-pen-to-square" style="color: green; padding-left: 15px;"></i>
+                            <i class="fa-solid fa-trash" style="color: red; padding-left: 35px;" onclick="confirmarEliminacion(@usuario.Id_usuario, '@usuario.Email_usuario')"></i>
+                        </td>
+                    </tr>
+                    i++; // Incrementamos el contador
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function confirmarEliminacion(id, email) {
+        var respuesta = confirm('¿Estás seguro de que deseas eliminar el usuario con email:  "' + email + '"?');
+
+        if (respuesta) {
+            // Si el usuario hizo clic en "Aceptar", redirige a la acción de eliminación
+            window.location.href = '/Home/Index?id=' + id;
+        } else {
+            // Si el usuario hizo clic en "Cancelar", no hace nada
+        }
+    }
+</script>

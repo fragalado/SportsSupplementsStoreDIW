@@ -37,25 +37,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 5px;">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Link</a>
+                            <a class="nav-link active text-white" aria-current="page" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
-                                Dropdown
+                                Nutrición
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Proteínas</a></li>
+                                <li><a class="dropdown-item" href="#">Creatina</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Ver Todo</a></li>
                             </ul>
                         </li>
+                        @if (ViewData["acceso"].ToString() == "2")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-controller="Admin" asp-action="VistaAdministracionUsuario">Administración</a>
+                            </li>
+                        }
                         <li class="nav-item perfilLink">
                             <a href="#" class="nav-link text-white">Perfil</a>
                         </li>
@@ -66,7 +69,7 @@
         </nav>
     </header>
 
-    <div class="container-fluid">
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
