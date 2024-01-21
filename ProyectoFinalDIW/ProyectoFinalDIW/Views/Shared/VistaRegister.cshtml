@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Registro";
+}
+
+<div class="wrapper" style="margin: 0 auto">
+    <form action="">
+        <h1>Registro sesión</h1>
+        <div class="input-box">
+            <input type="email" placeholder="Email" required>
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="input-box">
+            <input type="text" placeholder="Nombre" required>
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="input-box">
+            <input type="text" placeholder="Teléfono" required>
+            <i class="fa-solid fa-phone"></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Contraseña" required>
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <button type="submit" class="boton">Enviar</button>
+
+        <div class="register-link">
+            <p>¿Ya estás registrado? <a asp-controller="LoginControlador" asp-action="Index">Inicia sesión</a></p>
+        </div>
+    </form>
+</div>

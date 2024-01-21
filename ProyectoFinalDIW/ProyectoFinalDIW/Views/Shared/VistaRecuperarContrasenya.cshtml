@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Recuperar Contraseña";
+}
+
+<div class="wrapper" style="margin: 0 auto">
+    <form action="">
+        <h1>Recuperar contraseña</h1>
+        <div class="input-box">
+            <input type="email" placeholder="Email" required>
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+
+        <div class="remember-forgot" style="margin-bottom: 2px;">
+            <p>¿Has recordado la contraseña? <a asp-controller="LoginControlador" asp-action="VistaBienvenida" style="font-weight: 600;">Pulsa aquí</a></p>
+        </div>
+
+        <button type="submit" class="boton">Enviar</button>
+    </form>
+</div>
