@@ -12,3 +12,4 @@ C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\DAL\obj\Debug\net6.0\ref
 C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\DAL\obj\Debug\net6.0\DAL.pdb
 C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
 C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\DAL\obj\Debug\net6.0\DAL.sourcelink.json

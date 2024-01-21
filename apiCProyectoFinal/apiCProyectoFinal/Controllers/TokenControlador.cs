@@ -37,7 +37,7 @@ namespace apiCProyectoFinal.Controllers
                 context.Tokens.Add(token);
                 await context.SaveChangesAsync();
 
-                return CreatedAtAction("GetToken", new { id = token.id_token }, token);
+                return CreatedAtAction("GetTokenByToken", new { token = token.cod_token }, token);
             }
             catch (Exception e)
             {

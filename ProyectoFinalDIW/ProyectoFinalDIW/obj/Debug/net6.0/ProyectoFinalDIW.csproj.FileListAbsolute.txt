@@ -28,3 +28,7 @@ C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW\obj\Debu
 C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW\obj\Debug\net6.0\ProyectoFinalDIW.pdb
 C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW\obj\Debug\net6.0\ProyectoFinalDIW.genruntimeconfig.cache
 C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW\obj\Debug\net6.0\ref\ProyectoFinalDIW.dll
+C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW\obj\Debug\net6.0\ProyectoFinalDIW.sourcelink.json
+C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW\obj\Debug\net6.0\ProyectoFinalDIW.csproj.AssemblyReference.cache
+C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW\obj\Debug\net6.0\ProyectoFinalDIW.csproj.CopyComplete

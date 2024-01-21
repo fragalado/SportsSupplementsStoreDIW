@@ -106,7 +106,7 @@ namespace apiCProyectoFinal.Controllers
             }
         }
 
-        [HttpGet("{correo}")]
+        [HttpGet("correo/{correo}")]
         public async Task<ActionResult<Usuario>> GetUsuarioByCorreo(string correo)
         {
             try

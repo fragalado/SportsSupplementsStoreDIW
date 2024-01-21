@@ -54,3 +54,4 @@ C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\apiCProyectoFinal\obj\De
 C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\apiCProyectoFinal\obj\Debug\net6.0\apiCProyectoFinal.pdb
 C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\apiCProyectoFinal\obj\Debug\net6.0\apiCProyectoFinal.genruntimeconfig.cache
 C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\apiCProyectoFinal\obj\Debug\net6.0\ref\apiCProyectoFinal.dll
+C:\Users\ruben\Desktop\ProyectoFinalC\apiCProyectoFinal\apiCProyectoFinal\obj\Debug\net6.0\apiCProyectoFinal.sourcelink.json

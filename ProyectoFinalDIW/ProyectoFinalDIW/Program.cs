@@ -4,8 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //// Add session services
-//builder.Services.AddDistributedMemoryCache(); // Use a distributed memory cache for session (this is just an example, you might want to use a more persistent storage in a production environment)
-//builder.Services.AddSession();
+builder.Services.AddDistributedMemoryCache(); // Use a distributed memory cache for session (this is just an example, you might want to use a more persistent storage in a production environment)
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -21,7 +21,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 //// Use session middleware
-//app.UseSession();
+app.UseSession();
 
 app.UseRouting();
 
@@ -29,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=AccesoControlador}/{action=VistaLogin}/{id?}"); // Hacemos que al iniciar se inicie en LoginControlador/VistaLogin
 
 app.Run();
