@@ -34,7 +34,7 @@
                         <td>@suplemento.Desc_suplemento</td>
                         <td>
                             <i class="fa-solid fa-pen-to-square" style="color: green; padding-left: 15px;"></i>
-                            <i class="fa-solid fa-trash" style="color: red; padding-left: 35px;" onclick="confirmarEliminacion(@suplemento.Id_suplemento, @suplemento.Nombre_suplemento)"></i>
+                            <i class="fa-solid fa-trash" style="color: red; padding-left: 35px;" ></i>
                         </td>
                     </tr>
                     i++; // Incrementamos el contador
@@ -43,16 +43,3 @@
         </table>
     </div>
 </div>
-
-<script>
-    function confirmarEliminacion(id, nombre) {
-        var respuesta = confirm('¿Estás seguro de que deseas eliminar el producto "' + nombre + '"?');
-
-        if (respuesta) {
-            // Si el usuario hizo clic en "Aceptar", redirige a la acción de eliminación
-            window.location.href = '/Administracion/EliminarProducto?id=' + id;
-        } else {
-            // Si el usuario hizo clic en "Cancelar", no hace nada
-        }
-    }
-</script>

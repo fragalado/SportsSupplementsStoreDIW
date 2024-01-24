@@ -18,6 +18,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ruben\Desktop\ProyectoFinalC\ProyectoFinalDIW\ProyectoFinalDIW
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Acceso/VistaCambiarContrasenya.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFZpc3RhQ2FtYmlhckNvbnRyYXNlbnlhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Acceso/VistaConfirmaEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFZpc3RhQ29uZmlybWFFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Acceso/VistaLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFZpc3RhTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Acceso/VistaRecuperarContrasenya.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFZpc3RhUmVjdXBlcmFyQ29udHJhc2VueWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Acceso/VistaRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFZpc3RhUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAdministracionProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFBZG1pbmlzdHJhY2lvblByb2R1Y3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,22 +56,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/VistaCambiarContrasenya.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFZpc3RhQ2FtYmlhckNvbnRyYXNlbnlhLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/VistaLogin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFZpc3RhTG9naW4uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/VistaRecuperarContrasenya.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFZpc3RhUmVjdXBlcmFyQ29udHJhc2VueWEuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/VistaRegister.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFZpc3RhUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/_ValidationScriptsPartial.cshtml]

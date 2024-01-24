@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Administración Usuario";
     int i = 1;
+    var mensajeBorrado = TempData["mensajeBorrado"];
 }
 
 
@@ -18,6 +19,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Rol</th>
                     <th scope="col">Editar/Eliminar</th>
                 </tr>
             </thead>
@@ -34,9 +36,17 @@
                         <th scope="row">@i</th>
                         <td>@usuario.Nombre_usuario</td>
                         <td>@usuario.Email_usuario</td>
+                        @if (@usuario.Id_acceso == 1)
+                        {
+                            <td>Usuario</td>
+                        }
+                        else
+                        {
+                            <td>Admin</td>
+                        }
                         <td>
                             <i class="fa-solid fa-pen-to-square" style="color: green; padding-left: 15px;"></i>
-                            <i class="fa-solid fa-trash" style="color: red; padding-left: 35px;" onclick="confirmarEliminacion(@usuario.Id_usuario, '@usuario.Email_usuario')"></i>
+                            <i class="fa-solid fa-trash" style="color: red; padding-left: 35px;" onclick="compruebaEsAdmin(@usuario.Id_usuario, @usuario.Id_acceso)"></i>
                         </td>
                     </tr>
                     i++; // Incrementamos el contador
@@ -47,14 +57,36 @@
 </div>
 
 <script>
-    function confirmarEliminacion(id, email) {
-        var respuesta = confirm('¿Estás seguro de que deseas eliminar el usuario con email:  "' + email + '"?');
-
-        if (respuesta) {
-            // Si el usuario hizo clic en "Aceptar", redirige a la acción de eliminación
-            window.location.href = '/Home/Index?id=' + id;
+    function compruebaEsAdmin(id_usuario, id_acceso){
+        if (id_acceso != 2) {
+            compruebaEliminar(id_usuario);
         } else {
-            // Si el usuario hizo clic en "Cancelar", no hace nada
+            Swal.fire({
+                title: "Error!",
+                text: "No puedes borrar un Administrador!",
+                icon: "error"
+            });
         }
+    }
+
+    function compruebaEliminar(id_usuario) {
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "No se podrán revertir los cambios!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, eliminar!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Eliminamos
+                // Obtén la ruta base de la URL actual (localhost:1234)
+                const baseUrl = window.location.origin;
+
+                // Redirige a la nueva URL (/Admin/BorrarUsuario)
+                window.location.href = baseUrl + '/Admin/BorrarUsuario?id=' + id_usuario;
+            }
+        });
     }
 </script>

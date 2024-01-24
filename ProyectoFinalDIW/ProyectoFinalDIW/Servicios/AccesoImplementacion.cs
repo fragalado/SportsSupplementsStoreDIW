@@ -67,7 +67,18 @@ namespace ProyectoFinalDIW.Servicios
                     if (response.IsSuccessStatusCode)
                     {
                         Console.WriteLine("Usuario creado exitosamente");
-                        return true;
+
+                        // Enviamos correo
+                        // Obtenemos el usuario de la base de datos para poder obtener el id
+                        UsuarioDTO usuarioBD = BuscaUsuarioPorEmail(usuario).Result;
+
+                        // Enviamos el correo
+                        bool ok = EnviaCorreo(usuarioBD, "https://localhost:7194/Acceso/VistaConfirmaEmail", true);
+
+                        if (ok)
+                            return true;
+                        else
+                            return null;
                     }
                     else
                     {
@@ -167,6 +178,30 @@ namespace ProyectoFinalDIW.Servicios
                     return false;
                 }
 
+                bool ok = EnviaCorreo(usuarioEncontrado, "https://localhost:7194/Acceso/VistaCambiarContrasenya", false);
+
+                if (ok)
+                    return true;
+                return false; // Caso contrario
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-RecuperaPassword] Error la tarea fue cancelada");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Método que crea un token y hace el POST a la base de datos del token creado. Además envia un correo al gmail del usuario pasado por parámetros
+        /// </summary>
+        /// <param name="usuario">Objeto usuario al que se le envia el correo</param>
+        /// <param name="urlCorreo">Url a la que te llevará al pulsar el botón del mensaje de correo</param>
+        /// <param name="esActivado">Booleano que será true si es para email de confirmación o false si es para recuperar contraseña</param>
+        /// <returns>Devuelve true si ha enviado el correo o false si no</returns>
+        private bool EnviaCorreo(UsuarioDTO usuario, string urlCorreo, bool esActivado)
+        {
+            try
+            {
                 // Si no es null crearemos un token
                 Guid guid = Guid.NewGuid();
 
@@ -177,7 +212,7 @@ namespace ProyectoFinalDIW.Servicios
                 DateTime fechaLimite = DateTime.Now.AddMinutes(5); // 5 minutos para realizar la operación de cambio de contrasenya
 
                 // Creamos un objeto TokenDTO
-                TokenDTO tokenDTO = new TokenDTO(token, fechaLimite, usuarioEncontrado.Id_usuario);
+                TokenDTO tokenDTO = new TokenDTO(token, fechaLimite, usuario.Id_usuario);
 
                 // Ahora realizamos el POST del token a la base de datos
                 // Convertimos el token a json
@@ -198,8 +233,8 @@ namespace ProyectoFinalDIW.Servicios
                         Console.WriteLine("Token creado exitosamente");
 
                         // Llamamos a los métodos para enviar el correo
-                        String mensaje = MensajeCorreo(token, "https://localhost:7016/AccesoControlador/VistaModificarContrasenya");
-                        bool ok = EnviarMensaje(mensaje, usuarioEncontrado.Email_usuario, true, "Recuperar Contraseña", "infolentos@frangallegodorado.es", true);
+                        String mensaje = MensajeCorreo(token, urlCorreo, esActivado);
+                        bool ok = EnviarMensaje(mensaje, usuario.Email_usuario, true, "Recuperar Contraseña", "infolentos@frangallegodorado.es", true);
                         return true;
                     }
                     else
@@ -211,20 +246,38 @@ namespace ProyectoFinalDIW.Servicios
             }
             catch (Exception)
             {
-                Console.WriteLine("[ERROR-AccesoImplementacion-RecuperaPassword] Error la tarea fue cancelada");
                 return false;
             }
         }
+
 
         /// <summary>
         /// Método que crea el cuerpo del correo que se enviará al email del usuario.
         /// </summary>
         /// <param name="token">Token creado</param>
         /// <param name="direccion">Dirección URL</param>
+        /// <param name="esActivado">Booleano que será true si es para email de confirmación o false si es para recuperar contraseña</param>
         /// <returns>Devuelve el cuerpo del correo</returns>
-        private string MensajeCorreo(string token, string direccion)
+        private string MensajeCorreo(string token, string direccion, bool esActivado)
         {
-            return $@"
+            if(esActivado)
+                return $@"
+        <div style=""font-family: 'Optima', sans-serif; max-width: 600px; margin: 0 auto; color: #192255; line-height: 1.6;"">
+            <h2 style=""color: #192255; font-size: 24px; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; text-align: left;"">Confirmar cuenta</h2>
+
+            <p style=""font-size: 16px; text-align: left; margin-bottom: 30px;"">
+                Se ha enviado una petición para activar la cuenta. Si has sido tú, haz clic en el siguiente botón para poder activar la cuenta:
+            </p>
+
+            <a href=""{direccion}?tk={token}"" style=""text-decoration: none;"" target=""_blank"">
+                <button style=""background-color: #285845; color: white; padding: 15px 25px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; text-transform: uppercase;"">
+                    Activar Cuenta
+                </button>
+            </a>
+        </div>
+    ";
+            else
+                return $@"
         <div style=""font-family: 'Optima', sans-serif; max-width: 600px; margin: 0 auto; color: #192255; line-height: 1.6;"">
             <h2 style=""color: #192255; font-size: 24px; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; text-align: left;"">Restablecer Contraseña</h2>
 
@@ -317,6 +370,227 @@ namespace ProyectoFinalDIW.Servicios
                 smtpClient?.Dispose();
             }
             return resultado;
+        }
+
+        public async Task<bool> ModificaPassword(TokenDTO token, string password)
+        {
+            // Obtenemos el usuario por el id
+            // URL de la API que deseas consultar
+            string apiUrl = "https://localhost:7029/api/UsuarioControlador/" + token.Id_usuario;
+
+            try
+            {
+                // Realiza la consulta GET
+                string responseData;
+                using (HttpClient client = new HttpClient())
+                {
+                    // Realiza la solicitud GET a la API
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    // Verifica si la solicitud fue exitosa
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Lee y devuelve el contenido de la respuesta como cadena
+                        responseData = await response.Content.ReadAsStringAsync();
+                    }
+                    else
+                    {
+                        // En caso de error, lanza una excepción o maneja el error según tus necesidades
+                        return false;
+                    }
+                }
+
+                // Deserializa la respuesta JSON a un objeto C#
+                UsuarioDTO usuarioEncontrado = JsonConvert.DeserializeObject<UsuarioDTO>(responseData);
+
+                // Ahora puedes trabajar con el tokenEncontrado
+                if (usuarioEncontrado != null)
+                {
+                    // Si el usuario es distinto de null vamos a modificar la contraseña y hacer el PUT
+                    usuarioEncontrado.Psswd_usuario = Util.EncriptarContra(password);
+
+                    // Convertimos el usuario a json
+                    string usuarioJson = JsonConvert.SerializeObject(usuarioEncontrado, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                    // Configurar la solicitud HTTP
+                    using (HttpClient client = new HttpClient())
+                    {
+                        // Url a la que haremos el PUT
+                        Uri url = new Uri("https://localhost:7029/api/UsuarioControlador");
+
+                        // Configurar la solicitud HTTP PUT
+                        HttpResponseMessage response = client.PutAsync(url, new StringContent(usuarioJson, Encoding.UTF8, "application/json")).Result;
+
+                        // Verificar la respuesta del servidor
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine("Usuario actualizado exitosamente");
+                            return true;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                            return false;
+                        }
+                    }
+                }
+                Console.WriteLine("No hay coincidencia");
+                return false;
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error operación no válida");
+                return false;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error la tarea fue cancelada");
+                return false;
+            }
+        }
+
+        public async Task<TokenDTO> ObtenerToken(string token)
+        {
+            // URL de la API que deseas consultar
+            string apiUrl = "https://localhost:7029/api/TokenControlador/" + token;
+
+            try
+            {
+                // Realiza la consulta GET
+                string responseData;
+                using (HttpClient client = new HttpClient())
+                {
+                    // Realiza la solicitud GET a la API
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    // Verifica si la solicitud fue exitosa
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Lee y devuelve el contenido de la respuesta como cadena
+                        responseData = await response.Content.ReadAsStringAsync();
+                    }
+                    else
+                    {
+                        // En caso de error, lanza una excepción o maneja el error según tus necesidades
+                        return null;
+                    }
+                }
+
+                // Deserializa la respuesta JSON a un objeto C#
+                TokenDTO tokenEncontrado = JsonConvert.DeserializeObject<TokenDTO>(responseData);
+
+                // Ahora puedes trabajar con el tokenEncontrado
+                if (tokenEncontrado != null)
+                {
+                    return tokenEncontrado;
+                }
+
+                Console.WriteLine("No hay coincidencia");
+                return null;
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error operación no válida");
+                return null;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error en la solicitud HTTP");
+                return null;
+            }
+            catch (TaskCanceledException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error la tarea fue cancelada");
+                return null;
+            }
+        }
+
+        public async Task<bool> ActivaCuenta(TokenDTO token)
+        {
+            // Activamos la cuenta del usuario
+            // Para ello obtenemos el usuario de la base de datos y después hacemos un PUT a la base de datos con el usuario cambiado
+            // URL de la API que deseas consultar
+            string apiUrl = "https://localhost:7029/api/UsuarioControlador/" + token.Id_usuario;
+
+            try
+            {
+                // Realiza la consulta GET
+                string responseData;
+                using (HttpClient client = new HttpClient())
+                {
+                    // Realiza la solicitud GET a la API
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    // Verifica si la solicitud fue exitosa
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Lee y devuelve el contenido de la respuesta como cadena
+                        responseData = await response.Content.ReadAsStringAsync();
+                    }
+                    else
+                    {
+                        // En caso de error, lanza una excepción o maneja el error según tus necesidades
+                        return false;
+                    }
+                }
+
+                // Deserializa la respuesta JSON a un objeto C#
+                UsuarioDTO usuarioEncontrado = JsonConvert.DeserializeObject<UsuarioDTO>(responseData);
+
+                // Ahora puedes trabajar con el tokenEncontrado
+                if (usuarioEncontrado != null)
+                {
+                    // Si el usuario es distinto de null vamos a modificar la propiedad estaActivado_usuario y hacer el PUT
+                    usuarioEncontrado.EstaActivado_usuario = true;
+
+                    // Convertimos el usuario a json
+                    string usuarioJson = JsonConvert.SerializeObject(usuarioEncontrado, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                    // Configurar la solicitud HTTP
+                    using (HttpClient client = new HttpClient())
+                    {
+                        // Url a la que haremos el PUT
+                        Uri url = new Uri("https://localhost:7029/api/UsuarioControlador");
+
+                        // Configurar la solicitud HTTP PUT
+                        HttpResponseMessage response = client.PutAsync(url, new StringContent(usuarioJson, Encoding.UTF8, "application/json")).Result;
+
+                        // Verificar la respuesta del servidor
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine("Usuario actualizado exitosamente");
+                            return true;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                            return false;
+                        }
+                    }
+                }
+                Console.WriteLine("No hay coincidencia");
+                return false;
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ActivaCuenta] Error operación no válida");
+                return false;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ActivaCuenta] Error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException e)
+            {
+                Console.WriteLine("[ERROR-AccesoImplementacion-ActivaCuenta] Error la tarea fue cancelada");
+                return false;
+            }
         }
     }
 }

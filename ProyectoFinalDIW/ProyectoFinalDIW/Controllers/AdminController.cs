@@ -12,9 +12,9 @@ namespace ProyectoFinalDIW.Controllers
         public IActionResult VistaAdministracionUsuario()
         {
             // Control de sesión
-            if (!ControlaSesion())
+            if (!ControlaSesionAdmin())
             {
-                return RedirectToAction("VistaLogin", "AccesoControlador");
+                return RedirectToAction("VistaLogin", "Acceso");
             }
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
@@ -22,15 +22,18 @@ namespace ProyectoFinalDIW.Controllers
             // Obtenemos una lista con todos los usuarios
             List<UsuarioDTO> listaUsuarios = adminInterfaz.ObtieneTodosLosUsuarios().Result;
 
+            // Ordenamos la lista de usuarios
+            listaUsuarios = listaUsuarios.OrderBy(u => u.Id_acceso == 2 ? 0 : 1).ToList();
+
             return View(listaUsuarios);
         }
 
         public IActionResult VistaAdministracionProducto()
         {
             // Control de sesión
-            if (!ControlaSesion())
+            if (!ControlaSesionAdmin())
             {
-                return RedirectToAction("VistaLogin", "AccesoControlador");
+                return RedirectToAction("VistaLogin", "Acceso");
             }
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
@@ -44,29 +47,38 @@ namespace ProyectoFinalDIW.Controllers
         // Métodos
 
         /// <summary>
-        /// Método que obtiene el acceso del usuario y devuelve false si ha iniciado sesión o true si no.
+        /// Método que obtiene el acceso del usuario y devuelve true si es admin o false si no.
         /// </summary>
         /// <returns>Devuelve un bool</returns>
-        private bool ControlaSesion()
+        private bool ControlaSesionAdmin()
         {
             // Controla sesion
             try
             {
                 string acceso = HttpContext.Session.GetString("acceso");
 
-                if (acceso == "1" || acceso == "2")
+                if (acceso == "2")
                 {
-                    // El usuario ha iniciado sesión, luego devolvemos true
+                    // El usuario es admin, luego devolvemos true
                     return true;
                 }
 
-                // Si el usuario no ha iniciado sesión devolvemos false
+                // Si el usuario no es admin devolvemos false
                 return false;
             }
             catch (Exception)
             {
                 return false;
             }
+        }
+
+        [HttpPost]
+        public IActionResult BorrarUsuario(string id)
+        {
+            Console.WriteLine("Ha entrado en borrar al usuario");
+            Console.WriteLine(id);
+            TempData["esBorrado"] = false;
+            return RedirectToAction("VistaAdministracionUsuario");
         }
     }
 }

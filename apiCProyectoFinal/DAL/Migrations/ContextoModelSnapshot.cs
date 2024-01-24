@@ -188,6 +188,9 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("estaActivado_usuario")
+                        .HasColumnType("boolean");
+
                     b.Property<long>("id_acceso")
                         .HasColumnType("bigint");
 

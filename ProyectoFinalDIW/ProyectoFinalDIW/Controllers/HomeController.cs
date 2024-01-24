@@ -11,7 +11,7 @@ namespace ProyectoFinalDIW.Controllers
             // Control de sesión
             if (!ControlaSesion())
             {
-                return RedirectToAction("VistaLogin", "AccesoControlador");
+                return RedirectToAction("VistaLogin", "Acceso");
             }
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
@@ -33,7 +33,7 @@ namespace ProyectoFinalDIW.Controllers
         // Métodos
 
         /// <summary>
-        /// Método que obtiene el acceso del usuario y devuelve false si ha iniciado sesión o true si no.
+        /// Método que obtiene el acceso del usuario y devuelve true si ha iniciado sesión o false si no.
         /// </summary>
         /// <returns>Devuelve un bool</returns>
         private bool ControlaSesion()

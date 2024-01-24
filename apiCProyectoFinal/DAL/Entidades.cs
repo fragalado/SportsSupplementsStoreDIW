@@ -17,19 +17,21 @@ namespace DAL
         public long id_acceso { get; set; }
         [ForeignKey("id_acceso")]
         public Acceso? acceso { get; set; }
+        public bool estaActivado_usuario { get; set; }
 
         public List<Token_Tabla>? listaToken { get; set; }
         public List<Carrito>? listaCarrito { get; set; }
         public List<Orden>? listaOrden { get; set; }
 
         // Constructores
-        public Usuario(string nombre_usuario, string tlf_usuario, string email_usuario, string psswd_usuario, long id_acceso)
+        public Usuario(string nombre_usuario, string tlf_usuario, string email_usuario, string psswd_usuario, long id_acceso, bool estaActivado_usuario)
         {
             this.nombre_usuario = nombre_usuario;
             this.tlf_usuario = tlf_usuario;
             this.email_usuario = email_usuario;
             this.psswd_usuario = psswd_usuario;
             this.id_acceso = id_acceso;
+            this.estaActivado_usuario = estaActivado_usuario;
         }
 
         public Usuario() {}
