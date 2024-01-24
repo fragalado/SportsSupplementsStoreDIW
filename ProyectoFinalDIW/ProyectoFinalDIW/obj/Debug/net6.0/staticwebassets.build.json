@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Azzr+BrS0rTgSMH8tABN00ISjBGhm+1KXciYqlaa/rc=",
+  "Hash": "ieGEqp9JGHJOgeNZ6MxzxTnarQwzxWpYJ44LwbYlqBo=",
   "Source": "ProyectoFinalDIW",
   "BasePath": "_content/ProyectoFinalDIW",
   "Mode": "Default",
@@ -376,6 +376,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo2.png"
+    },
+    {
+      "Identity": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\bb3fd0ff-078b-48c9-91af-4998b8ff1eca.png",
+      "SourceId": "ProyectoFinalDIW",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\",
+      "BasePath": "_content/ProyectoFinalDIW",
+      "RelativePath": "img/usuarios/bb3fd0ff-078b-48c9-91af-4998b8ff1eca.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\usuarios\\bb3fd0ff-078b-48c9-91af-4998b8ff1eca.png"
     },
     {
       "Identity": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\profile.jpg",

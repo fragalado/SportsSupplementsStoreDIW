@@ -85,12 +85,23 @@ namespace ProyectoFinalDIW.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult BorrarUsuario(string id)
+        public ActionResult BorrarUsuario(int id)
         {
-            Console.WriteLine("Ha entrado en borrar al usuario");
-            Console.WriteLine(id);
-            TempData["esBorrado"] = false;
+            string esBorrado = "noBorrado";
+            try
+            {
+                Console.WriteLine("Ha entrado en borrar al usuario");
+                Console.WriteLine(id);
+                bool ok = adminInterfaz.BorraUsuarioPorId(id);
+
+                if (ok)
+                    esBorrado = "borrado";
+            }
+            catch (Exception)
+            {
+                TempData["error"] = true;
+            }
+            TempData["mensajeBorrado"] = esBorrado;
             return RedirectToAction("VistaAdministracionUsuario");
         }
 
@@ -115,7 +126,6 @@ namespace ProyectoFinalDIW.Controllers
                 // Almacena la ruta de la imagen en la entidad Usuario
                 usuario.RutaImagen_usuario = "/img/usuarios/" + nombreImagen;
             }
-            TempData["esBorrado"] = false;
             return RedirectToAction("VistaEditarUsuario");
         }
     }

@@ -73,6 +73,10 @@
       "PackagePath": "staticwebassets\\img\\logo2.png"
     },
     {
+      "Id": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\bb3fd0ff-078b-48c9-91af-4998b8ff1eca.png",
+      "PackagePath": "staticwebassets\\img\\usuarios\\bb3fd0ff-078b-48c9-91af-4998b8ff1eca.png"
+    },
+    {
       "Id": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\profile.jpg",
       "PackagePath": "staticwebassets\\img\\usuarios\\profile.jpg"
     },
