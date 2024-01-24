@@ -73,6 +73,10 @@
       "PackagePath": "staticwebassets\\img\\logo2.png"
     },
     {
+      "Id": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\profile.jpg",
+      "PackagePath": "staticwebassets\\img\\usuarios\\profile.jpg"
+    },
+    {
       "Id": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

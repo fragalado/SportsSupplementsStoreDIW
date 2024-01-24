@@ -37,3 +37,31 @@
         display: none;
     }
 }
+
+/* Estilos de la vista Editar usuario */
+
+.contenedor {
+    background-color: red;
+    margin: 0 auto;
+    max-width: 35%;
+    margin-top: 150px;
+    border: 1px solid black;
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contenedor-imagen {
+    max-width: 150px;
+    max-height: 150px;
+    margin: 0 auto;
+}
+
+.botonImagen {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    max-width: 150px;
+}
+
+/* Fin de Estilos de la vista Editar usuario */

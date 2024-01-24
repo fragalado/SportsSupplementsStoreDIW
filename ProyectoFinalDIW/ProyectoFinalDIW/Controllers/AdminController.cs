@@ -44,6 +44,19 @@ namespace ProyectoFinalDIW.Controllers
             return View(listaSuplementos);
         }
 
+        public IActionResult VistaEditarUsuario()
+        {
+            // Control de sesión
+            if (!ControlaSesionAdmin())
+            {
+                return RedirectToAction("VistaLogin", "Acceso");
+            }
+
+            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+
+            return View();
+        }
+
         // Métodos
 
         /// <summary>
@@ -79,6 +92,31 @@ namespace ProyectoFinalDIW.Controllers
             Console.WriteLine(id);
             TempData["esBorrado"] = false;
             return RedirectToAction("VistaAdministracionUsuario");
+        }
+
+        [HttpPost]
+        public IActionResult EditarUsuario(UsuarioDTO usuario, IFormFile imagenFile)
+        {
+            if (imagenFile != null && imagenFile.Length > 0)
+            {
+                // Genera un nombre único para la imagen
+                string nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(imagenFile.FileName);
+
+                // Combina la ruta de la carpeta con el nombre de la imagen
+                string rutaCompleta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img/usuarios", nombreImagen);
+                Console.WriteLine(rutaCompleta);
+
+                // Guarda la imagen en el sistema de archivos
+                using (var stream = new FileStream(rutaCompleta, FileMode.Create))
+                {
+                    imagenFile.CopyTo(stream);
+                }
+
+                // Almacena la ruta de la imagen en la entidad Usuario
+                usuario.RutaImagen_usuario = "/img/usuarios/" + nombreImagen;
+            }
+            TempData["esBorrado"] = false;
+            return RedirectToAction("VistaEditarUsuario");
         }
     }
 }

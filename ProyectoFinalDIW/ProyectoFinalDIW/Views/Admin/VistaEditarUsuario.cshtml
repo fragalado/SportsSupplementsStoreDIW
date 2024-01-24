@@ -1,0 +1,48 @@
+﻿﻿@using ProyectoFinalDIW.Models
+@model UsuarioDTO
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="contenedor">
+            <div class="contenedor-imagen">
+                <img src="~/img/usuarios/profile.jpg" class="card-img-top" alt="Foto de perfil del usuario" id="profile-pic">
+            </div>
+            <div class="inputs-form">
+                <form method="post" asp-controller="Admin" asp-action="EditarUsuario" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="imagenForm" class="btn btn-primary botonImagen">Añadir imagen</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="imagenForm" style="display: none;" name="imagenFile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailForm" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="emailForm" name="email_usuario">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombreForm" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombreForm" name="nombre_usuario">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tlfForm" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="tlfForm" name="tlf_usuario">
+                    </div>
+                    <div class="mb-3">
+                        <label for="psswdForm" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="psswdForm" name="psswd_usuario">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let profilePic = document.getElementById("profile-pic");
+    let inputFile = document.getElementById("imagenForm");
+
+    inputFile.onchange = function () {
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+    }
+</script>

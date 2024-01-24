@@ -11,10 +11,11 @@
         private string psswd_usuario;
         private long id_acceso = 1;
         private bool estaActivado_usuario = false;
+        private string rutaImagen_usuario;
 
         // Constructores
 
-        public UsuarioDTO(long id_usuario, string nombre_usuario, string tlf_usuario, string email_usuario, string psswd_usuario)
+        public UsuarioDTO(long id_usuario, string nombre_usuario, string tlf_usuario, string email_usuario, string psswd_usuario, string rutaImagen_usuario)
         {
             this.id_usuario = id_usuario;
             this.nombre_usuario = nombre_usuario;
@@ -23,9 +24,10 @@
             this.psswd_usuario = psswd_usuario;
             id_acceso = 1;
             estaActivado_usuario = false;
+            this.rutaImagen_usuario = rutaImagen_usuario;
         }
 
-        public UsuarioDTO(string nombre_usuario, string tlf_usuario, string email_usuario, string psswd_usuario)
+        public UsuarioDTO(string nombre_usuario, string tlf_usuario, string email_usuario, string psswd_usuario, string rutaImagen_usuario)
         {
             this.nombre_usuario = nombre_usuario;
             this.tlf_usuario = tlf_usuario;
@@ -33,6 +35,7 @@
             this.psswd_usuario = psswd_usuario;
             id_acceso = 1;
             estaActivado_usuario = false;
+            this.rutaImagen_usuario = rutaImagen_usuario;
         }
 
         public UsuarioDTO()
@@ -48,6 +51,7 @@
         public string Psswd_usuario { get => psswd_usuario; set => psswd_usuario = value; }
         public long Id_acceso { get => id_acceso; set => id_acceso = value; }
         public bool EstaActivado_usuario { get => estaActivado_usuario; set => estaActivado_usuario = value; }
+        public string RutaImagen_usuario {  get => rutaImagen_usuario; set => rutaImagen_usuario = value; }
 
     }
 }
