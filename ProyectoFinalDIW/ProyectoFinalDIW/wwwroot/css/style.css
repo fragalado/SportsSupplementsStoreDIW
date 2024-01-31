@@ -38,14 +38,18 @@
     }
 }
 
-/* Estilos de la vista Editar usuario */
+/* Estilos de la vista Editar usuario y Editar suplemento */
+
+.imagen {
+    max-height: 160px;
+}
 
 .contenedor {
-    background-color: red;
+    background-color: #FFFAFB;
     margin: 0 auto;
     max-width: 35%;
-    margin-top: 150px;
-    border: 1px solid black;
+    margin-top: 100px;
+    border: 2px solid black;
     border-radius: 40px;
     padding: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -62,6 +66,15 @@
     display: flex;
     justify-content: center;
     max-width: 150px;
+}
+
+.botonVolver {
+    margin-top: -38px;
+    float: right;
+}
+
+.inputVistaEditar {
+    border: 1px solid black;
 }
 
 /* Fin de Estilos de la vista Editar usuario */

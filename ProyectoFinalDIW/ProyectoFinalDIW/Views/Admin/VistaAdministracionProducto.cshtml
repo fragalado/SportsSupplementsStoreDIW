@@ -1,8 +1,10 @@
 ﻿﻿@using ProyectoFinalDIW.Models
 @model List<SuplementoDTO>
 @{
-    ViewData["Title"] = "Administración Productos";
+    ViewData["Title"] = "Administración Suplementos";
     int i = 1;
+    var mensajeBorrado = TempData["mensajeBorrado"];
+    var mensajeActualizado = TempData["mensajeActualizado"];
 }
 
 <div class="row tablaAdmin">
@@ -16,14 +18,17 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Marca</th>
                     <th scope="col">Editar/Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 @if(Model.Count == 0){
                     <tr>
-                        <td colspan="4" style="text-align: center">No existe ningún suplemento.</td>
+                        <td colspan="7" style="text-align: center">No existe ningún suplemento.</td>
                     </tr>
                 }
                 @foreach (var suplemento in Model)
@@ -32,9 +37,14 @@
                         <th scope="row">@i</th>
                         <td>@suplemento.Nombre_suplemento</td>
                         <td>@suplemento.Desc_suplemento</td>
+                        <td>@suplemento.Precio_suplemento $</td>
+                        <td>@suplemento.Tipo_suplemento</td>
+                        <td>@suplemento.Marca_suplemento</td>
                         <td>
-                            <i class="fa-solid fa-pen-to-square" style="color: green; padding-left: 15px;"></i>
-                            <i class="fa-solid fa-trash" style="color: red; padding-left: 35px;" ></i>
+                            <a href="@Url.Action("VistaEditarSuplemento", "Admin", new { id = suplemento.Id_suplemento })" style="text-decoration: none">
+                                <i class="fa-solid fa-pen-to-square" style="color: green; padding-left: 15px;"></i>
+                            </a>
+                            <i class="fa-solid fa-trash" style="color: red; margin-left: 35px;" onclick="compruebaEliminar(@suplemento.Id_suplemento)"></i>
                         </td>
                     </tr>
                     i++; // Incrementamos el contador
@@ -43,3 +53,78 @@
         </table>
     </div>
 </div>
+
+<script>
+    function compruebaEliminar(id_suplemento) {
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "No se podrán revertir los cambios!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, eliminar!",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Eliminamos
+                // Obtén la ruta base de la URL actual (localhost:1234)
+                const baseUrl = window.location.origin;
+
+                // Redirige a la nueva URL (/Admin/BorrarSuplemento)
+                window.location.href = baseUrl + '/Admin/BorrarSuplemento/' + id_suplemento;
+            }
+        });
+    }
+</script>
+@if (TempData["error"] != null)
+{
+    <script>
+        Swal.fire({
+            title: "Error!",
+            text: "Se ha producido un error, vuelve a intentarlo más tarde!",
+            icon: "error"
+        });
+    </script>
+}
+@if (mensajeBorrado != null && mensajeBorrado.ToString() == "borrado")
+{
+    <script>
+        Swal.fire({
+            title: "Éxito!",
+            text: "El suplemento se ha borrado con éxito!",
+            icon: "success"
+        });
+    </script>
+}
+else if (mensajeBorrado != null && mensajeBorrado.ToString() == "noBorrado")
+{
+    <script>
+        Swal.fire({
+            title: "Error!",
+            text: "El suplemento no se ha podido eliminar!",
+            icon: "error"
+        });
+    </script>
+}
+
+@if (mensajeActualizado != null && mensajeActualizado.ToString() == "true")
+{
+    <script>
+        Swal.fire({
+            title: "Éxito!",
+            text: "El suplemento ha sido actualizado con éxito!",
+            icon: "success"
+        });
+    </script>
+}
+else if (mensajeActualizado != null && mensajeActualizado.ToString() == "false")
+{
+    <script>
+        Swal.fire({
+            title: "Error!",
+            text: "El suplemento no se ha podido actualizar!",
+            icon: "error"
+        });
+    </script>
+}

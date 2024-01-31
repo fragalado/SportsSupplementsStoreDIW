@@ -95,21 +95,23 @@ namespace DAL
         public long id_suplemento { get; set; }
         public string nombre_suplemento { get; set; }
         public string desc_suplemento { get; set; }
-        public long precio_suplemento { get; set; }
+        public float precio_suplemento { get; set; }
         public string tipo_suplemento { get; set; }
         public string marca_suplemento { get; set; }
+        public string rutaImagen_suplemento { get; set; }
 
         public List<Carrito>? listaCarrito { get; set; }
 
         // Constructores
 
-        public Suplemento(string nombre_suplemento, string desc_suplemento, long precio_suplemento, string tipo_suplemento, string marca_suplemento)
+        public Suplemento(string nombre_suplemento, string desc_suplemento, float precio_suplemento, string tipo_suplemento, string marca_suplemento, string rutaImagen_suplemento)
         {
             this.nombre_suplemento = nombre_suplemento;
-            this.desc_suplemento= desc_suplemento;
+            this.desc_suplemento = desc_suplemento;
             this.precio_suplemento = precio_suplemento;
             this.tipo_suplemento = tipo_suplemento;
             this.marca_suplemento = marca_suplemento;
+            this.rutaImagen_suplemento = rutaImagen_suplemento;
         }
 
         public Suplemento() { }

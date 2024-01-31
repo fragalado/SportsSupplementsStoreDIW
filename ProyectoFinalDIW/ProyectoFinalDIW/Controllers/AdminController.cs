@@ -44,7 +44,7 @@ namespace ProyectoFinalDIW.Controllers
             return View(listaSuplementos);
         }
 
-        public IActionResult VistaEditarUsuario()
+        public IActionResult VistaEditarUsuario(int id)
         {
             // Control de sesión
             if (!ControlaSesionAdmin())
@@ -52,9 +52,34 @@ namespace ProyectoFinalDIW.Controllers
                 return RedirectToAction("VistaLogin", "Acceso");
             }
 
+            // Obtenemos el usuario por el id
+            UsuarioDTO usuario = adminInterfaz.BuscaUsuarioPorId(id).Result;
+
+            if(usuario == null)
+                return RedirectToAction("Index", "Home");
+
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
-            return View();
+            return View(usuario);
+        }
+
+        public IActionResult VistaEditarSuplemento(int id)
+        {
+            // Control de sesión
+            if (!ControlaSesionAdmin())
+            {
+                return RedirectToAction("VistaLogin", "Acceso");
+            }
+
+            // Obtenemos el suplemento por el id
+            SuplementoDTO suplemento= adminInterfaz.BuscaSuplementoPorId(id).Result;
+
+            if (suplemento == null)
+                return RedirectToAction("Index", "Home");
+
+            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+
+            return View(suplemento);
         }
 
         // Métodos
@@ -87,6 +112,12 @@ namespace ProyectoFinalDIW.Controllers
 
         public ActionResult BorrarUsuario(int id)
         {
+            // Control de sesión
+            if (!ControlaSesionAdmin())
+            {
+                return RedirectToAction("VistaLogin", "Acceso");
+            }
+
             string esBorrado = "noBorrado";
             try
             {
@@ -115,7 +146,6 @@ namespace ProyectoFinalDIW.Controllers
 
                 // Combina la ruta de la carpeta con el nombre de la imagen
                 string rutaCompleta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img/usuarios", nombreImagen);
-                Console.WriteLine(rutaCompleta);
 
                 // Guarda la imagen en el sistema de archivos
                 using (var stream = new FileStream(rutaCompleta, FileMode.Create))
@@ -126,7 +156,72 @@ namespace ProyectoFinalDIW.Controllers
                 // Almacena la ruta de la imagen en la entidad Usuario
                 usuario.RutaImagen_usuario = "/img/usuarios/" + nombreImagen;
             }
-            return RedirectToAction("VistaEditarUsuario");
+
+            // Hacemos un update del usuario a la base de datos
+            bool ok = adminInterfaz.ActualizaUsuario(usuario);
+
+            if (ok)
+                TempData["mensajeActualizado"] = "true";
+            else
+                TempData["mensajeActualizado"] = "false";
+
+            return RedirectToAction("VistaAdministracionUsuario", "Admin");
+        }
+
+        public ActionResult BorrarSuplemento(int id)
+        {
+            // Control de sesión
+            if (!ControlaSesionAdmin())
+            {
+                return RedirectToAction("VistaLogin", "Acceso");
+            }
+
+            string esBorrado = "noBorrado";
+            try
+            {
+                bool ok = adminInterfaz.BorraSuplementoPorId(id);
+
+                if (ok)
+                    esBorrado = "borrado";
+            }
+            catch (Exception)
+            {
+                TempData["error"] = true;
+            }
+            TempData["mensajeBorrado"] = esBorrado;
+            return RedirectToAction("VistaAdministracionProducto");
+        }
+
+        [HttpPost]
+        public IActionResult EditarSuplemento(SuplementoDTO suplemento, IFormFile imagenFile)
+        {
+            if (imagenFile != null && imagenFile.Length > 0)
+            {
+                // Genera un nombre único para la imagen
+                string nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(imagenFile.FileName);
+
+                // Combina la ruta de la carpeta con el nombre de la imagen
+                string rutaCompleta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img/suplementos", nombreImagen);
+
+                // Guarda la imagen en el sistema de archivos
+                using (var stream = new FileStream(rutaCompleta, FileMode.Create))
+                {
+                    imagenFile.CopyTo(stream);
+                }
+
+                // Almacena la ruta de la imagen en la entidad Usuario
+                suplemento.RutaImagen_suplemento = "/img/suplementos/" + nombreImagen;
+            }
+
+            // Hacemos un update del suplemento a la base de datos
+            bool ok = adminInterfaz.ActualizaSuplemento(suplemento);
+
+            if (ok)
+                TempData["mensajeActualizado"] = "true";
+            else
+                TempData["mensajeActualizado"] = "false";
+
+            return RedirectToAction("VistaAdministracionProducto", "Admin");
         }
     }
 }

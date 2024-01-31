@@ -234,7 +234,7 @@ namespace ProyectoFinalDIW.Servicios
 
                         // Llamamos a los métodos para enviar el correo
                         String mensaje = MensajeCorreo(token, urlCorreo, esActivado);
-                        bool ok = EnviarMensaje(mensaje, usuario.Email_usuario, true, "Recuperar Contraseña", "infolentos@frangallegodorado.es", true);
+                        bool ok = EnviarMensaje(mensaje, usuario.Email_usuario, true, "Activar cuenta", "suplementostore@frangallegodorado.es", true, esActivado);
                         return true;
                     }
                     else
@@ -305,7 +305,7 @@ namespace ProyectoFinalDIW.Servicios
         /// <param name="frommail">Email desde el cuál se enviará el correo</param>
         /// <param name="cco">Indica si se utiliza copia oculta o no</param>
         /// <returns></returns>
-        private bool EnviarMensaje(string body, string to, bool html, string subject, string frommail, bool cco)
+        private bool EnviarMensaje(string body, string to, bool html, string subject, string frommail, bool cco, bool esActivado)
         {
             bool resultado = true;
             SmtpClient smtpClient = null;
@@ -314,7 +314,7 @@ namespace ProyectoFinalDIW.Servicios
 
                 // Parámetros de conexión con un correo de ionos
                 string host = "smtp.ionos.es";
-                string miLogin = "infolentos@frangallegodorado.es";
+                string miLogin = "suplementostore@frangallegodorado.es";
                 string miPassword = "LentosJavaC23;24/Java&C";
 
                 // Configurar cliente SMTP
@@ -329,7 +329,7 @@ namespace ProyectoFinalDIW.Servicios
                     using (MailMessage msg = new MailMessage())
                     {
                         // Dirección de quien lo envía
-                        msg.From = new MailAddress($"'InfoWeb' <infolentos@aaronsmunpra.com>");
+                        msg.From = new MailAddress($"'InfoWeb' <suplementostore@frangallegodorado.es>");
 
                         // A quien envía el correo
                         msg.ReplyToList.Add(new MailAddress(frommail));
@@ -345,7 +345,10 @@ namespace ProyectoFinalDIW.Servicios
                         // Construir el cuerpo
                         if (html)
                         {
-                            body = " Restablecer contraseña: " + body;
+                            if(esActivado)
+                                body = " Activar cuenta: " + body;
+                            else
+                                body = " Restablecer contraseña: " + body;
                             msg.Body = body;
                             msg.IsBodyHtml = true;
                         }

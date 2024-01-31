@@ -1,0 +1,61 @@
+﻿@using ProyectoFinalDIW.Models
+@model SuplementoDTO
+@{
+    ViewData["Title"] = "Editar Suplemento";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="contenedor">
+            <div class="contenedor-imagen">
+                @if (Model.RutaImagen_suplemento != null)
+                {
+                    <img src="@Model.RutaImagen_suplemento" class="card-img-top imagen" alt="Foto del suplemento" id="profile-pic">
+                }
+                else
+                {
+                    <img src="~/img/usuarios/profile.jpg" class="card-img-top imagen" alt="Foto de suplemento genérico" id="profile-pic">
+                }
+            </div>
+            <div class="inputs-form">
+                <form method="post" asp-controller="Admin" asp-action="EditarSuplemento" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="imagenForm" class="btn btn-primary botonImagen">Añadir imagen</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="imagenForm" style="display: none;" name="imagenFile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombreForm" class="form-label">Nombre</label>
+                        <input type="text" class="form-control inputVistaEditar" id="nombreForm" name="nombre_suplemento" value="@Model.Nombre_suplemento">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descForm" class="form-label">Descripcion</label>
+                        <textarea class="form-control inputVistaEditar" id="descForm" name="desc_suplemento" rows="3">@Model.Desc_suplemento</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precioForm" class="form-label">Precio</label>
+                        <input type="text" class="form-control inputVistaEditar" id="precioForm" name="precio_suplemento" value="@Model.Precio_suplemento">
+                    </div>
+                    <div class="mb-3">
+                        <label for="marcaForm" class="form-label">Marca</label>
+                        <input type="text" class="form-control inputVistaEditar" id="marcaForm" name="marca_suplemento" value="@Model.Marca_suplemento">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipoForm" class="form-label">Tipo</label>
+                        <input type="text" class="form-control inputVistaEditar" id="tipoForm" name="tipo_suplemento" value="@Model.Tipo_suplemento">
+                    </div>
+                    <input type="text" class="form-control" name="id_usuario" value="@Model.Id_suplemento" style="display:none">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+                <a href="@Url.Action("VistaAdministracionProducto", "Admin")" class="btn btn-primary botonVolver">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let profilePic = document.getElementById("profile-pic");
+    let inputFile = document.getElementById("imagenForm");
+
+    inputFile.onchange = function () {
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+    }
+</script>
