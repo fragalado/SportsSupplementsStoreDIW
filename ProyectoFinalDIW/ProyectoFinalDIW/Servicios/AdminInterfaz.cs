@@ -60,5 +60,12 @@ namespace ProyectoFinalDIW.Servicios
         /// <param name="suplemento">Objeto SuplementoDTO</param>
         /// <returns>Devuelve true si se ha actualizado correctamente o false si se ha producido un error</returns>
         public bool ActualizaSuplemento(SuplementoDTO suplemento);
+
+        /// <summary>
+        /// Método que agrega un suplemento a la base de datos
+        /// </summary>
+        /// <param name="suplemento">Objeto suplemento a agregar a la base de datos</param>
+        /// <returns>Devuelve true si se ha agregado correctamente o false si se ha producido un error</returns>
+        public bool AgregaSuplemento(SuplementoDTO suplemento);
     }
 }

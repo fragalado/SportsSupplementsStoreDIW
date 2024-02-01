@@ -1,7 +1,7 @@
 ﻿@using ProyectoFinalDIW.Models
 @model SuplementoDTO
 @{
-    ViewData["Title"] = "Editar Suplemento";
+    ViewData["Title"] = "Añadir Suplemento";
 }
 
 <div class="row">
@@ -18,7 +18,7 @@
                 }
             </div>
             <div class="inputs-form">
-                <form method="post" asp-controller="Admin" asp-action="EditarSuplemento" enctype="multipart/form-data">
+                <form method="post" asp-controller="Admin" asp-action="AgregarSuplemento" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="imagenForm" class="btn btn-primary botonImagen">Añadir imagen</label>
                         <input type="file" accept="image/jpeg, image/png, image/jpg" id="imagenForm" style="display: none;" name="imagenFile" required>
@@ -43,7 +43,6 @@
                         <label for="tipoForm" class="form-label">Tipo</label>
                         <input type="text" class="form-control inputVistaEditar" id="tipoForm" name="tipo_suplemento" value="@Model.Tipo_suplemento" required>
                     </div>
-                    <input type="text" class="form-control" name="id_suplemento" value="@Model.Id_suplemento" style="display:none">
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
                 <a href="@Url.Action("VistaAdministracionProducto", "Admin")" class="btn btn-primary botonVolver">Volver</a>

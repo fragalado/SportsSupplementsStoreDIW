@@ -46,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFBZG1pbmlzdHJhY2lvblVzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAgregarSuplemento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFBZ3JlZ2FyU3VwbGVtZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaEditarSuplemento.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFFZGl0YXJTdXBsZW1lbnRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,6 +64,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Home/VistaSuplementos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaXN0YVN1cGxlbWVudG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ruben/Desktop/ProyectoFinalC/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/Error.cshtml]

@@ -432,5 +432,52 @@ namespace ProyectoFinalDIW.Servicios
                 return false;
             }
         }
+
+        public bool AgregaSuplemento(SuplementoDTO suplemento)
+        {
+            try
+            {
+                // Convertimos el suplemento a json
+                string suplementoJson = JsonConvert.SerializeObject(suplemento, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                // Configuramos la solicitud HTTP
+                using (HttpClient client = new HttpClient())
+                {
+                    // Url a la que haremos el POST
+                    Uri url = new Uri("https://localhost:7029/api/SuplementoControlador");
+
+                    // Configurar la solicitud HTTP POST
+                    HttpResponseMessage response = client.PostAsync(url, new StringContent(suplementoJson, Encoding.UTF8, "application/json")).Result;
+
+                    // Verificar la respuesta del servidor
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Suplemento agregado exitosamente");
+
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                        return false;
+                    }
+                }
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine("[ERROR-AdminImplementacion-AgregaSuplemento] Error operación no válida");
+                return false;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("[ERROR-AdminImplementacion-AgregaSuplemento] Error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException e)
+            {
+                Console.WriteLine("[ERROR-AdminImplementacion-AgregaSuplemento] Error la tarea fue cancelada");
+                return false;
+            }
+        }
     }
 }

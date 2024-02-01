@@ -1,0 +1,57 @@
+﻿@using ProyectoFinalDIW.Models
+@model List<SuplementoDTO>
+@{
+    ViewData["Title"] = "Nutrición";
+}
+
+@if (Model != null)
+{
+    <!-- Suplementos -->
+    <div class="row" style="margin-top: 80px">
+        <div class="col-12">
+            <div class="row">
+                <!-- Dropdown Filtrar suplemento -->
+                <div class="dropdown" style="margin-bottom: 15px">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtrar por
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="@Url.Action("VistaSuplementos", "Home", new {st = 1})">Proteína</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("VistaSuplementos", "Home", new {st = 2})">Creatina</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="@Url.Action("VistaSuplementos", "Home")">Ver todo</a></li>
+                    </ul>
+                </div>
+                <!-- Fin Dropdown Filtrar suplemento -->
+
+                <!-- Cards Suplementos -->
+                @foreach (var suplemento in Model)
+                {
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                        <div class="card">
+                            <img src="@suplemento.RutaImagen_suplemento" class="card-img-top" alt="@suplemento.Nombre_suplemento" style="max-height: 200px">
+                            <div class="card-body">
+                                <h5 class="card-title">@suplemento.Nombre_suplemento</h5>
+                                <p class="card-text">
+                                    @suplemento.Desc_suplemento.Substring(0, 50) ...
+                                </p>
+                                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <!-- Fin Cards Suplementos -->
+            </div>
+        </div>
+    </div>
+} 
+else
+{
+    <div class="row" style="margin-top: 80px">
+        <div class="col-12">
+            <h3>No existe ningún suplemento todavía.</h3>
+        </div>
+    </div>
+}

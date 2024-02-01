@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoFinalDIW.Models;
+using ProyectoFinalDIW.Servicios;
 using System.Diagnostics;
 
 namespace ProyectoFinalDIW.Controllers
 {
     public class HomeController : Controller
     {
+        // Inicializamos la interfaz Admin para usar el método obtenerTodosLosSuplementos
+        AdminInterfaz adminInterfaz = new AdminImplementacion();
+
         public IActionResult Index()
         {
             // Control de sesión
@@ -16,7 +20,39 @@ namespace ProyectoFinalDIW.Controllers
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
-            return View();
+            // Obtenemos todos los suplementos
+            List<SuplementoDTO> listaSuplementos = adminInterfaz.ObtieneTodosLosSuplementos().Result;
+
+            // Ahora nos vamos a quedar con solo 6 suplementos y lo vamos a devolver con la vista
+            listaSuplementos = listaSuplementos.Take(6).ToList();
+            return View(listaSuplementos);
+        }
+
+        public IActionResult VistaSuplementos(int st)
+        {
+            // Control de sesión
+            if (!ControlaSesion())
+            {
+                return RedirectToAction("VistaLogin", "Acceso");
+            }
+            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+
+            // Obtenemos todos los suplementos
+            List<SuplementoDTO> listaSuplementos = adminInterfaz.ObtieneTodosLosSuplementos().Result;
+
+            if (st == 1)
+            {
+                // Proteínas
+                listaSuplementos = listaSuplementos.Where(suplemento => suplemento.Tipo_suplemento == "Proteína").ToList();
+            }
+            else if(st == 2)
+            {
+                // Creatinas
+                listaSuplementos = listaSuplementos.Where(suplemento => suplemento.Tipo_suplemento == "Creatina").ToList();
+            }
+
+            // Devolvemos la vista
+            return View(listaSuplementos);
         }
 
         public IActionResult Privacy()
