@@ -78,3 +78,49 @@
 }
 
 /* Fin de Estilos de la vista Editar usuario */
+
+/* Estilo de la vista Perfil */
+.divContenedorPerfil {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    max-width: 50%;
+    margin: 0 auto;
+    box-shadow: 18px 10px 53px -8px rgba(0,0,0,0.75);
+}
+
+.imagenPerfil {
+    display: flex;
+    margin: 0 auto;
+    max-width: 350px;
+}
+
+.nombrePerfil {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.botonVolverPerfil {
+    margin: 0 auto;
+    display: flex;
+    max-width: 118px;
+}
+
+@media (max-width: 500px) {
+    .imagenPerfil {
+        max-width: 110px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 991px) {
+    .imagenPerfil {
+        max-width: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .imagenPerfil {
+        min-width: 300px;
+    }
+}
+/* Fin Estilo de la vista Perfil */

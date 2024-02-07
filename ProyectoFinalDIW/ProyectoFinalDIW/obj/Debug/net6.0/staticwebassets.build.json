@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LNooQ+1A83LUx+bC4PHfYrfobVBrLQz9+Pk1JLawuGI=",
+  "Hash": "QRANs0+F8EPOVWfEkQqxRlm+fel/6iHOsbqlj+yF+RE=",
   "Source": "ProyectoFinalDIW",
   "BasePath": "_content/ProyectoFinalDIW",
   "Mode": "Default",
@@ -490,6 +490,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\suplementos\\79aae3ac-cac4-4a4c-94b9-463a5c7c7e9d.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\80d6ab38-565f-4150-a6fc-5a04c61bbf53.webp",
+      "SourceId": "ProyectoFinalDIW",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\",
+      "BasePath": "_content/ProyectoFinalDIW",
+      "RelativePath": "img/suplementos/80d6ab38-565f-4150-a6fc-5a04c61bbf53.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\suplementos\\80d6ab38-565f-4150-a6fc-5a04c61bbf53.webp"
     },
     {
       "Identity": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\a17a58cc-48a9-4f39-941c-99a481dddcc7.jpg",

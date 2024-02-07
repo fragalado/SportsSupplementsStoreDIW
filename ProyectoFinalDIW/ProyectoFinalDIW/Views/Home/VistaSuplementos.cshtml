@@ -4,7 +4,7 @@
     ViewData["Title"] = "Nutrición";
 }
 
-@if (Model != null)
+@if (Model != null && Model.Count > 0)
 {
     <!-- Suplementos -->
     <div class="row" style="margin-top: 80px">
@@ -51,7 +51,7 @@ else
 {
     <div class="row" style="margin-top: 80px">
         <div class="col-12">
-            <h3>No existe ningún suplemento todavía.</h3>
+            <h3 style="text-align: center">No existe ningún suplemento todavía.</h3>
         </div>
     </div>
 }

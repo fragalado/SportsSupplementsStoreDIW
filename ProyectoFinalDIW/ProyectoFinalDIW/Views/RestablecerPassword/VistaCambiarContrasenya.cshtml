@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Confirmar Email";
+    ViewData["Title"] = "Recuperar Contraseña";
     Layout = null;
 }
 
@@ -26,10 +26,17 @@
 </head>
 <body>
     <div class="wrapper">
-        <form method="post" asp-controller="Acceso" asp-action="ConfirmaEmail" id="formularioMod">
-            <h1>Confirmar cuenta</h1>
-            <h4>Para activar la cuenta pulse el botón.</h4>
+        <form method="post" asp-controller="RestablecerPassword" asp-action="ModificarPassword" id="formularioMod">
+            <h1>Recuperar contraseña</h1>
             <input type="text" name="nombre_usuario" style="display: none" value="" id="idToken">
+            <div class="input-box">
+                <input type="password" placeholder="Nueva Contraseña" name="psswd_usuario" required>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Introduzca de nuevo la contraseña" name="email_usuario" required>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
 
             @if (TempData["Mensaje"] != null)
             {
@@ -44,8 +51,8 @@
                     @TempData["MensajeCorrecto"]
                 </div>
             }
-            
-            <button type="submit" class="boton">Activar</button>
+
+            <button type="submit" class="boton">Enviar</button>
         </form>
     </div>
     <script>

@@ -29,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Acceso}/{action=VistaLogin}/{id?}"); // Hacemos que al iniciar se inicie en LoginControlador/VistaLogin
+    pattern: "{controller=Login}/{action=VistaLogin}/{id?}"); // Hacemos que al iniciar se inicie en Login/VistaLogin
 
 app.Run();

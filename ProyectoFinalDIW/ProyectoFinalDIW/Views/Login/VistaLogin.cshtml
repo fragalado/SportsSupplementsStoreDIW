@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Inicio Sesión";
     Layout = null;
+    var sesionCerrada = TempData["sesionCerrada"];
 }
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <form method="post" asp-controller="Acceso" asp-action="LoginUsuario">
+        <form method="post" asp-controller="Login" asp-action="LoginUsuario">
             <h1>Inicio Sesión</h1>
             <div class="input-box">
                 <input type="email" placeholder="Email" name="email_usuario" required>
@@ -38,7 +39,7 @@
             </div>
 
             <div class="remember-forgot">
-                <a asp-controller="Acceso" asp-action="VistaRecuperarContrasenya">¿Has olvidado la contraseña?</a>
+                <a asp-controller="RestablecerPassword" asp-action="VistaRecuperarContrasenya">¿Has olvidado la contraseña?</a>
             </div>
 
             @if(ViewData["Mensaje"] != null)
@@ -48,10 +49,17 @@
                 </div>
             }
 
+            @if (sesionCerrada != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @sesionCerrada
+                </div>
+            }
+
             <button type="submit" class="boton">Enviar</button>
 
             <div class="register-link">
-                <p>¿Todavía no estás registrado? <a asp-controller="Acceso" asp-action="VistaRegister">Registrate</a></p>
+                <p>¿Todavía no estás registrado? <a asp-controller="Registro" asp-action="VistaRegister">Registrate</a></p>
             </div>
         </form>
     </div>

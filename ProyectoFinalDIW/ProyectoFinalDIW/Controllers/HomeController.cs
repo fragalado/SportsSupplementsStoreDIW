@@ -7,24 +7,27 @@ namespace ProyectoFinalDIW.Controllers
 {
     public class HomeController : Controller
     {
-        // Inicializamos la interfaz Admin para usar el método obtenerTodosLosSuplementos
-        AdminInterfaz adminInterfaz = new AdminImplementacion();
+        // Inicializamos la interfaz Suplemento para usar sus métodos
+        private SuplementoInterfaz suplementoInterfaz = new SuplementoImplementacion();
 
         public IActionResult Index()
         {
             // Control de sesión
-            if (!ControlaSesion())
+            bool ok = Util.ControlaSesion(HttpContext);
+
+            if (!ok)
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
             // Obtenemos todos los suplementos
-            List<SuplementoDTO> listaSuplementos = adminInterfaz.ObtieneTodosLosSuplementos().Result;
+            List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
 
             // Ahora nos vamos a quedar con solo 6 suplementos y lo vamos a devolver con la vista
-            listaSuplementos = listaSuplementos.Take(6).ToList();
+            if(listaSuplementos.Count > 6)
+                listaSuplementos = listaSuplementos.Take(6).ToList();
             return View(listaSuplementos);
         }
 
@@ -33,12 +36,12 @@ namespace ProyectoFinalDIW.Controllers
             // Control de sesión
             if (!ControlaSesion())
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
             // Obtenemos todos los suplementos
-            List<SuplementoDTO> listaSuplementos = adminInterfaz.ObtieneTodosLosSuplementos().Result;
+            List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
 
             if (st == 1)
             {

@@ -1,0 +1,22 @@
+﻿@using ProyectoFinalDIW.Models
+@model UsuarioDTO
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<div class="row" style="margin-top: 25px;">
+    <div class="col">
+        <div class="divContenedorPerfil ">
+            @if(Model.RutaImagen_usuario == null)
+            {
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png" class="img-fluid imagenPerfil" alt="Foto perfil usuario">
+            }
+            else
+            {
+                <img src="" class="img-fluid imagenPerfil" alt="Foto perfil usuario">
+            }           
+            <h2 class="nombrePerfil">@Model.Nombre_usuario</h2>
+            <a class="btn btn-primary botonVolverPerfil" asp-action="CerrarSesion">Cerrar sesión</a>
+        </div>
+    </div>
+</div>

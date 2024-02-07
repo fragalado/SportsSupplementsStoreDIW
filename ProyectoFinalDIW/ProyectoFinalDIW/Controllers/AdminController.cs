@@ -6,21 +6,24 @@ namespace ProyectoFinalDIW.Controllers
 {
     public class AdminController : Controller
     {
-        // Inicializamos la interfaz Admin
-        AdminInterfaz adminInterfaz = new AdminImplementacion();
+        // Inicializamos la interfaz Usuario y Suplemento para usar sus métodos
+        private UsuarioInterfaz usuarioInterfaz = new UsuarioImplementacion();
+        private SuplementoInterfaz suplementoInterfaz = new SuplementoImplementacion();
 
         public IActionResult VistaAdministracionUsuario()
         {
             // Control de sesión
-            if (!ControlaSesionAdmin())
+            bool ok = Util.ControlaSesionAdmin(HttpContext);
+
+            if (!ok)
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
             // Obtenemos una lista con todos los usuarios
-            List<UsuarioDTO> listaUsuarios = adminInterfaz.ObtieneTodosLosUsuarios().Result;
+            List<UsuarioDTO> listaUsuarios = usuarioInterfaz.ObtieneTodosLosUsuarios().Result;
 
             // Ordenamos la lista de usuarios
             listaUsuarios = listaUsuarios.OrderBy(u => u.Id_acceso == 2 ? 0 : 1).ToList();
@@ -31,15 +34,17 @@ namespace ProyectoFinalDIW.Controllers
         public IActionResult VistaAdministracionProducto()
         {
             // Control de sesión
-            if (!ControlaSesionAdmin())
+            bool ok = Util.ControlaSesionAdmin(HttpContext);
+
+            if (!ok)
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
             // Obtenemos una lista con todos los suplementos
-            List<SuplementoDTO> listaSuplementos = adminInterfaz.ObtieneTodosLosSuplementos().Result;
+            List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
 
             return View(listaSuplementos);
         }
@@ -47,13 +52,15 @@ namespace ProyectoFinalDIW.Controllers
         public IActionResult VistaEditarUsuario(int id)
         {
             // Control de sesión
-            if (!ControlaSesionAdmin())
+            bool ok = Util.ControlaSesionAdmin(HttpContext);
+
+            if (!ok)
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
 
             // Obtenemos el usuario por el id
-            UsuarioDTO usuario = adminInterfaz.BuscaUsuarioPorId(id).Result;
+            UsuarioDTO usuario = usuarioInterfaz.BuscaUsuarioPorId(id).Result;
 
             if(usuario == null)
                 return RedirectToAction("Index", "Home");
@@ -66,13 +73,15 @@ namespace ProyectoFinalDIW.Controllers
         public IActionResult VistaEditarSuplemento(int id)
         {
             // Control de sesión
-            if (!ControlaSesionAdmin())
+            bool ok = Util.ControlaSesionAdmin(HttpContext);
+
+            if (!ok)
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
 
             // Obtenemos el suplemento por el id
-            SuplementoDTO suplemento= adminInterfaz.BuscaSuplementoPorId(id).Result;
+            SuplementoDTO suplemento= suplementoInterfaz.BuscaSuplementoPorId(id).Result;
 
             if (suplemento == null)
                 return RedirectToAction("Index", "Home");
@@ -85,9 +94,11 @@ namespace ProyectoFinalDIW.Controllers
         public IActionResult VistaAgregarSuplemento()
         {
             // Control de sesión
-            if (!ControlaSesionAdmin())
+            bool ok = Util.ControlaSesionAdmin(HttpContext);
+
+            if (!ok)
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
@@ -99,39 +110,14 @@ namespace ProyectoFinalDIW.Controllers
         }
 
         // Métodos
-
-        /// <summary>
-        /// Método que obtiene el acceso del usuario y devuelve true si es admin o false si no.
-        /// </summary>
-        /// <returns>Devuelve un bool</returns>
-        private bool ControlaSesionAdmin()
-        {
-            // Controla sesion
-            try
-            {
-                string acceso = HttpContext.Session.GetString("acceso");
-
-                if (acceso == "2")
-                {
-                    // El usuario es admin, luego devolvemos true
-                    return true;
-                }
-
-                // Si el usuario no es admin devolvemos false
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
         public ActionResult BorrarUsuario(int id)
         {
             // Control de sesión
-            if (!ControlaSesionAdmin())
+            bool ok = Util.ControlaSesionAdmin(HttpContext);
+
+            if (!ok)
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
 
             string esBorrado = "noBorrado";
@@ -139,9 +125,9 @@ namespace ProyectoFinalDIW.Controllers
             {
                 Console.WriteLine("Ha entrado en borrar al usuario");
                 Console.WriteLine(id);
-                bool ok = adminInterfaz.BorraUsuarioPorId(id);
+                bool ok2 = usuarioInterfaz.BorraUsuarioPorId(id);
 
-                if (ok)
+                if (ok2)
                     esBorrado = "borrado";
             }
             catch (Exception)
@@ -174,7 +160,7 @@ namespace ProyectoFinalDIW.Controllers
             }
 
             // Hacemos un update del usuario a la base de datos
-            bool ok = adminInterfaz.ActualizaUsuario(usuario);
+            bool ok = usuarioInterfaz.ActualizaUsuario(usuario);
 
             if (ok)
                 TempData["mensajeActualizado"] = "true";
@@ -187,17 +173,19 @@ namespace ProyectoFinalDIW.Controllers
         public ActionResult BorrarSuplemento(int id)
         {
             // Control de sesión
-            if (!ControlaSesionAdmin())
+            bool ok = Util.ControlaSesionAdmin(HttpContext);
+
+            if (!ok)
             {
-                return RedirectToAction("VistaLogin", "Acceso");
+                return RedirectToAction("VistaLogin", "Login");
             }
 
             string esBorrado = "noBorrado";
             try
             {
-                bool ok = adminInterfaz.BorraSuplementoPorId(id);
+                bool ok2 = suplementoInterfaz.BorraSuplementoPorId(id);
 
-                if (ok)
+                if (ok2)
                     esBorrado = "borrado";
             }
             catch (Exception)
@@ -230,7 +218,7 @@ namespace ProyectoFinalDIW.Controllers
             }
 
             // Hacemos un update del suplemento a la base de datos
-            bool ok = adminInterfaz.ActualizaSuplemento(suplemento);
+            bool ok = suplementoInterfaz.ActualizaSuplemento(suplemento);
 
             if (ok)
                 TempData["mensajeActualizado"] = "true";
@@ -262,7 +250,7 @@ namespace ProyectoFinalDIW.Controllers
             }
 
             // Agregamos el suplemento a la base de datos
-            bool ok = adminInterfaz.AgregaSuplemento(suplemento);
+            bool ok = suplementoInterfaz.AgregaSuplemento(suplemento);
 
             if (ok)
                 TempData["mensajeAgregado"] = "true";

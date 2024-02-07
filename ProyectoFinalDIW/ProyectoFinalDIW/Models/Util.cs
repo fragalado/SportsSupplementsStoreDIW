@@ -45,5 +45,57 @@ namespace ProyectoFinalDIW.Models
 
             return hexString.ToString();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static bool ControlaSesion(HttpContext context)
+        {
+            try
+            {
+                string acceso = context.Session.GetString("acceso");
+
+                if (acceso == "1" || acceso == "2")
+                {
+                    // El usuario ha iniciado sesión, luego devolvemos true
+                    return true;
+                }
+
+                // Si el usuario no ha iniciado sesión devolvemos false
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static bool ControlaSesionAdmin(HttpContext context)
+        {
+            try
+            {
+                string acceso = context.Session.GetString("acceso");
+
+                if (acceso == "2")
+                {
+                    // El usuario es admin
+                    return true;
+                }
+
+                // Si el usuario no es admin devolvemos false
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
