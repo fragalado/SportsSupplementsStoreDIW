@@ -58,10 +58,18 @@
                             <img src="@suplemento.RutaImagen_suplemento" class="card-img-top" alt="@suplemento.Nombre_suplemento" style="max-height: 200px">
                             <div class="card-body">
                                 <h5 class="card-title">@suplemento.Nombre_suplemento</h5>
-                                <p class="card-text">
-                                    @suplemento.Desc_suplemento.Substring(0, 50) ...
-                                </p>
-                                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                                @if (suplemento.Desc_suplemento.Length > 50)
+                                {
+                                    <p class="card-text">
+                                        @suplemento.Desc_suplemento.Substring(0, 50) ...
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p class="card-text">
+                                        @suplemento.Desc_suplemento
+                                    </p>
+                                }
                             </div>
                         </div>
                     </div>

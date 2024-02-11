@@ -17,7 +17,7 @@ namespace ProyectoFinalDIW.Servicios
         public UsuarioDTO LoginUsuario(UsuarioDTO usuario)
         {
             // Buscamos si existe un usuario con el email introducido.
-            UsuarioDTO usuarioEncontrado = BuscaUsuarioPorEmail(usuario).Result;
+            UsuarioDTO usuarioEncontrado = BuscaUsuarioPorEmail(usuario.Email_usuario).Result;
 
             // Si existe comprobaremos que la password coincide
             if (usuarioEncontrado != null)
@@ -41,7 +41,7 @@ namespace ProyectoFinalDIW.Servicios
             try
             {
                 // Buscamos si existe un usuario con el email introducido.
-                UsuarioDTO usuarioEncontrado = BuscaUsuarioPorEmail(usuario).Result;
+                UsuarioDTO usuarioEncontrado = BuscaUsuarioPorEmail(usuario.Email_usuario).Result;
 
                 if (usuarioEncontrado != null)
                 {
@@ -73,7 +73,7 @@ namespace ProyectoFinalDIW.Servicios
 
                         // Enviamos correo
                         // Obtenemos el usuario de la base de datos para poder obtener el id
-                        UsuarioDTO usuarioBD = BuscaUsuarioPorEmail(usuario).Result;
+                        UsuarioDTO usuarioBD = BuscaUsuarioPorEmail(usuario.Email_usuario).Result;
 
                         // Enviamos el correo
                         bool ok = emailIntefaz.EnviaCorreo(usuarioBD, "https://localhost:7194/ActivaCuenta/VistaConfirmaEmail", true);
@@ -107,10 +107,10 @@ namespace ProyectoFinalDIW.Servicios
             }
         }
 
-        public async Task<UsuarioDTO> BuscaUsuarioPorEmail(UsuarioDTO usuario)
+        public async Task<UsuarioDTO> BuscaUsuarioPorEmail(string emailUsuario)
         {
             // URL de la API que deseas consultar
-            string apiUrl = "https://localhost:7029/api/UsuarioControlador/correo/" + usuario.Email_usuario;
+            string apiUrl = "https://localhost:7029/api/UsuarioControlador/correo/" + emailUsuario;
 
             try
             {
@@ -144,22 +144,22 @@ namespace ProyectoFinalDIW.Servicios
                 }
 
                 Console.WriteLine("No hay coincidencia");
-                return usuario = null;
+                return null;
             }
             catch (InvalidOperationException e)
             {
                 Console.WriteLine("[ERROR-UsuarioImplementacion-BuscaUsuarioPorEmail] Error operación no válida");
-                return usuario = null;
+                return null;
             }
             catch (HttpRequestException e)
             {
                 Console.WriteLine("[ERROR-UsuarioImplementacion-BuscaUsuarioPorEmail] Error en la solicitud HTTP");
-                return usuario = null;
+                return null;
             }
             catch (TaskCanceledException e)
             {
                 Console.WriteLine("[ERROR-UsuarioImplementacion-BuscaUsuarioPorEmail] Error la tarea fue cancelada");
-                return usuario = null;
+                return null;
             }
         }
 
@@ -168,7 +168,7 @@ namespace ProyectoFinalDIW.Servicios
             try
             {
                 // Obtenemos el usuario de la base de datos
-                UsuarioDTO usuarioEncontrado = BuscaUsuarioPorEmail(usuario).Result;
+                UsuarioDTO usuarioEncontrado = BuscaUsuarioPorEmail(usuario.Email_usuario).Result;
 
                 // Si usuarioEncontrado es null devolvemos false
                 if (usuarioEncontrado == null)

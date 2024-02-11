@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProyectoFinalDIW")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+458a192ec40a3888ffb2951051108b69d2164835")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0f2b3b22447b8781d1f379f8c949483474eed99")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProyectoFinalDIW")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProyectoFinalDIW")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

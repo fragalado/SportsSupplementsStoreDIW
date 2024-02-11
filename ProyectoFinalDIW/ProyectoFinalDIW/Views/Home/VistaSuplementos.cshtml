@@ -2,6 +2,8 @@
 @model List<SuplementoDTO>
 @{
     ViewData["Title"] = "Nutrición";
+    var suplementoAgregado = TempData["suplementoAgregado"];
+    var suplementoError = TempData["suplementoError"];
 }
 
 @if (Model != null && Model.Count > 0)
@@ -34,10 +36,17 @@
                             <img src="@suplemento.RutaImagen_suplemento" class="card-img-top" alt="@suplemento.Nombre_suplemento" style="max-height: 200px">
                             <div class="card-body">
                                 <h5 class="card-title">@suplemento.Nombre_suplemento</h5>
-                                <p class="card-text">
-                                    @suplemento.Desc_suplemento.Substring(0, 50) ...
-                                </p>
-                                <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                                @if(suplemento.Desc_suplemento.Length > 50){
+                                    <p class="card-text">
+                                        @suplemento.Desc_suplemento.Substring(0, 50) ...
+                                    </p>
+                                } else
+                                {
+                                    <p class="card-text">
+                                        @suplemento.Desc_suplemento
+                                    </p>
+                                }
+                                <a href="@Url.Action("AgregaSuplementoCarrito", "Nutricion", new { suplemento.Id_suplemento })" class="btn btn-primary">Añadir al carrito</a>
                             </div>
                         </div>
                     </div>
@@ -54,4 +63,25 @@ else
             <h3 style="text-align: center">No existe ningún suplemento todavía.</h3>
         </div>
     </div>
+}
+
+@if (suplementoAgregado != null)
+{
+    <script th:if="${param.success}">
+        Swal.fire({
+            title: "Éxito!",
+            text: "El suplemento se ha agregado al carrito con éxito!",
+            icon: "success"
+        });
+    </script>
+}
+@if (suplementoError != null)
+{
+    <script th:if="${param.error}">
+        Swal.fire({
+            title: "Error!",
+            text: "El suplemento no se ha podido agregar al carrito!",
+            icon: "error"
+        });
+    </script>
 }

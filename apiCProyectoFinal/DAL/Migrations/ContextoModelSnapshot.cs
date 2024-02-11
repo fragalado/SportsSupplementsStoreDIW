@@ -54,6 +54,9 @@ namespace DAL.Migrations
                     b.Property<int>("cantidad")
                         .HasColumnType("integer");
 
+                    b.Property<bool>("estaComprado_carrito")
+                        .HasColumnType("boolean");
+
                     b.Property<long>("id_suplemento")
                         .HasColumnType("bigint");
 

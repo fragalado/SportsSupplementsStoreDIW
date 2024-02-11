@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
+      "projectUniqueName": "C:\\Users\\ruben\\Desktop\\borra\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
       "projectName": "ProyectoFinalDIW",
-      "projectPath": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
+      "projectPath": "C:\\Users\\ruben\\Desktop\\borra\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
       "packagesPath": "C:\\Users\\ruben\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\obj\\",
+      "outputPath": "C:\\Users\\ruben\\Desktop\\borra\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",

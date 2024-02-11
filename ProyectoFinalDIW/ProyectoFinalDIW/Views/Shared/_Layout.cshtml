@@ -52,9 +52,13 @@
                             </li>
                         }
                         <li class="nav-item perfilLink">
+							<a asp-controller="Carrito" asp-action="VistaCarrito" class="nav-link text-white">Carrito</a>
+						</li>
+                        <li class="nav-item perfilLink">
                             <a asp-controller="Perfil" asp-action="VistaPerfil" class="nav-link text-white">Perfil</a>
                         </li>
                     </ul>
+                    <a asp-controller="Carrito" asp-action="VistaCarrito" class="carrito"><i class="fa-regular fa-cart-shopping"></i></a>
                     <a asp-controller="Perfil" asp-action="VistaPerfil" class="iconoPerfil"><i class="fa-solid fa-user"></i></a>
                 </div>
             </div>

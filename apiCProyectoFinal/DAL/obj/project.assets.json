@@ -1080,11 +1080,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\apiCProyectoFinal\\DAL\\DAL.csproj",
+      "projectUniqueName": "C:\\Users\\ruben\\Desktop\\borra\\SportsSupplementsStoreDIW\\apiCProyectoFinal\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\apiCProyectoFinal\\DAL\\DAL.csproj",
+      "projectPath": "C:\\Users\\ruben\\Desktop\\borra\\SportsSupplementsStoreDIW\\apiCProyectoFinal\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\ruben\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\apiCProyectoFinal\\DAL\\obj\\",
+      "outputPath": "C:\\Users\\ruben\\Desktop\\borra\\SportsSupplementsStoreDIW\\apiCProyectoFinal\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",

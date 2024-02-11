@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w/I+EzSScsA/g3U2Jzx8h6VFhQlYnCGx8b86k9cqEsK3Tgwx6bWAItKDCmZ9a0jeRppGcH95G7mI8TzBpgx2XQ==",
+  "dgSpecHash": "kZCfBeLzrRPfVc6+CXsY8ICDq8NUDZe7V6DQxSj7ahZGzpGKrJvLHuI0Fuue1r+H/AAJzBS1sOMs2C54nJx7gQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ruben\\Desktop\\ProyectoFinalC\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
+  "projectFilePath": "C:\\Users\\ruben\\Desktop\\borra\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ruben\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

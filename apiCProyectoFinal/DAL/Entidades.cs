@@ -131,16 +131,19 @@ namespace DAL
         [ForeignKey("id_suplemento")]
         public Suplemento? suplemento { get; set; }
         public int cantidad { get; set; }
+        public bool estaComprado_carrito { get; set; }
 
         public List<Rel_Orden_Carrito>? listaRelacionOrdenCarrito { get; set; }
 
         // Constructores
-        public Carrito(long id_usuario, long id_suplemento, int cantidad)
+        public Carrito(long id_usuario, long id_suplemento, int cantidad, bool estaComprado_carrito)
         {
             this.id_usuario = id_usuario;
             this.id_suplemento = id_suplemento;
             this.cantidad = cantidad;
-        }
+            this.estaComprado_carrito = estaComprado_carrito;
+
+		}
 
         public Carrito() { }
     }

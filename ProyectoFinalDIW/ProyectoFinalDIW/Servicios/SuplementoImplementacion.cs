@@ -39,7 +39,7 @@ namespace ProyectoFinalDIW.Servicios
                 }
 
                 // Deserializa la respuesta JSON a una List de objetos Suplemento
-                List<SuplementoDTO> listaSuplementos = JsonConvert.DeserializeObject<List<SuplementoDTO>>(responseData);
+                List<SuplementoDTO> listaSuplementos = ConviertePrecioSuplementoAFloat(JsonConvert.DeserializeObject<List<SuplementoDTO>>(responseData));
 
                 // Devolvemos la lista
                 return listaSuplementos;
@@ -57,6 +57,26 @@ namespace ProyectoFinalDIW.Servicios
             catch (TaskCanceledException e)
             {
                 Console.WriteLine("[ERROR-AdminImplementacion-ObtieneTodosLosSuplementos] Error la tarea fue cancelada");
+                return null;
+            }
+        }
+
+        private List<SuplementoDTO> ConviertePrecioSuplementoAFloat(List<SuplementoDTO> listaSuplementos)
+        {
+            try
+            {
+                // Recorremos los suplementos
+                foreach (var suplemento in listaSuplementos)
+                {
+                    // Asignamos el nuevo precio
+                    suplemento.Precio_suplemento = suplemento.Precio_suplemento / 100;
+                }
+
+                // Devolvemos la lista
+                return listaSuplementos;
+            }
+            catch (Exception)
+            {
                 return null;
             }
         }

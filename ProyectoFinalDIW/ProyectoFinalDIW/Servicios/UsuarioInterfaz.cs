@@ -50,9 +50,9 @@ namespace ProyectoFinalDIW.Servicios
         /// <summary>
         /// Método que obtiene un usuario por el email y lo devuelve. Si no encuentra ningún usuario con el email introducido devolverá null.
         /// </summary>
-        /// <param name="usuario">Objeto usuario que contendrá el email a buscar</param>
+        /// <param name="emailUsuario">Email del usuario a buscar</param>
         /// <returns>Devuelve el usuario encontrado o null si no lo encuentra</returns>
-        public Task<UsuarioDTO> BuscaUsuarioPorEmail(UsuarioDTO usuario);
+        public Task<UsuarioDTO> BuscaUsuarioPorEmail(string emailUsuario);
 
         /// <summary>
         /// Método que obtiene todos los usuarios de la base de datos y los devuelve.

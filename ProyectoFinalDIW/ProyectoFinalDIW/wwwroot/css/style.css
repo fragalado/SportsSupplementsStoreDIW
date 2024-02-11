@@ -14,6 +14,15 @@
     color: white;
 }
 
+.carrito {
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.carrito i {
+    color: white;
+}
+
 .tablaAdmin {
     margin-top: 150px;
 }

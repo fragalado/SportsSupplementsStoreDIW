@@ -33,12 +33,15 @@ namespace ProyectoFinalDIW.Controllers
 
         public IActionResult VistaSuplementos(int st)
         {
-            // Control de sesión
-            if (!ControlaSesion())
-            {
-                return RedirectToAction("VistaLogin", "Login");
-            }
-            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+			// Control de sesión
+			bool ok = Util.ControlaSesion(HttpContext);
+
+			if (!ok)
+			{
+				return RedirectToAction("VistaLogin", "Login");
+			}
+
+			ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
             // Obtenemos todos los suplementos
             List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
@@ -70,31 +73,5 @@ namespace ProyectoFinalDIW.Controllers
         }
 
         // Métodos
-
-        /// <summary>
-        /// Método que obtiene el acceso del usuario y devuelve true si ha iniciado sesión o false si no.
-        /// </summary>
-        /// <returns>Devuelve un bool</returns>
-        private bool ControlaSesion()
-        {
-            // Controla sesion
-            try
-            {
-                string acceso = HttpContext.Session.GetString("acceso");
-
-                if (acceso == "1" || acceso == "2")
-                {
-                    // El usuario ha iniciado sesión, luego devolvemos true
-                    return true;
-                }
-
-                // Si el usuario no ha iniciado sesión devolvemos false
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
     }
 }

@@ -47,10 +47,10 @@ namespace ProyectoFinalDIW.Models
         }
 
         /// <summary>
-        /// 
+        /// Método para controlar la sesión
         /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="context">Contexto</param>
+        /// <returns>Devuelve true si esta iniciada sesión o false si no</returns>
         public static bool ControlaSesion(HttpContext context)
         {
             try

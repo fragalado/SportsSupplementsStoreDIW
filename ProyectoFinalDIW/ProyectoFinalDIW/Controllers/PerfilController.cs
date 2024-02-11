@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoFinalDIW.Models;
+using ProyectoFinalDIW.Servicios;
 
 namespace ProyectoFinalDIW.Controllers
 {
     public class PerfilController : Controller
     {
+        // Inicializamos la interfaz de Usuario para usar sus métodos
+        private UsuarioInterfaz usuarioInterfaz = new UsuarioImplementacion();
+
         public IActionResult VistaPerfil()
         {
             // Control de sesión
@@ -15,12 +19,14 @@ namespace ProyectoFinalDIW.Controllers
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
+            // Obtenemos el email
+            string email = HttpContext.Session.GetString("email")!;
+
             // Obtenemos el usuario por el email
-            string emal = HttpContext.Session.GetString("email");
+            UsuarioDTO usuarioEncontrado = usuarioInterfaz.BuscaUsuarioPorEmail(email).Result;
 
-
-
-            return View();
+            // Devolvemos la vista con el usuario
+            return View(usuarioEncontrado);
         }
 
         public IActionResult CerrarSesion()
