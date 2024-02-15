@@ -109,6 +109,24 @@ namespace ProyectoFinalDIW.Controllers
             return View(suplemento);
         }
 
+        public IActionResult VistaAgregarUsuario()
+        {
+            // Control de sesión
+            bool ok = Util.ControlaSesionAdmin(HttpContext);
+
+            if (!ok)
+            {
+                return RedirectToAction("VistaLogin", "Login");
+            }
+
+            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+
+            // Creamos un objeto usuario
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+
+            return View(usuarioDTO);
+        }
+
         // Métodos
         public ActionResult BorrarUsuario(int id)
         {
@@ -245,7 +263,7 @@ namespace ProyectoFinalDIW.Controllers
                     imagenFile.CopyTo(stream);
                 }
 
-                // Almacena la ruta de la imagen en la entidad Usuario
+                // Almacena la ruta de la imagen en la entidad Suplementos
                 suplemento.RutaImagen_suplemento = "/img/suplementos/" + nombreImagen;
             }
 
@@ -258,6 +276,49 @@ namespace ProyectoFinalDIW.Controllers
                 TempData["mensajeAgregado"] = "false";
 
             return RedirectToAction("VistaAdministracionProducto", "Admin");
+        }
+        [HttpPost]
+        public IActionResult AgregarUsuario(UsuarioDTO usuarioDTO, IFormFile imagenFile)
+        {
+            if (imagenFile != null && imagenFile.Length > 0)
+            {
+                // Genera un nombre único para la imagen
+                string nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(imagenFile.FileName);
+
+                // Combina la ruta de la carpeta con el nombre de la imagen
+                string rutaCompleta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img/usuarios", nombreImagen);
+
+                // Guarda la imagen en el sistema de archivos
+                using (var stream = new FileStream(rutaCompleta, FileMode.Create))
+                {
+                    imagenFile.CopyTo(stream);
+                }
+
+                // Almacena la ruta de la imagen en la entidad Usuario
+                usuarioDTO.RutaImagen_usuario = "/img/usuarios/" + nombreImagen;
+            }
+
+            // Comprobamos si el usuario existe
+            UsuarioDTO usuarioEncontrado = usuarioInterfaz.BuscaUsuarioPorEmail(usuarioDTO.Email_usuario).Result;
+            
+            if(usuarioEncontrado != null)
+            {
+                // Se ha encontrado luego devolvemos mensaje de error 
+                TempData["usuarioExiste"] = "true";
+                return RedirectToAction("VistaAdministracionUsuario", "Admin");
+            }
+
+            // Agregamos el usuario a la base de datos
+            // Primero activamos el usuario
+            usuarioDTO.EstaActivado_usuario = true;
+            bool ok = usuarioInterfaz.AgregaUsuario(usuarioDTO);
+
+            if (ok)
+                TempData["mensajeAgregado"] = "true";
+            else
+                TempData["mensajeAgregado"] = "false";
+
+            return RedirectToAction("VistaAdministracionUsuario", "Admin");
         }
     }
 }

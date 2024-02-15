@@ -2,6 +2,8 @@
 	ViewData["Title"] = "Carrito";
 	List<CarritoDTO> carritos = ViewBag.carritos;
 	List<SuplementoDTO> suplementos = ViewBag.suplementos;
+	var precioTotal = ViewBag.precioTotal;
+	var carritoBorrado = TempData["carritoBorrado"];
 }
 
 <div class="row tablaAdmin">
@@ -40,12 +42,12 @@
 								<td>@carrito.Cantidad</td>
 								<td>@suplemento.Precio_suplemento</td>
 								<td>
-									<i class="fa-solid fa-trash" style="color: red; cursor: pointer;" onclick="compruebaEliminar(@carrito.ID_suplemento)"></i>
+									<i class="fa-solid fa-trash" style="color: red; cursor: pointer;" onclick="compruebaEliminar(@carrito.Id_carrito)"></i>
 								</td>
 							</tr>
 						}
 						<tr>
-							<td colspan="5" style="text-align: right; padding-right: 30px;">Precio total: <input name="total"></td>
+							<td colspan="5" style="text-align: right; padding-right: 30px;">Precio total: <span>@precioTotal</span>€</td>
 						</tr>
 					}
 				</tbody>
@@ -61,3 +63,49 @@
 		<!-- Fin Formulario -->
 	</div>
 </div>
+
+<script>
+	function compruebaEliminar(id_carrito) {
+		console.log(id_carrito);
+		Swal.fire({
+			title: "¿Estás seguro?",
+			text: "No se podrán revertir los cambios!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Si, eliminar!",
+			cancelButtonText: "Cancelar"
+		}).then((result) => {
+			if (result.isConfirmed) {
+				// Eliminamos
+				// Obtén la ruta base de la URL actual (localhost:1234)
+				const baseUrl = window.location.origin;
+
+				// Redirige a la nueva URL
+				window.location.href = baseUrl + '/Carrito/BorrarCarrito/' + id_carrito;
+			}
+		});
+	}
+</script>
+
+@if (carritoBorrado != null && carritoBorrado.ToString() == "true")
+{
+	<script>
+		Swal.fire({
+			title: "Éxito!",
+			text: "Se ha eliminado el suplemento del carrito con éxito!",
+			icon: "success"
+		});
+	</script>
+}
+else if (carritoBorrado != null && carritoBorrado.ToString() == "false")
+{
+	<script>
+		Swal.fire({
+			title: "Error!",
+			text: "Se ha producido un error. Vuelva a intentarlo más tarde!",
+			icon: "error"
+		});
+	</script>
+}

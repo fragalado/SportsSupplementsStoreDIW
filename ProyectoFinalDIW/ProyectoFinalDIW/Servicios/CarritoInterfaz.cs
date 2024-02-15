@@ -34,8 +34,9 @@ namespace ProyectoFinalDIW.Servicios
         /// <summary>
         /// Método que obtiene el precio total del carrito
         /// </summary>
-        /// <param name="emailUsuario">Email del usuario</param>
+        /// <param name="listaCarrito">Lista con objetos de tipo CarritoDTO</param>
+        /// <param name="listaSuplementos">Lista con objetos de tipo SuplementoDTO</param>
         /// <returns>Devuelve un tipo float; Precio total del carrito</returns>
-        public float ObtienePrecioTotalCarrito(string emailUsuario);
+        public float ObtienePrecioTotalCarrito(List<CarritoDTO> listaCarrito, List<SuplementoDTO> listaSuplementos);
     }
 }

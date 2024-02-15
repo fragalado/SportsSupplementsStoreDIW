@@ -1,0 +1,49 @@
+﻿﻿@using ProyectoFinalDIW.Models
+@model UsuarioDTO
+@{
+    ViewData["Title"] = "Agregar Usuario";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="contenedor">
+            <div class="contenedor-imagen">
+                <img src="~/img/usuarios/profile.jpg" class="card-img-top imagen" alt="Foto de perfil del usuario" id="profile-pic">
+            </div>
+            <div class="inputs-form">
+                <form method="post" asp-controller="Admin" asp-action="AgregarUsuario" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="imagenForm" class="btn btn-primary botonImagen">Añadir imagen</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="imagenForm" style="display: none;" name="imagenFile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailForm" class="form-label">Email</label>
+                        <input type="email" class="form-control inputVistaEditar" id="emailForm" name="email_usuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombreForm" class="form-label">Nombre</label>
+                        <input type="text" class="form-control inputVistaEditar" id="nombreForm" name="nombre_usuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tlfForm" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control inputVistaEditar" id="tlfForm" name="tlf_usuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="psswdForm" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control inputVistaEditar" id="psswdForm" name="psswd_usuario" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+                <a href="@Url.Action("VistaAdministracionUsuario", "Admin")" class="btn btn-danger botonVolver">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let profilePic = document.getElementById("profile-pic");
+    let inputFile = document.getElementById("imagenForm");
+
+    inputFile.onchange = function () {
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+    }
+</script>

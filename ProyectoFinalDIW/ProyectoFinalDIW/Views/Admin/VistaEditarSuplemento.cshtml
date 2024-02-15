@@ -29,7 +29,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="descForm" class="form-label">Descripcion</label>
-                        <textarea class="form-control inputVistaEditar" id="descForm" name="desc_suplemento" rows="3" required>@Model.Desc_suplemento</textarea>
+                        <textarea class="form-control inputVistaEditar" id="descForm" name="desc_suplemento" rows="3" maxlength="254" required>@Model.Desc_suplemento</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="precioForm" class="form-label">Precio</label>
@@ -46,7 +46,7 @@
                     <input type="text" class="form-control" name="id_suplemento" value="@Model.Id_suplemento" style="display:none">
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
-                <a href="@Url.Action("VistaAdministracionProducto", "Admin")" class="btn btn-primary botonVolver">Volver</a>
+                <a href="@Url.Action("VistaAdministracionProducto", "Admin")" class="btn btn-danger botonVolver">Volver</a>
             </div>
         </div>
     </div>

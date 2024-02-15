@@ -80,5 +80,12 @@ namespace ProyectoFinalDIW.Servicios
         /// <param name="usuario">Objeto UsuarioDTO</param>
         /// <returns>Devuelve true si se ha actualizado correctamente o false si se ha producido un error</returns>
         public bool ActualizaUsuario(UsuarioDTO usuario);
+
+        /// <summary>
+        /// Método que agrega un usuario en la base de datos
+        /// </summary>
+        /// <param name="usuarioDTO">Objeto usuarioDTO a añadir</param>
+        /// <returns>Devuelve true si se ha agregado con éxito o false si no</returns>
+        public bool AgregaUsuario(UsuarioDTO usuarioDTO);
     }
 }

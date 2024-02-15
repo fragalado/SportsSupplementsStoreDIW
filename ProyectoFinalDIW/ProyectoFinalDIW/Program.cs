@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//// Add session services
+// Add session services
 builder.Services.AddDistributedMemoryCache(); // Use a distributed memory cache for session (this is just an example, you might want to use a more persistent storage in a production environment)
 builder.Services.AddSession();
 
@@ -20,7 +20,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-//// Use session middleware
+// Use session middleware
 app.UseSession();
 
 app.UseRouting();

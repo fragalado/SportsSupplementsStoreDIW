@@ -111,7 +111,7 @@ namespace ProyectoFinalDIW.Servicios
 
                 // Parámetros de conexión con un correo de ionos
                 string host = "smtp.ionos.es";
-                string miLogin = "suplementostore@frangallegodorado.es";
+                string miLogin = "suplementoStore@frangallegodorado.es";
                 string miPassword = "LentosJavaC23;24/Java&C";
 
                 // Configurar cliente SMTP
@@ -126,7 +126,7 @@ namespace ProyectoFinalDIW.Servicios
                     using (MailMessage msg = new MailMessage())
                     {
                         // Dirección de quien lo envía
-                        msg.From = new MailAddress($"'InfoWeb' <suplementostore@frangallegodorado.es>");
+                        msg.From = new MailAddress($"'InfoWeb' <suplementoStore@frangallegodorado.es>");
 
                         // A quien envía el correo
                         msg.ReplyToList.Add(new MailAddress(frommail));

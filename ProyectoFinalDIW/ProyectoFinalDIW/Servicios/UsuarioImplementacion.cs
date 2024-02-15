@@ -51,43 +51,24 @@ namespace ProyectoFinalDIW.Servicios
                 }
 
                 // Si no existe ningún usuario con el email introducido haremos el registro del usuario
-                // Encriptamos la contraseña
-                usuario.Psswd_usuario = Util.EncriptarContra(usuario.Psswd_usuario);
+                bool ok = AgregaUsuario(usuario);
 
-                // Convertimos el usuario a json
-                string usuarioJson = JsonConvert.SerializeObject(usuario, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-
-                // Configurar la solicitud HTTP
-                using (HttpClient client = new HttpClient())
+                if (ok)
                 {
-                    // Url a la que haremos el POST
-                    Uri url = new Uri("https://localhost:7029/api/UsuarioControlador");
+                    // Enviamos correo
+                    // Obtenemos el usuario de la base de datos para poder obtener el id
+                    UsuarioDTO usuarioBD = BuscaUsuarioPorEmail(usuario.Email_usuario).Result;
 
-                    // Configurar la solicitud HTTP POST
-                    HttpResponseMessage response = client.PostAsync(url, new StringContent(usuarioJson, Encoding.UTF8, "application/json")).Result;
+                    // Enviamos el correo
+                    bool okCorreo = emailIntefaz.EnviaCorreo(usuarioBD, "https://localhost:7194/ActivaCuenta/VistaConfirmaEmail", true);
 
-                    // Verificar la respuesta del servidor
-                    if (response.IsSuccessStatusCode)
-                    {
-                        Console.WriteLine("Usuario creado exitosamente");
-
-                        // Enviamos correo
-                        // Obtenemos el usuario de la base de datos para poder obtener el id
-                        UsuarioDTO usuarioBD = BuscaUsuarioPorEmail(usuario.Email_usuario).Result;
-
-                        // Enviamos el correo
-                        bool ok = emailIntefaz.EnviaCorreo(usuarioBD, "https://localhost:7194/ActivaCuenta/VistaConfirmaEmail", true);
-
-                        if (ok)
-                            return true;
-                        else
-                            return null;
-                    }
+                    if (okCorreo)
+                        return true;
                     else
-                    {
-                        Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
                         return null;
-                    }
+                } else
+                {
+                    return null;
                 }
             }
             catch (InvalidOperationException e)
@@ -192,33 +173,10 @@ namespace ProyectoFinalDIW.Servicios
         public async Task<bool> ModificaPassword(TokenDTO token, string password)
         {
             // Obtenemos el usuario por el id
-            // URL de la API que deseas consultar
-            string apiUrl = "https://localhost:7029/api/UsuarioControlador/" + token.Id_usuario;
-
             try
             {
-                // Realiza la consulta GET
-                string responseData;
-                using (HttpClient client = new HttpClient())
-                {
-                    // Realiza la solicitud GET a la API
-                    HttpResponseMessage response = await client.GetAsync(apiUrl);
-
-                    // Verifica si la solicitud fue exitosa
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // Lee y devuelve el contenido de la respuesta como cadena
-                        responseData = await response.Content.ReadAsStringAsync();
-                    }
-                    else
-                    {
-                        // En caso de error, lanza una excepción o maneja el error según tus necesidades
-                        return false;
-                    }
-                }
-
-                // Deserializa la respuesta JSON a un objeto C#
-                UsuarioDTO usuarioEncontrado = JsonConvert.DeserializeObject<UsuarioDTO>(responseData);
+                // Obtenemos el usuario
+                UsuarioDTO usuarioEncontrado = BuscaUsuarioPorId(token.Id_usuario).Result;
 
                 // Ahora puedes trabajar con el tokenEncontrado
                 if (usuarioEncontrado != null)
@@ -275,33 +233,10 @@ namespace ProyectoFinalDIW.Servicios
         {
             // Activamos la cuenta del usuario
             // Para ello obtenemos el usuario de la base de datos y después hacemos un PUT a la base de datos con el usuario cambiado
-            // URL de la API que deseas consultar
-            string apiUrl = "https://localhost:7029/api/UsuarioControlador/" + token.Id_usuario;
 
             try
             {
-                // Realiza la consulta GET
-                string responseData;
-                using (HttpClient client = new HttpClient())
-                {
-                    // Realiza la solicitud GET a la API
-                    HttpResponseMessage response = await client.GetAsync(apiUrl);
-
-                    // Verifica si la solicitud fue exitosa
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // Lee y devuelve el contenido de la respuesta como cadena
-                        responseData = await response.Content.ReadAsStringAsync();
-                    }
-                    else
-                    {
-                        // En caso de error, lanza una excepción o maneja el error según tus necesidades
-                        return false;
-                    }
-                }
-
-                // Deserializa la respuesta JSON a un objeto C#
-                UsuarioDTO usuarioEncontrado = JsonConvert.DeserializeObject<UsuarioDTO>(responseData);
+                UsuarioDTO usuarioEncontrado = BuscaUsuarioPorId(token.Id_usuario).Result;
 
                 // Ahora puedes trabajar con el tokenEncontrado
                 if (usuarioEncontrado != null)
@@ -566,6 +501,57 @@ namespace ProyectoFinalDIW.Servicios
             catch (TaskCanceledException e)
             {
                 Console.WriteLine("[ERROR-UsuarioImplementacion-ActualizaUsuario] Error la tarea fue cancelada");
+                return false;
+            }
+        }
+
+        public bool AgregaUsuario(UsuarioDTO usuarioDTO)
+        {
+            try
+            {
+                // Encriptamos la contraseña
+                usuarioDTO.Psswd_usuario = Util.EncriptarContra(usuarioDTO.Psswd_usuario);
+
+                // Convertimos el usuario a json
+                string usuarioJson = JsonConvert.SerializeObject(usuarioDTO, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                // Configurar la solicitud HTTP
+                using (HttpClient client = new HttpClient())
+                {
+                    // Url a la que haremos el POST
+                    Uri url = new Uri("https://localhost:7029/api/UsuarioControlador");
+
+                    // Configurar la solicitud HTTP POST
+                    HttpResponseMessage response = client.PostAsync(url, new StringContent(usuarioJson, Encoding.UTF8, "application/json")).Result;
+
+                    // Verificar la respuesta del servidor
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Usuario creado exitosamente");
+
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                        return false;
+                    }
+                }
+
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine("[ERROR-UsuarioImplementacion-AgregaUsuario] Error operación no válida");
+                return false;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("[ERROR-UsuarioImplementacion-AgregaUsuario] Error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException e)
+            {
+                Console.WriteLine("[ERROR-UsuarioImplementacion-AgregaUsuario] Error la tarea fue cancelada");
                 return false;
             }
         }
