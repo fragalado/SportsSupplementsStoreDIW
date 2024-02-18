@@ -4,12 +4,14 @@
 	List<SuplementoDTO> suplementos = ViewBag.suplementos;
 	var precioTotal = ViewBag.precioTotal;
 	var carritoBorrado = TempData["carritoBorrado"];
+	var carritoCancel = TempData["carritoCancel"];
+	var carritoComprado = TempData["carritoComprado"];
 }
 
 <div class="row tablaAdmin">
 	<div class="col">
 		<!-- Formulario -->
-		<form method="post">
+		<form method="post" asp-action="ComprarCarrito" asp-controller="Orden">
 			<!-- Tabla -->
 			<table class="table table-dark table-hover text-center">
 				<thead>
@@ -53,10 +55,11 @@
 				</tbody>
 			</table>
 			<!-- Fin Tabla -->
-			<!-- Boton comprar -->
+
+ 			<!-- Boton comprar -->
 			@if (carritos != null && carritos.Count > 0)
 			{
-				<button class="btn btn-primary" style="float: right;">Comprar</button>
+				<button type="submit" class="btn btn-primary" style="float: right;">Comprar</button>
 			}
 			<!-- Fin Boton comprar -->
 		</form>
@@ -105,6 +108,27 @@ else if (carritoBorrado != null && carritoBorrado.ToString() == "false")
 		Swal.fire({
 			title: "Error!",
 			text: "Se ha producido un error. Vuelva a intentarlo más tarde!",
+			icon: "error"
+		});
+	</script>
+}
+
+@if (carritoComprado != null)
+{
+	<script>
+		Swal.fire({
+			title: "Éxito!",
+			text: "@carritoComprado",
+			icon: "success"
+		});
+	</script>
+}
+else if (carritoCancel != null)
+{
+	<script>
+		Swal.fire({
+			title: "Error!",
+			text: "@carritoCancel",
 			icon: "error"
 		});
 	</script>

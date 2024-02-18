@@ -141,11 +141,9 @@ namespace ProyectoFinalDIW.Controllers
             string esBorrado = "noBorrado";
             try
             {
-                Console.WriteLine("Ha entrado en borrar al usuario");
-                Console.WriteLine(id);
-                bool ok2 = usuarioInterfaz.BorraUsuarioPorId(id);
+                bool okBorrado = usuarioInterfaz.BorraUsuarioPorId(id);
 
-                if (ok2)
+                if (okBorrado)
                     esBorrado = "borrado";
             }
             catch (Exception)

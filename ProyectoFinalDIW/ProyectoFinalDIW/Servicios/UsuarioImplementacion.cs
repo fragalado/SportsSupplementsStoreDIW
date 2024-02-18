@@ -170,7 +170,7 @@ namespace ProyectoFinalDIW.Servicios
             }
         }
 
-        public async Task<bool> ModificaPassword(TokenDTO token, string password)
+        public bool ModificaPassword(TokenDTO token, string password)
         {
             // Obtenemos el usuario por el id
             try
@@ -229,7 +229,7 @@ namespace ProyectoFinalDIW.Servicios
             }
         }
 
-        public async Task<bool> ActivaCuenta(TokenDTO token)
+        public bool ActivaCuenta(TokenDTO token)
         {
             // Activamos la cuenta del usuario
             // Para ello obtenemos el usuario de la base de datos y después hacemos un PUT a la base de datos con el usuario cambiado
@@ -457,13 +457,15 @@ namespace ProyectoFinalDIW.Servicios
                 // Con el id del usuario pasado obtenemos el usuario de la base de datos
                 UsuarioDTO usuarioEncontrado = BuscaUsuarioPorId(usuario.Id_usuario).Result;
 
-                // Actualizamos algunos datos del usuario con el usuarioEncontrado
-                usuario.EstaActivado_usuario = usuarioEncontrado.EstaActivado_usuario;
-                usuario.Psswd_usuario = usuarioEncontrado.Psswd_usuario;
-                usuario.Id_acceso = usuarioEncontrado.Id_acceso;
+                // Actualizamos algunos datos del usuarioEncontrado con el usuario
+                usuarioEncontrado.Email_usuario = usuario.Email_usuario;
+                usuarioEncontrado.Tlf_usuario = usuario.Tlf_usuario;
+                usuarioEncontrado.Nombre_usuario = usuario.Nombre_usuario;
+                if (usuario.RutaImagen_usuario != null)
+                    usuarioEncontrado.RutaImagen_usuario = usuario.RutaImagen_usuario;
 
-                // Convertimos el usuario a json
-                string usuarioJson = JsonConvert.SerializeObject(usuario, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+                // Convertimos el usuarioEncontrado a json
+                string usuarioJson = JsonConvert.SerializeObject(usuarioEncontrado, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
                 // Configuramos la solicitud HTTP
                 using (HttpClient client = new HttpClient())

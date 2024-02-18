@@ -1,423 +1,331 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ProyectoFinalDIW.bundle.scp.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ProyectoFinalDIW.bundle.scp.css",
       "PackagePath": "staticwebassets\\ProyectoFinalDIW.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\css\\style.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\css\\styleLogin.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\css\\styleLogin.css",
       "PackagePath": "staticwebassets\\css\\styleLogin.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\backGroundLogin.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\backGroundLogin.jpg",
       "PackagePath": "staticwebassets\\img\\backGroundLogin.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\backGroundLogin2.png",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\backGroundLogin2.png",
       "PackagePath": "staticwebassets\\img\\backGroundLogin2.png"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\background2.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\background2.jpg",
       "PackagePath": "staticwebassets\\img\\background2.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\background3.png",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\background3.png",
       "PackagePath": "staticwebassets\\img\\background3.png"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto1.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto1.jpg",
       "PackagePath": "staticwebassets\\img\\carouselFoto1.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto2.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto2.jpg",
       "PackagePath": "staticwebassets\\img\\carouselFoto2.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto3.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto3.jpg",
       "PackagePath": "staticwebassets\\img\\carouselFoto3.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto4.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto4.jpg",
       "PackagePath": "staticwebassets\\img\\carouselFoto4.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto5.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto5.jpg",
       "PackagePath": "staticwebassets\\img\\carouselFoto5.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto6.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto6.jpg",
       "PackagePath": "staticwebassets\\img\\carouselFoto6.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto7.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto7.jpg",
       "PackagePath": "staticwebassets\\img\\carouselFoto7.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto8.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\carouselFoto8.jpg",
       "PackagePath": "staticwebassets\\img\\carouselFoto8.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\logo.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\logo.jpg",
       "PackagePath": "staticwebassets\\img\\logo.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\logo2.png",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\logo2.png",
       "PackagePath": "staticwebassets\\img\\logo2.png"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\0f98ccc2-6a9f-4d32-9f79-27d103b53c01.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\0f98ccc2-6a9f-4d32-9f79-27d103b53c01.webp"
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\7ce327a8-1536-4ae6-adb6-a71543e0ad8d.webp",
+      "PackagePath": "staticwebassets\\img\\suplementos\\7ce327a8-1536-4ae6-adb6-a71543e0ad8d.webp"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\10de6777-0940-4a84-b706-7cc45d9317c3.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\10de6777-0940-4a84-b706-7cc45d9317c3.webp"
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\d47c0982-ddde-462b-8465-80f7f5291747.webp",
+      "PackagePath": "staticwebassets\\img\\suplementos\\d47c0982-ddde-462b-8465-80f7f5291747.webp"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\13dc3edd-5aee-4146-8616-2d7b219ee04f.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\13dc3edd-5aee-4146-8616-2d7b219ee04f.webp"
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\38af0318-5e9a-4ed5-bd28-cc3c15303794.jpg",
+      "PackagePath": "staticwebassets\\img\\usuarios\\38af0318-5e9a-4ed5-bd28-cc3c15303794.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\1c509850-c0a5-4a52-aa62-5c572a976949.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\1c509850-c0a5-4a52-aa62-5c572a976949.webp"
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\3aab1e23-0929-4181-9bcf-5de91f57de8f.jpg",
+      "PackagePath": "staticwebassets\\img\\usuarios\\3aab1e23-0929-4181-9bcf-5de91f57de8f.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\2e508cad-91e0-45d2-967c-58f68d9fc5d9.jpg",
-      "PackagePath": "staticwebassets\\img\\suplementos\\2e508cad-91e0-45d2-967c-58f68d9fc5d9.jpg"
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\4681cfae-8e96-4858-94ab-962ca5b015af.jpg",
+      "PackagePath": "staticwebassets\\img\\usuarios\\4681cfae-8e96-4858-94ab-962ca5b015af.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\4bd17350-6d8c-4c2a-803e-beed79bb9dbd.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\4bd17350-6d8c-4c2a-803e-beed79bb9dbd.webp"
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\c47ca916-87be-4bb3-85e7-3ba6d44f6866.jpg",
+      "PackagePath": "staticwebassets\\img\\usuarios\\c47ca916-87be-4bb3-85e7-3ba6d44f6866.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\5435c1ef-0152-4006-8d0a-08fd46c3e100.jpg",
-      "PackagePath": "staticwebassets\\img\\suplementos\\5435c1ef-0152-4006-8d0a-08fd46c3e100.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\67eb1bdc-0b64-4b23-8f06-6dfa39da66d8.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\67eb1bdc-0b64-4b23-8f06-6dfa39da66d8.webp"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\75def3da-0b58-467c-bd52-e30027a5af87.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\75def3da-0b58-467c-bd52-e30027a5af87.webp"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\79aae3ac-cac4-4a4c-94b9-463a5c7c7e9d.jpg",
-      "PackagePath": "staticwebassets\\img\\suplementos\\79aae3ac-cac4-4a4c-94b9-463a5c7c7e9d.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\80d6ab38-565f-4150-a6fc-5a04c61bbf53.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\80d6ab38-565f-4150-a6fc-5a04c61bbf53.webp"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\a17a58cc-48a9-4f39-941c-99a481dddcc7.jpg",
-      "PackagePath": "staticwebassets\\img\\suplementos\\a17a58cc-48a9-4f39-941c-99a481dddcc7.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\a3a2b440-3e87-4241-9a9f-7d1f04a0ab8b.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\a3a2b440-3e87-4241-9a9f-7d1f04a0ab8b.webp"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\a61294d2-d144-46a1-8178-fb7d15bceba8.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\a61294d2-d144-46a1-8178-fb7d15bceba8.webp"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\b08e43c3-d5cf-42e8-9eda-cd645cc0b48c.jpg",
-      "PackagePath": "staticwebassets\\img\\suplementos\\b08e43c3-d5cf-42e8-9eda-cd645cc0b48c.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\b544ffef-9dbe-4dcc-9f6d-edd8b7572f22.jpg",
-      "PackagePath": "staticwebassets\\img\\suplementos\\b544ffef-9dbe-4dcc-9f6d-edd8b7572f22.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\ca0631bf-4f65-4bc9-95c4-fef42c22bc1b.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\ca0631bf-4f65-4bc9-95c4-fef42c22bc1b.webp"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\d00a16d2-3649-4004-bce4-3cd6d1f787cd.jpg",
-      "PackagePath": "staticwebassets\\img\\suplementos\\d00a16d2-3649-4004-bce4-3cd6d1f787cd.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\d3786f6e-8eb8-4f45-8191-3f8e63b77c97.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\d3786f6e-8eb8-4f45-8191-3f8e63b77c97.webp"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\e5b37fef-87ce-4606-9d43-087822657386.jpg",
-      "PackagePath": "staticwebassets\\img\\suplementos\\e5b37fef-87ce-4606-9d43-087822657386.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\suplementos\\e6c15644-5ff6-4c8d-9195-02a7b8239304.webp",
-      "PackagePath": "staticwebassets\\img\\suplementos\\e6c15644-5ff6-4c8d-9195-02a7b8239304.webp"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\3b759a9d-dd23-46b6-82d3-78e1e1088a04.jpg",
-      "PackagePath": "staticwebassets\\img\\usuarios\\3b759a9d-dd23-46b6-82d3-78e1e1088a04.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\50171c71-4b04-45ed-8693-2272baf854bc.png",
-      "PackagePath": "staticwebassets\\img\\usuarios\\50171c71-4b04-45ed-8693-2272baf854bc.png"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\520927bd-311c-4cb0-9022-5104f54d2182.png",
-      "PackagePath": "staticwebassets\\img\\usuarios\\520927bd-311c-4cb0-9022-5104f54d2182.png"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\77d3ac4f-2ce3-4716-8027-41a009cabef4.png",
-      "PackagePath": "staticwebassets\\img\\usuarios\\77d3ac4f-2ce3-4716-8027-41a009cabef4.png"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\81e01ddb-4b5e-4c87-a2de-ada7c519d0d0.jpg",
-      "PackagePath": "staticwebassets\\img\\usuarios\\81e01ddb-4b5e-4c87-a2de-ada7c519d0d0.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\82cc436e-6086-4c15-94c2-cf4341e1e442.png",
-      "PackagePath": "staticwebassets\\img\\usuarios\\82cc436e-6086-4c15-94c2-cf4341e1e442.png"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\cbe881d6-06f6-4737-a03d-cedce7f75c53.jpg",
-      "PackagePath": "staticwebassets\\img\\usuarios\\cbe881d6-06f6-4737-a03d-cedce7f75c53.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\f879d6f6-6d13-4e26-be0a-2871b78cb3d7.png",
-      "PackagePath": "staticwebassets\\img\\usuarios\\f879d6f6-6d13-4e26-be0a-2871b78cb3d7.png"
-    },
-    {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\profile.jpg",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\img\\usuarios\\profile.jpg",
       "PackagePath": "staticwebassets\\img\\usuarios\\profile.jpg"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

@@ -43,7 +43,6 @@ namespace ProyectoFinalDIW.Controllers
                 {
                     // Se ha realizado el login
                     HttpContext.Session.SetString("email", usuarioEncontrado.Email_usuario);
-                    HttpContext.Session.SetString("nombre", usuarioEncontrado.Nombre_usuario);
                     HttpContext.Session.SetString("acceso", usuarioEncontrado.Id_acceso.ToString());
 
                     return RedirectToAction("Index", "Home");

@@ -113,7 +113,7 @@ namespace ProyectoFinalDIW.Controllers
 
                 // Si llega aqui es porque el token es valido
                 // Luego llamamos al método modificar password y le pasamos los parámetros
-                bool ok = usuarioInterfaz.ModificaPassword(tokenDto, password1).Result;
+                bool ok = usuarioInterfaz.ModificaPassword(tokenDto, password1);
 
                 if (ok)
                 {

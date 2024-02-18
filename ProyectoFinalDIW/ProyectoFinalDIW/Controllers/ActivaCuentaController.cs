@@ -49,7 +49,7 @@ namespace ProyectoFinalDIW.Controllers
 
                 // Si llega aqui es porque el token es valido
                 // Luego llamamos al método activar cuenta y le pasamos los parámetros
-                bool ok = usuarioInterfaz.ActivaCuenta(tokenDto).Result;
+                bool ok = usuarioInterfaz.ActivaCuenta(tokenDto);
 
                 if (ok)
                 {

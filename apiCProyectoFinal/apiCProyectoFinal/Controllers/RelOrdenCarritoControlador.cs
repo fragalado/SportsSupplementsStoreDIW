@@ -23,45 +23,29 @@ namespace apiCProyectoFinal.Controllers
         /// </summary>
         /// <returns>Devuelve todos los datos de la tabla relacion de la base de datos</returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetRelOrdenCarrito()
+        public async Task<ActionResult<IEnumerable<Rel_Orden_Carrito>>> GetRelOrdenCarrito()
         {
-            // Devolvemos toda la lista de usuarios
-            return context.Usuarios.ToList();
+            // Devolvemos toda la lista de rel_orden_carrito
+            return context.Rel_Orden_Carritos.ToList();
         }
 
         [HttpPost]
-        public async Task<ActionResult<Rel_Orden_Carrito>> PostRelOrdenCarrito(Rel_Orden_Carrito relOrdenCarrito)
+        public async Task<ActionResult> PostRelOrdenCarrito(List<Rel_Orden_Carrito> relOrdenCarrito)
         {
             try
             {
-                context.Rel_Orden_Carritos.Add(relOrdenCarrito);
+                foreach (var aux in relOrdenCarrito)
+                {
+					context.Rel_Orden_Carritos.Add(aux);
+				}
+                
                 await context.SaveChangesAsync();
 
-                return CreatedAtAction("GetRelOrdenCarrito", new { id = relOrdenCarrito.id_rel_orden_carrito }, relOrdenCarrito);
+                return Ok();
             }
             catch (Exception e)
             {
                 return NoContent();
-            }
-        }
-
-        [HttpGet("{id_orden}")]
-        public async Task<ActionResult<Rel_Orden_Carrito>> GetRelOrdenCarritoByIdOrden(long id_orden)
-        {
-            try
-            {
-                var relOrdenCarrito = await context.Rel_Orden_Carritos.FirstOrDefaultAsync(u => u.id_orden == id_orden);
-
-                if (relOrdenCarrito == null)
-                {
-                    return NotFound();
-                }
-
-                return relOrdenCarrito;
-            }
-            catch (Exception)
-            {
-                return BadRequest();
             }
         }
     }

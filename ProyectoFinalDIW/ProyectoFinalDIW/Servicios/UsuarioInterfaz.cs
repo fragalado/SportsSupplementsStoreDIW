@@ -38,14 +38,14 @@ namespace ProyectoFinalDIW.Servicios
         /// <param name="token">Objeto token</param>
         /// <param name="password">Contraseña nueva</param>
         /// <returns>Devuelve true si se ha modificado o false si ha ocurrido un error</returns>
-        public Task<bool> ModificaPassword(TokenDTO token, string password);
+        public bool ModificaPassword(TokenDTO token, string password);
 
         /// <summary>
         /// Método que activa la cuenta de un usuario
         /// </summary>
         /// <param name="token">Objeto token</param>
         /// <returns>Devuelve true si se ha activado la cuenta o false si se ha producido algún error</returns>
-        public Task<bool> ActivaCuenta(TokenDTO token);
+        public bool ActivaCuenta(TokenDTO token);
 
         /// <summary>
         /// Método que obtiene un usuario por el email y lo devuelve. Si no encuentra ningún usuario con el email introducido devolverá null.
