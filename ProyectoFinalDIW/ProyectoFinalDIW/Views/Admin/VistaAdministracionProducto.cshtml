@@ -46,7 +46,7 @@
                             <a href="@Url.Action("VistaEditarSuplemento", "Admin", new { id = suplemento.Id_suplemento })" style="text-decoration: none">
                                 <i class="fa-solid fa-pen-to-square" style="color: green; padding-left: 15px;"></i>
                             </a>
-                            <i class="fa-solid fa-trash" style="color: red; margin-left: 35px;" onclick="compruebaEliminar(@suplemento.Id_suplemento)"></i>
+                            <i class="fa-solid fa-trash" style="color: red; margin-left: 35px; cursor: pointer" onclick="compruebaEliminar(@suplemento.Id_suplemento)"></i>
                         </td>
                     </tr>
                     i++; // Incrementamos el contador

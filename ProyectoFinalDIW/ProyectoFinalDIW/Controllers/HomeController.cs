@@ -5,18 +5,25 @@ using System.Diagnostics;
 
 namespace ProyectoFinalDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para la vista home
+    /// </summary>
+    /// autor: Fran Gallego
     public class HomeController : Controller
     {
         // Inicializamos la interfaz Suplemento para usar sus métodos
         private SuplementoInterfaz suplementoInterfaz = new SuplementoImplementacion();
 
+        /// <summary>
+        /// Método que devuelve la vista index
+        /// </summary>
+        /// <returns>Devuelve una vista</returns>
         public IActionResult Index()
         {
-            // Control de sesión
-            bool ok = Util.ControlaSesion(HttpContext);
-
-            if (!ok)
+            // Controlamos si el usuario ha iniciado sesion o no
+            if (!Util.ControlaSesion(HttpContext))
             {
+                // Si no ha iniciado sesion redirigimos a la vista login
                 return RedirectToAction("VistaLogin", "Login");
             }
 
@@ -28,36 +35,8 @@ namespace ProyectoFinalDIW.Controllers
             // Ahora nos vamos a quedar con solo 6 suplementos y lo vamos a devolver con la vista
             if(listaSuplementos.Count > 6)
                 listaSuplementos = listaSuplementos.Take(6).ToList();
-            return View(listaSuplementos);
-        }
 
-        public IActionResult VistaSuplementos(int st)
-        {
-			// Control de sesión
-			bool ok = Util.ControlaSesion(HttpContext);
-
-			if (!ok)
-			{
-				return RedirectToAction("VistaLogin", "Login");
-			}
-
-			ViewData["acceso"] = HttpContext.Session.GetString("acceso");
-
-            // Obtenemos todos los suplementos
-            List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
-
-            if (st == 1)
-            {
-                // Proteínas
-                listaSuplementos = listaSuplementos.Where(suplemento => suplemento.Tipo_suplemento == "Proteína").ToList();
-            }
-            else if(st == 2)
-            {
-                // Creatinas
-                listaSuplementos = listaSuplementos.Where(suplemento => suplemento.Tipo_suplemento == "Creatina").ToList();
-            }
-
-            // Devolvemos la vista
+            // Devolvemos la vista con los suplementos
             return View(listaSuplementos);
         }
 
@@ -71,7 +50,5 @@ namespace ProyectoFinalDIW.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        // Métodos
     }
 }

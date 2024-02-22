@@ -37,10 +37,10 @@ namespace ProyectoFinalDIW.Servicios
                     }
                 }
 
-                // Deserializa la respuesta JSON a un objeto C#
+                // Deserializa la respuesta JSON a un objeto TokenDTO
                 TokenDTO tokenEncontrado = JsonConvert.DeserializeObject<TokenDTO>(responseData);
 
-                // Ahora puedes trabajar con el tokenEncontrado
+                // Ahora comprobamos si es distinto de null
                 if (tokenEncontrado != null)
                 {
                     return tokenEncontrado;

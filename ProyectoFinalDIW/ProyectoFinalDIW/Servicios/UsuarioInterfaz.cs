@@ -55,6 +55,13 @@ namespace ProyectoFinalDIW.Servicios
         public Task<UsuarioDTO> BuscaUsuarioPorEmail(string emailUsuario);
 
         /// <summary>
+        /// Método que obtiene un usuario de la base de datos según su id.
+        /// </summary>
+        /// <param name="id">Id del usuario a devolver</param>
+        /// <returns>Devuelve el usuario encontrado o null en caso de no encontrarlo</returns>
+        public Task<UsuarioDTO> BuscaUsuarioPorId(long id);
+
+        /// <summary>
         /// Método que obtiene todos los usuarios de la base de datos y los devuelve.
         /// </summary>
         /// <returns>Devuelve una lista con objetos de tipo Usuario</returns>
@@ -66,13 +73,6 @@ namespace ProyectoFinalDIW.Servicios
         /// <param name="id">Id del usuario a borrar</param>
         /// <returns>Devuelve true si se ha borrado correctamente o false si no se ha podido borrar</returns>
         public bool BorraUsuarioPorId(int id);
-
-        /// <summary>
-        /// Método que obtiene un usuario de la base de datos según su id.
-        /// </summary>
-        /// <param name="id">Id del usuario a devolver</param>
-        /// <returns>Devuelve el usuario encontrado o null en caso de no encontrarlo</returns>
-        public Task<UsuarioDTO> BuscaUsuarioPorId(long id);
 
         /// <summary>
         /// Método que actualiza un usuario pasado por parámetros en la base de datos.

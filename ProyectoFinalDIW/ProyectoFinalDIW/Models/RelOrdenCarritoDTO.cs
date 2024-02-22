@@ -13,7 +13,7 @@
 		private long id_orden;
 		private long id_carrito;
 
-		// Constructores
+		// Constructores -> Vacio
 
 
 		// Getter y Setter

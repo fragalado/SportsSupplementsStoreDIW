@@ -52,7 +52,7 @@
                             <a href="@Url.Action("VistaEditarUsuario", "Admin", new { id = usuario.Id_usuario })" style="text-decoration: none">
                                 <i class="fa-solid fa-pen-to-square" style="color: green; padding-left: 15px;"></i>
                             </a>
-                            <i class="fa-solid fa-trash" style="color: red; margin-left: 35px;" onclick="compruebaEsAdmin(@usuario.Id_usuario, @usuario.Id_acceso)"></i>
+                            <i class="fa-solid fa-trash" style="color: red; margin-left: 35px; cursor: pointer" onclick="compruebaEsAdmin(@usuario.Id_usuario, @usuario.Id_acceso)"></i>
                         </td>
                     </tr>
                     i++; // Incrementamos el contador

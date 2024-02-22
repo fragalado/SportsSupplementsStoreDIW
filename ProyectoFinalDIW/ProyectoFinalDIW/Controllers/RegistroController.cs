@@ -4,23 +4,37 @@ using ProyectoFinalDIW.Servicios;
 
 namespace ProyectoFinalDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para la gestion de registro de sesion
+    /// </summary>
+    /// autor: Fran Gallego
     public class RegistroController : Controller
     {
         // Inicializamos la interfaz Usuario para usar sus métodos
         private UsuarioInterfaz usuarioInterfaz = new UsuarioImplementacion();
 
+        /// <summary>
+        /// Método que devuelve la vista de registro de sesion
+        /// </summary>
+        /// <returns>Devuelve una vista</returns>
         public IActionResult VistaRegister()
         {
-            bool ok = Util.ControlaSesion(HttpContext);
-
-            if (ok)
+            // Controlamos la sesion
+            if (Util.ControlaSesion(HttpContext))
             {
+                // Si el usuario ya ha iniciado sesion redirigimos a la vista home
                 return RedirectToAction("Index", "Home");
             }
 
+            // Devolvemos la vista
             return View();
         }
 
+        /// <summary>
+        /// Método para realizar el registro de un usuario
+        /// </summary>
+        /// <param name="usuario">Objeto UsuarioDTO con los datos del usuario a registrar</param>
+        /// <returns>Devuelve una redireccion o una vista en caso de error</returns>
         [HttpPost]
         public ActionResult RegistrarUsuario(UsuarioDTO usuario)
         {
@@ -36,6 +50,8 @@ namespace ProyectoFinalDIW.Controllers
 
                 // Intentamos registrar al usuario
                 bool? usuarioRegisrado = usuarioInterfaz.RegistrarUsuario(usuario);
+
+                // Controlamos si se ha realizado correctamente o no
                 if (usuarioRegisrado == true)
                 {
                     // Usuario registrado con éxito, redirigimos a la vista para mostrar mensaje de correo

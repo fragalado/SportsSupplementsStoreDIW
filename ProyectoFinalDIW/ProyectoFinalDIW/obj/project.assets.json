@@ -55,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ruben\\.nuget\\packages\\": {}
+    "C:\\Users\\Puesto8\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
+      "projectUniqueName": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
       "projectName": "ProyectoFinalDIW",
-      "projectPath": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
-      "packagesPath": "C:\\Users\\ruben\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ruben\\Desktop\\borraDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\obj\\",
+      "projectPath": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
+      "packagesPath": "C:\\Users\\Puesto8\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Puesto8\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Puesto8\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -117,7 +117,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

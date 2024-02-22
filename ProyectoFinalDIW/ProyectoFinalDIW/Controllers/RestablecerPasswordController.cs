@@ -4,6 +4,10 @@ using ProyectoFinalDIW.Servicios;
 
 namespace ProyectoFinalDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar el modificar password
+    /// </summary>
+    /// autor: Fran Gallego
     public class RestablecerPasswordController : Controller
     {
         // Inicializamos la interfaz Usuario para usar sus métodos
@@ -12,36 +16,51 @@ namespace ProyectoFinalDIW.Controllers
         // Inicializamos la interfaz Token para usar sus métodos
         private TokenInterfaz tokenInterfaz = new TokenImplementacion();
 
-
+        /// <summary>
+        /// Método que devuelve la vista para recuperar(modificar) contraseña
+        /// </summary>
+        /// <returns>Devuelve una vista</returns>
         public IActionResult VistaRecuperarContrasenya()
         {
-            bool ok = Util.ControlaSesion(HttpContext);
-
-            if (ok)
+            // Controlamos la sesion
+            if (Util.ControlaSesion(HttpContext))
             {
+                // Si el usuario ya ha iniciado sesion redirigimos a la vista home
                 return RedirectToAction("Index", "Home");
             }
 
+            // Devolvemos la vista
             return View();
         }
 
+        /// <summary>
+        /// Método que devuelve la vista para cambiar contraseña
+        /// </summary>
+        /// <returns>Devuelve una vista</returns>
         public IActionResult VistaCambiarContrasenya()
         {
-            bool ok = Util.ControlaSesion(HttpContext);
-
-            if (ok)
+            // Controlamos la sesion
+            if (Util.ControlaSesion(HttpContext))
             {
+                // Si el usuario ya ha iniciado sesion redirigimos a la vista home
                 return RedirectToAction("Index", "Home");
             }
 
+            // Devolvemos la vista
             return View();
         }
 
+        /// <summary>
+        /// Método que realiza el envio de un correo para cambiar las contraseñas
+        /// </summary>
+        /// <param name="usuario">Objeto UsuarioDTO con el email del usuario</param>
+        /// <returns>Devuelve una redireccion</returns>
         [HttpPost]
         public ActionResult RecuperarPassword(UsuarioDTO usuario)
         {
             try
             {
+                // Controlamos que el email del usuario sea distinto de null
                 if (usuario.Email_usuario == null)
                 {
                     ViewData["Mensaje"] = "Tienes que introducir un email!!";
@@ -49,9 +68,10 @@ namespace ProyectoFinalDIW.Controllers
                 }
 
                 // Si llega aqui es porque se ha introducido un email
-                // Llamamos al método RecuperaPassword
+                // Llamamos al metodo RecuperaPassword que realiza el envio del correo
                 bool ok = usuarioInterfaz.RecuperaPassword(usuario);
 
+                // Controlamos si se ha enviado el correo o no
                 if (ok)
                 {
                     ViewData["MensajeInfo"] = "Se ha enviado un correo para modificar la contraseña.";
@@ -74,14 +94,22 @@ namespace ProyectoFinalDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método que realiza la modificacion de la contraseña de un usuario
+        /// </summary>
+        /// <param name="usuario">Objeto UsuarioDTO con el token y la contraseña</param>
+        /// <returns>Devuelve una redireccion o la vista en caso de error</returns>
         [HttpPost]
         public ActionResult ModificarPassword(UsuarioDTO usuario)
         {
+            // Guardamos los valores del objeto UsuarioDTO en variables
             string token = usuario.Nombre_usuario;
             string password1 = usuario.Psswd_usuario;
             string password2 = usuario.Email_usuario;
+
             try
             {
+                // Controlamos que los valores sean distintos de null y que las contraseñas coincidan
                 if (token == null || password1 == null || password2 == null)
                 {
                     ViewData["Mensaje"] = "Tienes que rellenar todos los datos!!";

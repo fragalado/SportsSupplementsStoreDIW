@@ -16,14 +16,14 @@ namespace ProyectoFinalDIW.Servicios
         public Task<List<SuplementoDTO>> ObtieneTodosLosSuplementos();
 
         /// <summary>
-        /// Método que obtiene un suplemento de la base de datos según su id.
+        /// Método que obtiene un suplemento de la base de datos por su id.
         /// </summary>
-        /// <param name="id">Id del suplemento a devolver</param>
+        /// <param name="id">Id del suplemento a buscar</param>
         /// <returns>Devuelve el suplemento encontrado o null en caso de no encontrarlo</returns>
         public Task<SuplementoDTO> BuscaSuplementoPorId(long id);
 
         /// <summary>
-        /// Método que borra un suplemento de la base de datos.
+        /// Método que borra un suplemento de la base de datos por su id.
         /// </summary>
         /// <param name="id">Id del suplemento a borrar</param>
         /// <returns>Devuelve true si se ha borrado correctamente o false si no se ha podido borrar</returns>
@@ -32,7 +32,7 @@ namespace ProyectoFinalDIW.Servicios
         /// <summary>
         /// Método que actualiza un suplemento pasado por parámetros en la base de datos.
         /// </summary>
-        /// <param name="suplemento">Objeto SuplementoDTO</param>
+        /// <param name="suplemento">Objeto SuplementoDTO a actualizar</param>
         /// <returns>Devuelve true si se ha actualizado correctamente o false si se ha producido un error</returns>
         public bool ActualizaSuplemento(SuplementoDTO suplemento);
 

@@ -4,18 +4,24 @@ using ProyectoFinalDIW.Servicios;
 
 namespace ProyectoFinalDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para la vista perfil
+    /// </summary>
+    /// autor: Fran Gallego
     public class PerfilController : Controller
     {
         // Inicializamos la interfaz de Usuario para usar sus métodos
         private UsuarioInterfaz usuarioInterfaz = new UsuarioImplementacion();
 
+        /// <summary>
+        /// Método que devuelve la vista perfil
+        /// </summary>
+        /// <returns>Devuelve una vista</returns>
         public IActionResult VistaPerfil()
         {
             // Control de sesión
-            bool ok = Util.ControlaSesion(HttpContext);
-
-            if (!ok)
-                return RedirectToAction("VistaLogin", "Acceso");
+            if (!Util.ControlaSesion(HttpContext))
+                return RedirectToAction("VistaLogin", "Login");
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
@@ -29,17 +35,23 @@ namespace ProyectoFinalDIW.Controllers
             return View(usuarioEncontrado);
         }
 
+        /// <summary>
+        /// Método para realizar el cierre de sesion
+        /// </summary>
+        /// <returns>Devuelve una redireccion</returns>
         public IActionResult CerrarSesion()
         {
             // Control de sesión
-            bool ok = Util.ControlaSesion(HttpContext);
-
-            if (!ok)
+            if (!Util.ControlaSesion(HttpContext))
                 return RedirectToAction("VistaLogin", "Login");
 
+            // Cambiamos el acceso a 0
             HttpContext.Session.SetString("acceso", "0");
 
+            // Mensaje de cierre de sesion con exito
             TempData["sesionCerrada"] = "Se ha cerrado sesión con éxito!!";
+
+            // Redirigimos a la vista login
             return RedirectToAction("VistaLogin", "Login");
         }
     }

@@ -32,11 +32,9 @@ namespace ProyectoFinalDIW.Servicios
         /// </summary>
         /// <param name="body">Cuerpo del correo</param>
         /// <param name="to">Email del usuario al que se enviará el correo</param>
-        /// <param name="html">Indica si es html</param>
         /// <param name="subject">Asunto del mensaje</param>
         /// <param name="frommail">Email desde el cuál se enviará el correo</param>
-        /// <param name="cco">Indica si se utiliza copia oculta o no</param>
         /// <returns></returns>
-        public bool EnviarMensaje(string body, string to, bool html, string subject, string frommail, bool cco, bool esActivado);
+        public bool EnviarMensaje(string body, string to, string subject, string frommail, bool esActivado);
     }
 }

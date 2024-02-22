@@ -4,8 +4,17 @@ using System.Text;
 
 namespace ProyectoFinalDIW.Models
 {
+    /// <summary>
+    /// Clase Util que contiene los métodos que se usarán varias veces en el codigo
+    /// </summary>
+    /// autor: Fran Gallego
     public class Util
     {
+        /// <summary>
+        /// Método que encripta la contraseña pasada por parametros
+        /// </summary>
+        /// <param name="password">Contraseña a encriptar</param>
+        /// <returns>Devuelve la contraseña encriptada</returns>
         public static string EncriptarContra(string password)
         {
             StringBuilder hexString = new StringBuilder();
@@ -49,14 +58,16 @@ namespace ProyectoFinalDIW.Models
         /// <summary>
         /// Método para controlar la sesión
         /// </summary>
-        /// <param name="context">Contexto</param>
+        /// <param name="context">Objeto HttpContext que contiene los datos del contexto</param>
         /// <returns>Devuelve true si esta iniciada sesión o false si no</returns>
         public static bool ControlaSesion(HttpContext context)
         {
             try
             {
+                // Obtenemos el acceso del contexto
                 string acceso = context.Session.GetString("acceso");
 
+                // Si el acceso es igual a 1 o 2 quiere decir que el usuario ha iniciado sesion
                 if (acceso == "1" || acceso == "2")
                 {
                     // El usuario ha iniciado sesión, luego devolvemos true
@@ -73,16 +84,18 @@ namespace ProyectoFinalDIW.Models
         }
 
         /// <summary>
-        /// 
+        /// Método que controla si el usuario es admin o no
         /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="context">Objeto HttpContext con los datos del contexto</param>
+        /// <returns>Devuelve true si el usuario es admin o false si no</returns>
         public static bool ControlaSesionAdmin(HttpContext context)
         {
             try
             {
+                // Obtenemos el acceso del contexto
                 string acceso = context.Session.GetString("acceso");
 
+                // Comprobamos si el acceso es igual a 2, quiere decir que será Admin
                 if (acceso == "2")
                 {
                     // El usuario es admin
@@ -95,6 +108,56 @@ namespace ProyectoFinalDIW.Models
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Método que realiza la escritura para la informacion en fichero log
+        /// </summary>
+        /// <param name="nombreClase">Nombre de la clase</param>
+        /// <param name="nombreMetodo">Nombre del método</param>
+        /// <param name="mensaje">Mensaje a escribir en el fichero</param>
+        public static void LogInfo(string nombreClase, string nombreMetodo, string mensaje)
+        {
+            try
+            {
+                // Objeto StreamWriter para poder crear y escribir en un fichero de texto
+                StreamWriter sw = new StreamWriter("C:\\FicherosProg\\logsC\\fichero.txt", true);
+
+                // Escribimos
+                sw.WriteLine("["+ DateTime.Now + "]-[INFO-" + nombreClase + "-" + nombreMetodo + "] Info: " + mensaje);
+
+                // Cerramos el StreamWriter
+                sw.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Método que realiza la escritura para los errores en un fichero log
+        /// </summary>
+        /// <param name="nombreClase">Nombre de la clase</param>
+        /// <param name="nombreMetodo">Nombre del método</param>
+        /// <param name="mensaje">Mensaje a escribir</param>
+        public static void LogError(string nombreClase, string nombreMetodo, string mensaje)
+        {
+            try
+            {
+                // Objeto StreamWriter para poder crear y escribir en un fichero de texto
+                StreamWriter sw = new StreamWriter("C:\\FicherosProg\\logsC\\fichero.txt", true);
+
+                // Escribimos
+                sw.WriteLine("["+ DateTime.Now + "]-[ERROR-" + nombreClase + "-" + nombreMetodo + "] Error: " + mensaje);
+
+                // Cerramos el StreamWriter
+                sw.Close();
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

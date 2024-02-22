@@ -4,25 +4,39 @@ using ProyectoFinalDIW.Servicios;
 
 namespace ProyectoFinalDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar el inicio de sesión
+    /// </summary>
+    /// autor: Fran Gallego
     public class LoginController : Controller
     {
         // Inicializamos la intefaz Usuario para usar sus métodos
         private UsuarioInterfaz usuarioInterfaz = new UsuarioImplementacion();
 
+        /// <summary>
+        /// Método para mostrar la vista de login
+        /// </summary>
+        /// <returns>Devuelve la vista</returns>
         public IActionResult VistaLogin()
         {
-            bool ok = Util.ControlaSesion(HttpContext);
-
-            if (ok)
+            // Verificamos si el usuario ya ha iniciado sesión
+            if (Util.ControlaSesion(HttpContext))
             {
+                // Si ha iniciado sesión redirigimos a Home
                 return RedirectToAction("Index", "Home");
             }
 
+            // Devolvemos la vista
             return View();
             // Tambien podriamos poner:
-            // return View("~/Views/Acceso/VistaLogin.cshtml");
+            // return View("~/Views/Login/VistaLogin.cshtml");
         }
 
+        /// <summary>
+        /// Método para realizar el inicio de sesión
+        /// </summary>
+        /// <param name="usuario">Objeto UsuarioDTO con los datos del usuario</param>
+        /// <returns>Devuelve la vista de login en caso de error o una redirección a Home</returns>
         [HttpPost]
         public ActionResult LoginUsuario(UsuarioDTO usuario)
         {
@@ -39,6 +53,8 @@ namespace ProyectoFinalDIW.Controllers
                 // Si todos los datos están completos hacemos el inicio de sesión
                 UsuarioDTO usuarioEncontrado = usuarioInterfaz.LoginUsuario(usuario);
 
+                // Si el usuario devuelto es distinto de null y su propiedad estaActivado_usuario es true
+                // se ha realizado el inicio de sesión correctamente
                 if (usuarioEncontrado != null && usuarioEncontrado.EstaActivado_usuario)
                 {
                     // Se ha realizado el login
@@ -47,12 +63,14 @@ namespace ProyectoFinalDIW.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
+                // Si la propiedad estaActivado_usuario es false quiere decir que la cuenta no esta activada
                 else if (usuarioEncontrado != null && !usuarioEncontrado.EstaActivado_usuario)
                 {
                     // La cuenta no ha sido activada
                     ViewData["Mensaje"] = "La cuenta no ha sido activada!!";
                     return View("VistaLogin");
                 }
+                // Si no es ninguna de las anteriores quiere decir que el email o la contraseña son incorrectas
                 else
                 {
                     // El email o la contraseña no coinciden

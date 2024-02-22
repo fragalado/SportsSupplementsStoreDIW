@@ -17,16 +17,16 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
-                // Si no es null crearemos un token
+                // Creamos un token
                 Guid guid = Guid.NewGuid();
 
-                // Convertir el GUID a una cadena (string)
+                // Convertimos el token creado a string
                 string token = guid.ToString();
 
                 // Creamos ahora la fecha limite
                 DateTime fechaLimite = DateTime.Now.AddMinutes(5); // 5 minutos para realizar la operación
 
-                // Creamos un objeto TokenDTO
+                // Creamos un objeto TokenDTO con el token, la fecha limite y el id del usuario
                 TokenDTO tokenDTO = new TokenDTO(token, fechaLimite, usuario.Id_usuario);
 
                 // Ahora realizamos el POST del token a la base de datos
@@ -42,15 +42,14 @@ namespace ProyectoFinalDIW.Servicios
                     // Configurar la solicitud HTTP POST
                     HttpResponseMessage response = client.PostAsync(url, new StringContent(tokenJson, Encoding.UTF8, "application/json")).Result;
 
-                    // Verificar la respuesta del servidor
+                    // Verificamos la respuesta del servidor
                     if (response.IsSuccessStatusCode)
                     {
                         Console.WriteLine("Token creado exitosamente");
 
                         // Llamamos a los métodos para enviar el correo
                         String mensaje = MensajeCorreo(token, urlCorreo, esActivado);
-                        bool ok = EnviarMensaje(mensaje, usuario.Email_usuario, true, "Activar cuenta", "suplementostore@frangallegodorado.es", true, esActivado);
-                        return true;
+                        return EnviarMensaje(mensaje, usuario.Email_usuario, "Activar cuenta", "suplementostore@frangallegodorado.es", esActivado);
                     }
                     else
                     {
@@ -102,19 +101,19 @@ namespace ProyectoFinalDIW.Servicios
     ";
         }
 
-        public bool EnviarMensaje(string body, string to, bool html, string subject, string frommail, bool cco, bool esActivado)
+        public bool EnviarMensaje(string body, string to, string subject, string frommail, bool esActivado)
         {
             bool resultado = true;
             SmtpClient smtpClient = null;
             try
             {
 
-                // Parámetros de conexión con un correo de ionos
+                // Parámetros de conexión
                 string host = "smtp.ionos.es";
                 string miLogin = "suplementoStore@frangallegodorado.es";
                 string miPassword = "LentosJavaC23;24/Java&C";
 
-                // Configurar cliente SMTP
+                // Configuramos cliente SMTP
                 using (smtpClient = new SmtpClient(host))
                 {
                     smtpClient.UseDefaultCredentials = false;
@@ -132,28 +131,16 @@ namespace ProyectoFinalDIW.Servicios
                         msg.ReplyToList.Add(new MailAddress(frommail));
                         msg.To.Add(new MailAddress(to));
 
-                        // Si se utiliza copia oculta
-                        if (cco)
-                            msg.Bcc.Add(new MailAddress(frommail));
-
                         // Establecer el asunto del mensaje
                         msg.Subject = subject;
 
                         // Construir el cuerpo
-                        if (html)
-                        {
-                            if (esActivado)
-                                body = " Activar cuenta: " + body;
-                            else
-                                body = " Restablecer contraseña: " + body;
-                            msg.Body = body;
-                            msg.IsBodyHtml = true;
-                        }
+                        if (esActivado)
+                            body = " Activar cuenta: " + body;
                         else
-                        {
-                            msg.Body = body;
-                            msg.IsBodyHtml = false;
-                        }
+                            body = " Restablecer contraseña: " + body;
+                        msg.Body = body;
+                        msg.IsBodyHtml = true;
 
                         // Enviar el mensaje
                         smtpClient.Send(msg);

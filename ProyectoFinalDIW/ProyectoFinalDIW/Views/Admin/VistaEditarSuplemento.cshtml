@@ -21,7 +21,7 @@
                 <form method="post" asp-controller="Admin" asp-action="EditarSuplemento" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="imagenForm" class="btn btn-primary botonImagen">Añadir imagen</label>
-                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="imagenForm" style="display: none;" name="imagenFile" required>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="imagenForm" style="display: none;" name="imagenFile">
                     </div>
                     <div class="mb-3">
                         <label for="nombreForm" class="form-label">Nombre</label>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="precioForm" class="form-label">Precio</label>
-                        <input type="text" class="form-control inputVistaEditar" id="precioForm" name="precio_suplemento" value="@Model.Precio_suplemento" required>
+                        <input type="text" class="form-control inputVistaEditar" id="precioForm" value="@Model.Precio_suplemento" name="precioS" required>
                     </div>
                     <div class="mb-3">
                         <label for="marcaForm" class="form-label">Marca</label>

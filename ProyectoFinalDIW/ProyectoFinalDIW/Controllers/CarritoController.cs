@@ -4,6 +4,10 @@ using ProyectoFinalDIW.Servicios;
 
 namespace ProyectoFinalDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar el carrito del usuario
+    /// </summary>
+    /// autor: Fran Gallego
     public class CarritoController : Controller
     {
         // Inicializamos la interfaz Carrito para usar sus métodos
@@ -12,13 +16,16 @@ namespace ProyectoFinalDIW.Controllers
         // Inicializamos la interfaz Suplemento para usar sus métodos
         private SuplementoInterfaz suplementoInterfaz = new SuplementoImplementacion();
 
+        /// <summary>
+        /// Método que devuelve la vista de carritos
+        /// </summary>
+        /// <returns>Devuelve la vista</returns>
         public IActionResult VistaCarrito()
         {
-            // Control de sesión
-            bool ok = Util.ControlaSesion(HttpContext);
-
-            if (!ok)
-                return RedirectToAction("VistaLogin", "Acceso");
+            // Controlamos si el usuario ha iniciado sesion o no
+            // Si no ha iniciado sesion redirigimos a la vista de login
+            if (!Util.ControlaSesion(HttpContext))
+                return RedirectToAction("VistaLogin", "Login");
 
             ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
@@ -45,17 +52,23 @@ namespace ProyectoFinalDIW.Controllers
 			return View();
         }
 
+        /// <summary>
+        /// Método para borrar un carrito
+        /// </summary>
+        /// <param name="id">Id del carrito a borrar</param>
+        /// <returns>Devuelve una redireccion</returns>
         public ActionResult BorrarCarrito(int id)
         {
             // Borramos el carrito
             bool ok = carritoInterfaz.BorraCarrito(id);
 
+            // Controlamos si se ha borrado correctamente o no
             if (ok)
                 TempData["carritoBorrado"] = "true";
             else
                 TempData["carritoBorrado"] = "false";
 
-            // Devolvemos la vista
+            // Redirigimos a la vista carrito
             return RedirectToAction("VistaCarrito", "Carrito");
         }
     }

@@ -3,6 +3,7 @@
     /// <summary>
     /// Clase Token que representará a la entidad Token de la base de datos
     /// </summary>
+    /// autor: Fran Gallego
     public class TokenDTO
     {
         // Atributos

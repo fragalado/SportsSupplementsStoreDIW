@@ -40,7 +40,7 @@ namespace DAL.Migrations
 
                     b.HasKey("id_acceso");
 
-                    b.ToTable("Accesos");
+                    b.ToTable("Accesos", "gtp_usuarios_c");
                 });
 
             modelBuilder.Entity("DAL.Carrito", b =>
@@ -104,9 +104,6 @@ namespace DAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("id_rel_orden_carrito"));
 
-                    b.Property<long?>("carritoid_carrito")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("id_carrito")
                         .HasColumnType("bigint");
 
@@ -115,7 +112,7 @@ namespace DAL.Migrations
 
                     b.HasKey("id_rel_orden_carrito");
 
-                    b.HasIndex("carritoid_carrito");
+                    b.HasIndex("id_carrito");
 
                     b.HasIndex("id_orden");
 
@@ -180,7 +177,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("id_usuario");
 
-                    b.ToTable("Tokens");
+                    b.ToTable("Tokens", "gtp_usuarios_c");
                 });
 
             modelBuilder.Entity("DAL.Usuario", b =>
@@ -220,7 +217,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("id_acceso");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuarios", "gtp_usuarios_c");
                 });
 
             modelBuilder.Entity("DAL.Carrito", b =>
@@ -257,7 +254,9 @@ namespace DAL.Migrations
                 {
                     b.HasOne("DAL.Carrito", "carrito")
                         .WithMany("listaRelacionOrdenCarrito")
-                        .HasForeignKey("carritoid_carrito");
+                        .HasForeignKey("id_carrito")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DAL.Orden", "orden")
                         .WithMany("listaRelacionOrdenCarrito")

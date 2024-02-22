@@ -38,8 +38,8 @@ namespace ProyectoFinalDIW.Servicios
                     }
                 }
 
-                // Deserializa la respuesta JSON a una List de objetos Suplemento
-                List<SuplementoDTO> listaSuplementos = ConviertePrecioSuplementoAFloat(JsonConvert.DeserializeObject<List<SuplementoDTO>>(responseData));
+                // Deserializa la respuesta JSON a una Lista de objetos Suplemento
+                List<SuplementoDTO> listaSuplementos = JsonConvert.DeserializeObject<List<SuplementoDTO>>(responseData);
 
                 // Devolvemos la lista
                 return listaSuplementos;
@@ -57,26 +57,6 @@ namespace ProyectoFinalDIW.Servicios
             catch (TaskCanceledException e)
             {
                 Console.WriteLine("[ERROR-AdminImplementacion-ObtieneTodosLosSuplementos] Error la tarea fue cancelada");
-                return null;
-            }
-        }
-
-        private List<SuplementoDTO> ConviertePrecioSuplementoAFloat(List<SuplementoDTO> listaSuplementos)
-        {
-            try
-            {
-                // Recorremos los suplementos
-                foreach (var suplemento in listaSuplementos)
-                {
-                    // Asignamos el nuevo precio
-                    suplemento.Precio_suplemento = suplemento.Precio_suplemento / 100;
-                }
-
-                // Devolvemos la lista
-                return listaSuplementos;
-            }
-            catch (Exception)
-            {
                 return null;
             }
         }
@@ -108,7 +88,7 @@ namespace ProyectoFinalDIW.Servicios
                     }
                 }
 
-                // Deserializa la respuesta JSON a un objeto C#
+                // Deserializa la respuesta JSON a un objeto SuplementoDTO
                 SuplementoDTO suplementoEncontrado = JsonConvert.DeserializeObject<SuplementoDTO>(responseData);
 
                 // Ahora comprobamos si el suplemento es distinto de null, si lo es lo devolvemos
@@ -196,8 +176,19 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
+                // Obtenemos el suplemento de la base de datos
+                SuplementoDTO suplementoEncontrado = BuscaSuplementoPorId(suplemento.Id_suplemento).Result;
+
+                // Actualizamos los datos del suplementoEncontrado con los datos del suplemento pasado por parámetros
+                suplementoEncontrado.Nombre_suplemento = suplemento.Nombre_suplemento;
+                suplementoEncontrado.Desc_suplemento = suplemento.Desc_suplemento;
+                suplementoEncontrado.Precio_suplemento = suplemento.Precio_suplemento;
+                suplementoEncontrado.Tipo_suplemento = suplemento.Tipo_suplemento;
+                if (suplemento.RutaImagen_suplemento != null)
+                    suplementoEncontrado.RutaImagen_suplemento = suplemento.RutaImagen_suplemento;
+                
                 // Convertimos el suplemento a json
-                string suplementoJson = JsonConvert.SerializeObject(suplemento, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+                string suplementoJson = JsonConvert.SerializeObject(suplementoEncontrado, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
                 // Configuramos la solicitud HTTP
                 using (HttpClient client = new HttpClient())

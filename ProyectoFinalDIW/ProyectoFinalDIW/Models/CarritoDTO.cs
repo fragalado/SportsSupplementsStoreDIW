@@ -15,20 +15,7 @@
 		private int cantidad;
 		private bool estaComprado_carrito;
 
-		// Constructores
-
-		public CarritoDTO(long id_carrito, long id_usuario, long id_suplemento, int cantidad, bool estaComprado_carrito)
-		{
-			this.id_carrito = id_carrito;
-			this.id_usuario = id_usuario;
-			this.id_suplemento = id_suplemento;
-			this.cantidad = cantidad;
-			this.estaComprado_carrito = estaComprado_carrito;
-		}
-
-		public CarritoDTO()
-		{
-		}
+		// Constructores -> Vacio
 
 		// Getter y Setter
 

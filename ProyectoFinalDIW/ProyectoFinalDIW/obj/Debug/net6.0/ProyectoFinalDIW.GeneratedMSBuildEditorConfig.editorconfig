@@ -9,95 +9,95 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProyectoFinalDIW
 build_property.RootNamespace = ProyectoFinalDIW
-build_property.ProjectDir = C:\Users\ruben\Desktop\borraDIW\SportsSupplementsStoreDIW\ProyectoFinalDIW\ProyectoFinalDIW\
+build_property.ProjectDir = C:\Users\Puesto8\Desktop\borrarDIW\SportsSupplementsStoreDIW\ProyectoFinalDIW\ProyectoFinalDIW\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ruben\Desktop\borraDIW\SportsSupplementsStoreDIW\ProyectoFinalDIW\ProyectoFinalDIW
+build_property.MSBuildProjectDirectory = C:\Users\Puesto8\Desktop\borrarDIW\SportsSupplementsStoreDIW\ProyectoFinalDIW\ProyectoFinalDIW
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/ActivaCuenta/VistaConfirmaEmail.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/ActivaCuenta/VistaConfirmaEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZhQ3VlbnRhXFZpc3RhQ29uZmlybWFFbWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAdministracionProducto.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAdministracionProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFBZG1pbmlzdHJhY2lvblByb2R1Y3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAdministracionUsuario.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAdministracionUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFBZG1pbmlzdHJhY2lvblVzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAgregarSuplemento.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAgregarSuplemento.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFBZ3JlZ2FyU3VwbGVtZW50by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAgregarUsuario.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaAgregarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFBZ3JlZ2FyVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaEditarSuplemento.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaEditarSuplemento.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFFZGl0YXJTdXBsZW1lbnRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaEditarUsuario.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Admin/VistaEditarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlzdGFFZGl0YXJVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Carrito/VistaCarrito.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Carrito/VistaCarrito.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycml0b1xWaXN0YUNhcnJpdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Home/Index.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Home/Privacy.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Home/VistaSuplementos.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaXN0YVN1cGxlbWVudG9zLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Login/VistaLogin.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Login/VistaLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cVmlzdGFMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Perfil/VistaPerfil.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Nutricion/VistaSuplementos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTnV0cmljaW9uXFZpc3RhU3VwbGVtZW50b3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Perfil/VistaPerfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsXFZpc3RhUGVyZmlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Registro/VistaRegister.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Registro/VistaRegister.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cm9cVmlzdGFSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/RestablecerPassword/VistaCambiarContrasenya.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/RestablecerPassword/VistaCambiarContrasenya.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGFibGVjZXJQYXNzd29yZFxWaXN0YUNhbWJpYXJDb250cmFzZW55YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/RestablecerPassword/VistaRecuperarContrasenya.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/RestablecerPassword/VistaRecuperarContrasenya.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdGFibGVjZXJQYXNzd29yZFxWaXN0YVJlY3VwZXJhckNvbnRyYXNlbnlhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/Error.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/_ViewImports.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/_ViewStart.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ruben/Desktop/borraDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/_Layout.cshtml]
+[C:/Users/Puesto8/Desktop/borrarDIW/SportsSupplementsStoreDIW/ProyectoFinalDIW/ProyectoFinalDIW/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-vtt1q27fhv

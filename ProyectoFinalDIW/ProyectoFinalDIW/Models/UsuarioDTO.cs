@@ -1,5 +1,9 @@
 ﻿namespace ProyectoFinalDIW.Models
 {
+    /// <summary>
+    /// Clase UsuarioDTO que hace referencia a la entidad Usuario
+    /// </summary>
+    /// autor: Fran Gallego
     public class UsuarioDTO
     {
         // Atributos

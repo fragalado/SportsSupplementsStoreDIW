@@ -29,7 +29,7 @@
         <form method="post" asp-controller="ActivaCuenta" asp-action="ConfirmaEmail" id="formularioMod">
             <h1>Confirmar cuenta</h1>
             <h4>Para activar la cuenta pulse el botón.</h4>
-            <input type="text" name="nombre_usuario" style="display: none" value="" id="idToken">
+            <input type="text" name="tokenForm" style="display: none" value="" id="idToken">
 
             @if (TempData["Mensaje"] != null)
             {

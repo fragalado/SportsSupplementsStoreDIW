@@ -56,7 +56,6 @@ namespace ProyectoFinalDIW.Servicios
 						return false;
 					}
 				}
-				return false;
             }
             catch (Exception)
             {
@@ -128,7 +127,7 @@ namespace ProyectoFinalDIW.Servicios
                     }
                 }
 
-                // Deserializa la respuesta JSON a un objeto C#
+                // Deserializa la respuesta JSON a una lista de CarritoDTO
                 List<CarritoDTO> listaCarrito = JsonConvert.DeserializeObject<List<CarritoDTO>>(responseData);
 
                 // Una vez que tenemos la lista carrito y el usuario vamos a quedarnos solo con los carritos del usuario que no esten comprados
@@ -151,7 +150,7 @@ namespace ProyectoFinalDIW.Servicios
                 // Recorremos la lista
                 foreach (var carrito in listaCarrito)
                 {
-                    // Obtenemos el suplemento por el id
+                    // Obtenemos el precio del suplemento por el id del suplemento
                     float precioSuplemento = listaSuplementos.Find(x => x.Id_suplemento == carrito.ID_suplemento).Precio_suplemento;
                     
                     // Sumamos el total

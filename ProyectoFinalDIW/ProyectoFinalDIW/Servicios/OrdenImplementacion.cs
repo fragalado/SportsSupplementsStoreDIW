@@ -11,6 +11,7 @@ namespace ProyectoFinalDIW.Servicios
 	/// Fecha: 17/02/2024
 	public class OrdenImplementacion : OrdenInterfaz
 	{
+		// Inicializamos las interfaces para utilizar sus métodos
 		private UsuarioInterfaz usuarioInterfaz = new UsuarioImplementacion();
 		private CarritoInterfaz carritoInterfaz = new CarritoImplementacion();
 		private SuplementoInterfaz suplementoInterfaz = new SuplementoImplementacion();
@@ -24,6 +25,10 @@ namespace ProyectoFinalDIW.Servicios
 
 				// Obtenemos los carritos del usuario
 				List<CarritoDTO> listaCarritos = carritoInterfaz.ObtieneCarritoUsuario(emailUsuario).Result;
+
+				// Comprobamos si la lista no esta vacia
+				if (listaCarritos.Count == 0)
+					return false;
 
 				// Obtenemos todos los suplementos
 				List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
@@ -45,8 +50,7 @@ namespace ProyectoFinalDIW.Servicios
 				// Ahora tendremos que crear objetos RelOrdenCarrito y añadirlos a la lista
 				List<RelOrdenCarritoDTO> listaRelOrdenCarritoDTO = new List<RelOrdenCarritoDTO>();
 
-				// Primero obtenemos el orden de la base de datos
-				//OrdenDTO ordenEncontrado = ObtieneOrden(ordenDTO).Result;
+				// Recorremos la lista de carritos
 				foreach (var carrito in listaCarritos)
 				{
 					// Creamos un objeto RelOrdenCarrito
@@ -87,10 +91,10 @@ namespace ProyectoFinalDIW.Servicios
 		}
 
 		/// <summary>
-		/// 
+		/// Método que realiza el INSERT de un objeto OrdenDTO a la base de datos
 		/// </summary>
-		/// <param name="ordenDTO"></param>
-		/// <returns></returns>
+		/// <param name="ordenDTO">Objeto OrdenDTO a agregar</param>
+		/// <returns>Devuelve el objeto OrdenDTO devuelto o null en caso de error</returns>
 		private OrdenDTO AgregarOrden(OrdenDTO ordenDTO)
 		{
 			// Convertimos la ordena JSON
@@ -98,7 +102,9 @@ namespace ProyectoFinalDIW.Servicios
 
 			try
 			{
+				// Variable donde guardaremos los datos de la respuesta
 				string responseData;
+
 				// Configurar la solicitud HTTP
 				using (HttpClient client = new HttpClient())
 				{
@@ -113,10 +119,13 @@ namespace ProyectoFinalDIW.Servicios
 					{
 						Console.WriteLine("Orden creado exitosamente");
 
+						// Obtenemos los datos de la respuesta
 						responseData = response.Content.ReadAsStringAsync().Result;
 
+						// Convertimos los datos de la respuesta a un objeto OrdenDTO
 						OrdenDTO ordenDevuelta = JsonConvert.DeserializeObject<OrdenDTO>(responseData);
 
+						// Si el objeto OrdenDTO es distinto de null lo devolvemos
 						if(ordenDevuelta != null)
 							return ordenDevuelta;
 
@@ -156,10 +165,10 @@ namespace ProyectoFinalDIW.Servicios
 		}
 
 		/// <summary>
-		/// 
+		/// Método que realiza el INSERT de un objeto RelOrdenCarritoDTO a la base de datos
 		/// </summary>
-		/// <param name="listaRelOrdenCarritoDTO"></param>
-		/// <returns></returns>
+		/// <param name="listaRelOrdenCarritoDTO">Lista de objetos RelOrdenCarritoDTO</param>
+		/// <returns>Devuelve true si se ha insertado corretamente o false en caso contrario</returns>
 		private bool AgregarListaRelOrdenCarrito(List<RelOrdenCarritoDTO> listaRelOrdenCarritoDTO)
 		{
 			// Convertimos la ordena JSON
@@ -216,6 +225,10 @@ namespace ProyectoFinalDIW.Servicios
 			}
 		}
 
+		/// <summary>
+		/// Método que actualiza un carrito en la base de datos
+		/// </summary>
+		/// <param name="carritoDTO">Objeto CarritoDTO a actualizar</param>
 		private void ActualizaCarrito(CarritoDTO carritoDTO)
 		{
 			// Convertimos el carrito a  JSON

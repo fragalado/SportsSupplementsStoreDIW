@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DAL
 {
+    [Table("Usuarios" ,Schema = "gtp_usuarios_c")]
     public class Usuario
     {
         // Atributos
@@ -39,7 +40,8 @@ namespace DAL
         public Usuario() {}
     }
 
-    public class Acceso
+	[Table("Accesos", Schema = "gtp_usuarios_c")]
+	public class Acceso
     {
         // Atributos
 
@@ -61,7 +63,8 @@ namespace DAL
         public Acceso() { }
     }
 
-    public class Token_Tabla
+	[Table("Tokens", Schema = "gtp_usuarios_c")]
+	public class Token_Tabla
     {
         // Atributos
 
@@ -187,6 +190,7 @@ namespace DAL
         [ForeignKey("id_orden")]
         public Orden? orden { get; set; }
         public long id_carrito { get; set; }
+        [ForeignKey("id_carrito")]
         public Carrito? carrito { get; set; }
 
         // Constructores

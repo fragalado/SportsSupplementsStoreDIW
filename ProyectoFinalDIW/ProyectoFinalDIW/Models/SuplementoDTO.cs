@@ -1,5 +1,9 @@
 ﻿namespace ProyectoFinalDIW.Models
 {
+    /// <summary>
+    /// Clase SuplementoDTO que hace referencia a la tabla Suplemento
+    /// </summary>
+    /// autor: Fran Gallego
     public class SuplementoDTO
     {
         // Atributos

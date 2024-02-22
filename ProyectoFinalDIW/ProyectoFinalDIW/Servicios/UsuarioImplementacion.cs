@@ -20,16 +20,9 @@ namespace ProyectoFinalDIW.Servicios
             UsuarioDTO usuarioEncontrado = BuscaUsuarioPorEmail(usuario.Email_usuario).Result;
 
             // Si existe comprobaremos que la password coincide
-            if (usuarioEncontrado != null)
+            if (usuarioEncontrado != null && Util.EncriptarContra(usuario.Psswd_usuario) == usuarioEncontrado.Psswd_usuario)
             {
-                // Encriptamos la contraseña
-                usuario.Psswd_usuario = Util.EncriptarContra(usuario.Psswd_usuario);
-
-                if (usuarioEncontrado.Psswd_usuario == usuario.Psswd_usuario)
-                {
-                    // Coinciden luego devolvemos el usuarioEncontrado
-                    return usuarioEncontrado;
-                }
+                return usuarioEncontrado;
             }
 
             // Si llega aquí es porque no se ha encontrado un usuario o no coinciden las contraseñas
@@ -66,10 +59,9 @@ namespace ProyectoFinalDIW.Servicios
                         return true;
                     else
                         return null;
-                } else
-                {
-                    return null;
                 }
+
+                return null;
             }
             catch (InvalidOperationException e)
             {
@@ -115,10 +107,10 @@ namespace ProyectoFinalDIW.Servicios
                     }
                 }
 
-                // Deserializa la respuesta JSON a un objeto C#
+                // Deserializa la respuesta JSON a un objeto UsuarioDTO
                 UsuarioDTO usuarioEncontrado = JsonConvert.DeserializeObject<UsuarioDTO>(responseData);
 
-                // Ahora puedes trabajar con 'usuarios', que es una lista con los datos de la API
+                // Comprobamos si el usuario es distinto de null, si lo es lo devolvemos
                 if (usuarioEncontrado != null)
                 {
                     return usuarioEncontrado;
@@ -157,8 +149,10 @@ namespace ProyectoFinalDIW.Servicios
                     return false;
                 }
 
+                // Si el usuarioEncontrado es distinto de null enviamos el correo
                 bool ok = emailIntefaz.EnviaCorreo(usuarioEncontrado, "https://localhost:7194/RestablecerPassword/VistaCambiarContrasenya", false);
 
+                // Comprobamos si se ha enviado el correo o no
                 if (ok)
                     return true;
                 return false; // Caso contrario
@@ -172,13 +166,12 @@ namespace ProyectoFinalDIW.Servicios
 
         public bool ModificaPassword(TokenDTO token, string password)
         {
-            // Obtenemos el usuario por el id
             try
             {
-                // Obtenemos el usuario
+                // Obtenemos el usuario por el id
                 UsuarioDTO usuarioEncontrado = BuscaUsuarioPorId(token.Id_usuario).Result;
 
-                // Ahora puedes trabajar con el tokenEncontrado
+                // Comprobaremos que el usuarioEncontrado sea distinto de null
                 if (usuarioEncontrado != null)
                 {
                     // Si el usuario es distinto de null vamos a modificar la contraseña y hacer el PUT
@@ -236,9 +229,10 @@ namespace ProyectoFinalDIW.Servicios
 
             try
             {
+                // Obtenemos el usuario por el id
                 UsuarioDTO usuarioEncontrado = BuscaUsuarioPorId(token.Id_usuario).Result;
 
-                // Ahora puedes trabajar con el tokenEncontrado
+                // Comprobamos que el usuarioEncontrado sea distinto de null
                 if (usuarioEncontrado != null)
                 {
                     // Si el usuario es distinto de null vamos a modificar la propiedad estaActivado_usuario y hacer el PUT
@@ -311,12 +305,12 @@ namespace ProyectoFinalDIW.Servicios
                     }
                     else
                     {
-                        // En caso de error, lanza una excepción o maneja el error según tus necesidades
+                        // En caso de error devolvemos null
                         return null;
                     }
                 }
 
-                // Deserializa la respuesta JSON a una List de objetos Usuario
+                // Deserializa la respuesta JSON a una Lista de objetos UsuarioDTO
                 List<UsuarioDTO> listaUsuarios = JsonConvert.DeserializeObject<List<UsuarioDTO>>(responseData);
 
                 // Devolvemos la lista
@@ -343,9 +337,10 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
-                // Buscamos si el usuario por el id
+                // Buscamos el usuario por el id
                 UsuarioDTO usuarioEncontrado = BuscaUsuarioPorId(id).Result;
 
+                // Si el usuarioEncontrado es igual a null devolvemos false
                 if (usuarioEncontrado == null)
                 {
                     // No se ha encontrado ningún usuario con el id introducido
@@ -353,7 +348,11 @@ namespace ProyectoFinalDIW.Servicios
                     return false;
                 }
 
-                // Si existe el usuario lo borramos de la base de datos
+                // Comprobamos que el usuario no sea admin
+                if (usuarioEncontrado.Id_acceso == 2)
+                    return false;
+
+                // Si no es admin lo borramos de la base de datos
                 // Configuramos la solicitud HTTP
                 using (HttpClient client = new HttpClient())
                 {
@@ -416,15 +415,15 @@ namespace ProyectoFinalDIW.Servicios
                     }
                     else
                     {
-                        // En caso de error, lanza una excepción o maneja el error según tus necesidades
+                        // En caso de error devolvemos null
                         return null;
                     }
                 }
 
-                // Deserializa la respuesta JSON a un objeto C#
+                // Deserializa la respuesta JSON a un objeto UsuarioDTO
                 UsuarioDTO usuarioEncontrado = JsonConvert.DeserializeObject<UsuarioDTO>(responseData);
 
-                // Ahora puedes trabajar con 'usuarios', que es una lista con los datos de la API
+                // Si usuarioEncontrado es distinto de null lo devolvemos
                 if (usuarioEncontrado != null)
                 {
                     return usuarioEncontrado;
@@ -511,7 +510,7 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
-                // Encriptamos la contraseña
+                // Encriptamos la contraseña del usuario
                 usuarioDTO.Psswd_usuario = Util.EncriptarContra(usuarioDTO.Psswd_usuario);
 
                 // Convertimos el usuario a json
