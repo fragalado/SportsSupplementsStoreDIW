@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TBX5ypHB9KZ+QGErjWRgYPjGDW+C3Ss19/wQ/r6+9sSo0nn/+SOqq4U57R3a4tCRrmtdh05VJfnSLXAYIQGvVQ==",
+  "dgSpecHash": "ipZPTsqeWRAxI6AHKwCYuen0X+TZXiZXECTHTA2nZmjCt707MI4VBgDUfBC1nWuAwkCWaqXBCVqcOPhdPVF+3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ruben\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\apiCProyectoFinal\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\ruben\\Desktop\\finalDIW\\SportsSupplementsStoreDIW\\apiCProyectoFinal\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ruben\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ruben\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.15\\microsoft.entityframeworkcore.7.0.15.nupkg.sha512",

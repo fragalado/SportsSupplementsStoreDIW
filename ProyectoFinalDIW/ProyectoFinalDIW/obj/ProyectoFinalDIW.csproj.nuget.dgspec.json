@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ruben\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj": {}
+    "C:\\Users\\ruben\\Desktop\\finalDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ruben\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj": {
+    "C:\\Users\\ruben\\Desktop\\finalDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ruben\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
+        "projectUniqueName": "C:\\Users\\ruben\\Desktop\\finalDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
         "projectName": "ProyectoFinalDIW",
-        "projectPath": "C:\\Users\\ruben\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
+        "projectPath": "C:\\Users\\ruben\\Desktop\\finalDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\ProyectoFinalDIW.csproj",
         "packagesPath": "C:\\Users\\ruben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ruben\\Desktop\\borrarDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\obj\\",
+        "outputPath": "C:\\Users\\ruben\\Desktop\\finalDIW\\SportsSupplementsStoreDIW\\ProyectoFinalDIW\\ProyectoFinalDIW\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",

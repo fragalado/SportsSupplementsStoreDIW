@@ -270,7 +270,7 @@ namespace ProyectoFinalDIW.Servicios
                 }
 
                 // Devolvemos el precio total
-                return total;
+                return (float) Math.Round(total, 2);
             }
             catch (ArgumentNullException)
             {
