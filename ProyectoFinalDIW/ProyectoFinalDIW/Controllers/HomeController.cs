@@ -20,24 +20,38 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve una vista</returns>
         public IActionResult Index()
         {
-            // Controlamos si el usuario ha iniciado sesion o no
-            if (!Util.ControlaSesion(HttpContext))
+            try
             {
-                // Si no ha iniciado sesion redirigimos a la vista login
-                return RedirectToAction("VistaLogin", "Login");
+                // Log
+                Util.LogInfo("HomeController", "Index", "Ha entrado en Index");
+
+                // Controlamos si el usuario ha iniciado sesion o no
+                if (!Util.ControlaSesion(HttpContext))
+                {
+                    // Si no ha iniciado sesion redirigimos a la vista login
+                    return RedirectToAction("VistaLogin", "Login");
+                }
+
+                ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+
+                // Obtenemos todos los suplementos
+                List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
+
+                // Ahora nos vamos a quedar con solo 6 suplementos y lo vamos a devolver con la vista
+                if (listaSuplementos.Count > 6)
+                    listaSuplementos = listaSuplementos.Take(6).ToList();
+
+                // Devolvemos la vista con los suplementos
+                return View(listaSuplementos);
             }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("HomeController", "Index", "Se ha producido un error");
 
-            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
-
-            // Obtenemos todos los suplementos
-            List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
-
-            // Ahora nos vamos a quedar con solo 6 suplementos y lo vamos a devolver con la vista
-            if(listaSuplementos.Count > 6)
-                listaSuplementos = listaSuplementos.Take(6).ToList();
-
-            // Devolvemos la vista con los suplementos
-            return View(listaSuplementos);
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
 
         public IActionResult Privacy()

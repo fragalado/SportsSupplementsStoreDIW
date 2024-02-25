@@ -29,21 +29,30 @@ namespace apiCProyectoFinal.Controllers
             return context.Rel_Orden_Carritos.ToList();
         }
 
+        /// <summary>
+        /// Método que recibe una lista de objetos Rel_Orden_Carrito y crea cada objeto en la base de datos
+        /// </summary>
+        /// <param name="relOrdenCarrito">Lista con objetos de tipo Rel_Orden_Carrito</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult> PostRelOrdenCarrito(List<Rel_Orden_Carrito> relOrdenCarrito)
         {
             try
             {
+                // Recorremos la lista
                 foreach (var aux in relOrdenCarrito)
                 {
+                    // Agregamos el objeto
 					context.Rel_Orden_Carritos.Add(aux);
 				}
                 
+                // Guardamos los cambios
                 await context.SaveChangesAsync();
 
+                // Devolvemos el estado, ok, operacion exitosa
                 return Ok();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return NoContent();
             }

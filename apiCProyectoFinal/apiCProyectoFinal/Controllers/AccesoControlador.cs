@@ -35,7 +35,7 @@ namespace apiCProyectoFinal.Controllers
         /// <param name="id">Id del acceso en la base de datos</param>
         /// <returns>Devuelve un acceso</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Acceso>> GetAcceso(long id)
+        public async Task<ActionResult<Acceso>> GetAccesoById(long id)
         {
             // Obtenemos el acceso por el id
             var acceso = await context.Accesos.FindAsync(id);
@@ -50,13 +50,20 @@ namespace apiCProyectoFinal.Controllers
             return acceso;
         }
 
+        /// <summary>
+        /// Método que actualiza un acceso en la base de datos
+        /// </summary>
+        /// <param name="acceso">Acceso a actualizar</param>
+        /// <returns>Devuelve el estado de la operacion</returns>
         [HttpPut]
         public async Task<IActionResult> PutAcceso(Acceso acceso)
         {
+            // Cambiamos el estado del acceso a modificado, para que EntiyFramework realice la actualizacion
             context.Entry(acceso).State = EntityState.Modified;
 
             try
             {
+                // Guardamos los cambios
                 await context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -67,35 +74,54 @@ namespace apiCProyectoFinal.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Método que crea un nuevo acceso en la base de datos
+        /// </summary>
+        /// <param name="acceso">Acceso a crear</param>
+        /// <returns>Devuevel el acceso creado</returns>
         [HttpPost]
         public async Task<ActionResult<Acceso>> PostAcceso(Acceso acceso)
         {
             try
             {
+                // Agregamos el acceso
                 context.Accesos.Add(acceso);
+
+                // Guardamos los cambios
                 await context.SaveChangesAsync();
 
-                return CreatedAtAction("GetAcceso", new { id = acceso.id_acceso }, acceso);
+                // Devolvemos el acceso creado
+                return CreatedAtAction("GetAccesoById", new { id = acceso.id_acceso }, acceso);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return NoContent();
             }
         }
 
+        /// <summary>
+        /// Método que elimina un acceso en la base de datos
+        /// </summary>
+        /// <param name="id">Id del acceso a eliminar</param>
+        /// <returns>Devuelve el estado de la operacion</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAcceso(long id)
         {
             try
             {
+                // Buscamos el acceso por su id
                 var acceso = await context.Accesos.FindAsync(id);
-
+                
+                // Comprobamos si el acceso existe
                 if (acceso == null)
                 {
                     return NotFound();
                 }
 
+                // Eliminamos el acceso
                 context.Accesos.Remove(acceso);
+
+                // Guardamos los cambios
                 await context.SaveChangesAsync();
 
                 return NoContent();

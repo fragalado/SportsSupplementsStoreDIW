@@ -19,21 +19,35 @@ namespace ProyectoFinalDIW.Controllers
 		/// <returns>Devuelve una redireccion</returns>
 		public ActionResult ComprarCarrito()
 		{
-			// Control de sesion
-			if (!Util.ControlaSesion(HttpContext))
-				return RedirectToAction("VistaLogin", "Login");
+			try
+			{
+                // Log
+                Util.LogInfo("OrdenController", "ComprarCarrito", "Ha entrado en ComprarCarrito");
 
-			// Realizamos la compra de los carritos del usuario
-			bool ok = ordenInterfaz.ComprarCarritoUsuario(HttpContext.Session.GetString("email"));
+                // Control de sesion
+                if (!Util.ControlaSesion(HttpContext))
+                    return RedirectToAction("VistaLogin", "Login");
 
-			// Controlamos si se ha realizado correctamente o no
-            if (ok)
-				TempData["carritoComprado"] = "Se ha realizado la compra correctamente!";
-			else
-				TempData["carritoCancel"] = "Se ha cancelado la compra!";
+                // Realizamos la compra de los carritos del usuario
+                bool ok = ordenInterfaz.ComprarCarritoUsuario(HttpContext.Session.GetString("email"));
 
-			// Redirigimos a la vista carrito
-            return RedirectToAction("VistaCarrito", "Carrito");
+                // Controlamos si se ha realizado correctamente o no
+                if (ok)
+                    TempData["carritoComprado"] = "Se ha realizado la compra correctamente!";
+                else
+                    TempData["carritoCancel"] = "Se ha cancelado la compra!";
+
+                // Redirigimos a la vista carrito
+                return RedirectToAction("VistaCarrito", "Carrito");
+            }
+			catch (Exception)
+			{
+                // Log
+                Util.LogError("OrdenController", "ComprarCarrito", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
 		}
 	}
 }

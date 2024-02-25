@@ -19,15 +19,29 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve una vista</returns>
         public IActionResult VistaRegister()
         {
-            // Controlamos la sesion
-            if (Util.ControlaSesion(HttpContext))
+            try
             {
-                // Si el usuario ya ha iniciado sesion redirigimos a la vista home
-                return RedirectToAction("Index", "Home");
-            }
+                // Log
+                Util.LogInfo("RegistroController", "VistaRegister", "Ha entrado en VistaRegister");
 
-            // Devolvemos la vista
-            return View();
+                // Controlamos la sesion
+                if (Util.ControlaSesion(HttpContext))
+                {
+                    // Si el usuario ya ha iniciado sesion redirigimos a la vista home
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // Devolvemos la vista
+                return View();
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("RegistroController", "VistaRegister", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
 
         /// <summary>
@@ -40,6 +54,9 @@ namespace ProyectoFinalDIW.Controllers
         {
             try
             {
+                // Log
+                Util.LogInfo("RegistroController", "RegistrarUsuario", "Ha entrado en RegistrarUsuario");
+
                 // Verificamos si el usuario está incompleto
                 if (usuario.Nombre_usuario == null || usuario.Psswd_usuario == null || usuario.Email_usuario == null)
                 {
@@ -73,11 +90,11 @@ namespace ProyectoFinalDIW.Controllers
                     return View("VistaRegister");
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // Si llega aquí es porque se ha producido un error al registrar al usuario
-                // Luego mostramos mensaje de error y devolvemos la vista de registro
-                Console.WriteLine("[ERROR-RegistroController-RegistrarUsuario] Error al registrar usuario");
+                // Log
+                Util.LogError("RegistroController", "RegistrarUsuario", "Se ha producido un error");
 
                 ViewData["Mensaje"] = "Se ha producido un error. Vuelve a intentarlo más tarde!!";
                 return View("VistaRegister");

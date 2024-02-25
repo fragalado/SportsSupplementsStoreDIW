@@ -23,32 +23,46 @@ namespace ProyectoFinalDIW.Controllers
 		/// <returns>Devuelve una vista</returns>
         public IActionResult VistaSuplementos(int st)
         {
-            // Controlamos si el usuario ha iniciado sesion o no
-            if (!Util.ControlaSesion(HttpContext))
-            {
-				// Redireccionamos a la vista de login
-                return RedirectToAction("VistaLogin", "Login");
+			try
+			{
+                // Log
+                Util.LogInfo("NutricionController", "VistaSuplementos", "Ha entrado en VistaSuplementos");
+
+                // Controlamos si el usuario ha iniciado sesion o no
+                if (!Util.ControlaSesion(HttpContext))
+                {
+                    // Redireccionamos a la vista de login
+                    return RedirectToAction("VistaLogin", "Login");
+                }
+
+                ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+
+                // Obtenemos todos los suplementos
+                List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
+
+                // Ahora filtramos la lista por el tipo de suplemento
+                if (st == 1)
+                {
+                    // Proteínas
+                    listaSuplementos = listaSuplementos.Where(suplemento => suplemento.Tipo_suplemento == "Proteína").ToList();
+                }
+                else if (st == 2)
+                {
+                    // Creatinas
+                    listaSuplementos = listaSuplementos.Where(suplemento => suplemento.Tipo_suplemento == "Creatina").ToList();
+                }
+
+                // Devolvemos la vista con los suplementos
+                return View(listaSuplementos);
             }
+			catch (Exception)
+			{
+                // Log
+                Util.LogError("NutricionController", "VistaSuplementos", "Se ha producido un error");
 
-            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
-
-            // Obtenemos todos los suplementos
-            List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
-
-			// Ahora filtramos la lista por el tipo de suplemento
-            if (st == 1)
-            {
-                // Proteínas
-                listaSuplementos = listaSuplementos.Where(suplemento => suplemento.Tipo_suplemento == "Proteína").ToList();
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
             }
-            else if (st == 2)
-            {
-                // Creatinas
-                listaSuplementos = listaSuplementos.Where(suplemento => suplemento.Tipo_suplemento == "Creatina").ToList();
-            }
-
-            // Devolvemos la vista con los suplementos
-            return View(listaSuplementos);
         }
 
 		/// <summary>
@@ -60,8 +74,11 @@ namespace ProyectoFinalDIW.Controllers
 		{
 			try
 			{
-				// Control de sesión
-				if (!Util.ControlaSesion(HttpContext))
+                // Log
+                Util.LogInfo("NutricionController", "AgregaSuplementoCarrito", "Ha entrado en AgregaSuplementoCarrito");
+
+                // Control de sesión
+                if (!Util.ControlaSesion(HttpContext))
 				{
 					return RedirectToAction("VistaLogin", "Login");
 				}
@@ -85,7 +102,10 @@ namespace ProyectoFinalDIW.Controllers
 			}
 			catch (Exception)
 			{
-				TempData["suplementoError"] = "El suplemento no se ha podido agregar al carrito!";
+                // Log
+                Util.LogError("NutricionController", "AgregaSuplementoCarrito", "Se ha producido un error");
+
+                TempData["suplementoError"] = "El suplemento no se ha podido agregar al carrito!";
 				return RedirectToAction("VistaSuplementos");
 			}
 		}

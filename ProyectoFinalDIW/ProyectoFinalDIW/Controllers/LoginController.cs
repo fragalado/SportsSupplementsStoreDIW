@@ -19,17 +19,31 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve la vista</returns>
         public IActionResult VistaLogin()
         {
-            // Verificamos si el usuario ya ha iniciado sesión
-            if (Util.ControlaSesion(HttpContext))
+            try
             {
-                // Si ha iniciado sesión redirigimos a Home
-                return RedirectToAction("Index", "Home");
-            }
+                // Log
+                Util.LogInfo("LoginController", "VistaLogin", "Ha entrado en VistaLogin");
 
-            // Devolvemos la vista
-            return View();
-            // Tambien podriamos poner:
-            // return View("~/Views/Login/VistaLogin.cshtml");
+                // Verificamos si el usuario ya ha iniciado sesión
+                if (Util.ControlaSesion(HttpContext))
+                {
+                    // Si ha iniciado sesión redirigimos a Home
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // Devolvemos la vista
+                return View();
+                // Tambien podriamos poner:
+                // return View("~/Views/Login/VistaLogin.cshtml");
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("LoginController", "VistaLogin", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
 
         /// <summary>
@@ -42,6 +56,9 @@ namespace ProyectoFinalDIW.Controllers
         {
             try
             {
+                // Log
+                Util.LogInfo("LoginController", "LoginUsuario", "Ha entrado en LoginUsuario");
+
                 // Verificamos si el usuario está incompleto
                 if (usuario.Psswd_usuario == null || usuario.Email_usuario == null)
                 {
@@ -81,8 +98,8 @@ namespace ProyectoFinalDIW.Controllers
             catch (Exception e)
             {
                 // Si llega aquí es porque se ha producido un error al iniciar sesión
-                // Luego mostramos mensaje de error y devolvemos la vista de login
-                Console.WriteLine("[ERROR-LoginController-LoginUsuario] Error al iniciar sesión");
+                // Log
+                Util.LogError("LoginController", "LoginUsuario", "Se ha producido un error");
 
                 ViewData["Mensaje"] = "Se ha producido un error. Vuelve a intentarlo más tarde!!";
                 return View("VistaLogin");

@@ -17,6 +17,9 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
+                // Log
+                Util.LogInfo("EmailImplementacion", "EnviaCorreo", "Ha entrado en EnviaCorreo");
+
                 // Creamos un token
                 Guid guid = Guid.NewGuid();
 
@@ -45,7 +48,8 @@ namespace ProyectoFinalDIW.Servicios
                     // Verificamos la respuesta del servidor
                     if (response.IsSuccessStatusCode)
                     {
-                        Console.WriteLine("Token creado exitosamente");
+                        // Log
+                        Util.LogInfo("EmailImplementacion", "EnviaCorreo", "Token creado correctamente");
 
                         // Llamamos a los métodos para enviar el correo
                         String mensaje = MensajeCorreo(token, urlCorreo, esActivado);
@@ -53,19 +57,55 @@ namespace ProyectoFinalDIW.Servicios
                     }
                     else
                     {
-                        Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                        // Log
+                        Util.LogInfo("EmailImplementacion", "EnviaCorreo", "No se ha creado el token correctamente");
                         return false;
                     }
                 }
             }
-            catch (Exception)
+            catch (AggregateException)
             {
+                // Log
+                Util.LogError("EmailImplementacion", "EnviaCorreo", "No se ha podido enviar el correo debido a un excepcion agregada");
+                return false;
+            }
+            catch (ArgumentNullException)
+            {
+                // Log
+                Util.LogError("EmailImplementacion", "EnviaCorreo", "No se ha podido enviar el correo debido a un argumento nulo");
+                return false;
+            }
+            catch (UriFormatException)
+            {
+                // Log
+                Util.LogError("EmailImplementacion", "EnviaCorreo", "No se ha podido enviar el correo debido a un formato incorrecto del URI");
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("EmailImplementacion", "EnviaCorreo", "No se ha podido enviar el correo debido a una operacion invalida");
+                return false;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("EmailImplementacion", "EnviaCorreo", "No se ha podido enviar el correo debido a un error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("EmailImplementacion", "EnviaCorreo", "No se ha podido enviar el correo debido a la cancelacion de una tarea");
                 return false;
             }
         }
 
         public string MensajeCorreo(string token, string direccion, bool esActivado)
         {
+            // Log
+            Util.LogInfo("EmailImplementacion", "MensajeCorreo", "Ha entrado en MensajeCorreo");
+
             if (esActivado)
                 return $@"
         <div style=""font-family: 'Optima', sans-serif; max-width: 600px; margin: 0 auto; color: #192255; line-height: 1.6;"">
@@ -107,6 +147,8 @@ namespace ProyectoFinalDIW.Servicios
             SmtpClient smtpClient = null;
             try
             {
+                // Log
+                Util.LogInfo("EmailImplementacion", "EnviarMensaje", "Ha entrado en EnviarMensaje");
 
                 // Parámetros de conexión
                 string host = "smtp.ionos.es";
@@ -149,7 +191,8 @@ namespace ProyectoFinalDIW.Servicios
             }
             catch (Exception e)
             {
-                Console.WriteLine($"[ERROR-EmailImplementacion-EnviarMensaje] Error: {e.Message}");
+                // Log
+                Util.LogError("EmailImplementacion", "EnviarMensaje", "no se ha podido enviar el correo electronico");
                 resultado = false;
             }
             finally

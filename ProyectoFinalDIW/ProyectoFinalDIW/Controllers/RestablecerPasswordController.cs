@@ -22,15 +22,29 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve una vista</returns>
         public IActionResult VistaRecuperarContrasenya()
         {
-            // Controlamos la sesion
-            if (Util.ControlaSesion(HttpContext))
+            try
             {
-                // Si el usuario ya ha iniciado sesion redirigimos a la vista home
-                return RedirectToAction("Index", "Home");
-            }
+                // Log
+                Util.LogInfo("RestablecerPasswordController", "VistaRecuperarContrasenya", "Ha entrado en VistaRecuperarContrasenya");
 
-            // Devolvemos la vista
-            return View();
+                // Controlamos la sesion
+                if (Util.ControlaSesion(HttpContext))
+                {
+                    // Si el usuario ya ha iniciado sesion redirigimos a la vista home
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // Devolvemos la vista
+                return View();
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("RestablecerPasswordController", "VistaRecuperarContrasenya", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
 
         /// <summary>
@@ -39,15 +53,29 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve una vista</returns>
         public IActionResult VistaCambiarContrasenya()
         {
-            // Controlamos la sesion
-            if (Util.ControlaSesion(HttpContext))
+            try
             {
-                // Si el usuario ya ha iniciado sesion redirigimos a la vista home
-                return RedirectToAction("Index", "Home");
-            }
+                // Log
+                Util.LogInfo("RestablecerPasswordController", "VistaCambiarContrasenya", "Ha entrado en VistaCambiarContrasenya");
 
-            // Devolvemos la vista
-            return View();
+                // Controlamos la sesion
+                if (Util.ControlaSesion(HttpContext))
+                {
+                    // Si el usuario ya ha iniciado sesion redirigimos a la vista home
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // Devolvemos la vista
+                return View();
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("RestablecerPasswordController", "VistaCambiarContrasenya", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
 
         /// <summary>
@@ -60,6 +88,9 @@ namespace ProyectoFinalDIW.Controllers
         {
             try
             {
+                // Log
+                Util.LogInfo("RestablecerPasswordController", "RecuperarPassword", "Ha entrado en RecuperarPassword");
+
                 // Controlamos que el email del usuario sea distinto de null
                 if (usuario.Email_usuario == null)
                 {
@@ -85,7 +116,8 @@ namespace ProyectoFinalDIW.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("[ERROR-RestablecerPasswordController-RecuperarPassword] Error al recuperar password");
+                // Log
+                Util.LogError("RestablecerPasswordController", "RecuperarPassword", "Se ha producido un error");
 
                 // Si llega aquí es porque se ha producido un error al recuperar password
                 // Luego mostramos mensaje de error y devolvemos la vista de recuperar contrasenya
@@ -102,13 +134,16 @@ namespace ProyectoFinalDIW.Controllers
         [HttpPost]
         public ActionResult ModificarPassword(UsuarioDTO usuario)
         {
-            // Guardamos los valores del objeto UsuarioDTO en variables
-            string token = usuario.Nombre_usuario;
-            string password1 = usuario.Psswd_usuario;
-            string password2 = usuario.Email_usuario;
-
             try
             {
+                // Log
+                Util.LogInfo("RestablecerPasswordController", "ModificarPassword", "Ha entrado en ModificarPassword");
+
+                // Guardamos los valores del objeto UsuarioDTO en variables
+                string token = usuario.Nombre_usuario;
+                string password1 = usuario.Psswd_usuario;
+                string password2 = usuario.Email_usuario;
+
                 // Controlamos que los valores sean distintos de null y que las contraseñas coincidan
                 if (token == null || password1 == null || password2 == null)
                 {
@@ -157,12 +192,13 @@ namespace ProyectoFinalDIW.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("[ERROR-RestablecerPasswordController-ModificarPassword] Error al modificar password");
+                // Log
+                Util.LogError("RestablecerPasswordController", "ModificarPassword", "Se ha producido un error");
 
                 // Si llega aquí es porque se ha producido un error al modificar password
                 // Luego mostramos mensaje de error y devolvemos la vista de recuperar contrasenya
                 ViewData["Mensaje"] = "Se ha producido un error. Vuelve a intentarlo más tarde!!";
-                return View("VistaCambiarContrasenya", new { tk = token });
+                return View("VistaCambiarContrasenya", new { tk = usuario.Nombre_usuario });
             }
         }
     }

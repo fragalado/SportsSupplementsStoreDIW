@@ -19,20 +19,34 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve una vista</returns>
         public IActionResult VistaPerfil()
         {
-            // Control de sesión
-            if (!Util.ControlaSesion(HttpContext))
-                return RedirectToAction("VistaLogin", "Login");
+            try
+            {
+                // Log
+                Util.LogInfo("PerfilController", "VistaPerfil", "Ha entrado en VistaPerfil");
 
-            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+                // Control de sesión
+                if (!Util.ControlaSesion(HttpContext))
+                    return RedirectToAction("VistaLogin", "Login");
 
-            // Obtenemos el email
-            string email = HttpContext.Session.GetString("email")!;
+                ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
-            // Obtenemos el usuario por el email
-            UsuarioDTO usuarioEncontrado = usuarioInterfaz.BuscaUsuarioPorEmail(email).Result;
+                // Obtenemos el email
+                string email = HttpContext.Session.GetString("email")!;
 
-            // Devolvemos la vista con el usuario
-            return View(usuarioEncontrado);
+                // Obtenemos el usuario por el email
+                UsuarioDTO usuarioEncontrado = usuarioInterfaz.BuscaUsuarioPorEmail(email).Result;
+
+                // Devolvemos la vista con el usuario
+                return View(usuarioEncontrado);
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("PerfilController", "VistaPerfil", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
 
         /// <summary>
@@ -41,18 +55,32 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve una redireccion</returns>
         public IActionResult CerrarSesion()
         {
-            // Control de sesión
-            if (!Util.ControlaSesion(HttpContext))
+            try
+            {
+                // Log
+                Util.LogInfo("PerfilController", "CerrarSesion", "Ha entrado en CerrarSesion");
+
+                // Control de sesión
+                if (!Util.ControlaSesion(HttpContext))
+                    return RedirectToAction("VistaLogin", "Login");
+
+                // Cambiamos el acceso a 0
+                HttpContext.Session.SetString("acceso", "0");
+
+                // Mensaje de cierre de sesion con exito
+                TempData["sesionCerrada"] = "Se ha cerrado sesión con éxito!!";
+
+                // Redirigimos a la vista login
                 return RedirectToAction("VistaLogin", "Login");
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("PerfilController", "CerrarSesion", "Se ha producido un error");
 
-            // Cambiamos el acceso a 0
-            HttpContext.Session.SetString("acceso", "0");
-
-            // Mensaje de cierre de sesion con exito
-            TempData["sesionCerrada"] = "Se ha cerrado sesión con éxito!!";
-
-            // Redirigimos a la vista login
-            return RedirectToAction("VistaLogin", "Login");
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
     }
 }

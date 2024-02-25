@@ -21,6 +21,9 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
+                // Log
+                Util.LogInfo("CarritoImplementacion", "AgregaSuplemento", "Ha entrado en AgregaSuplemento");
+
                 // Obtenemos el usuario por el email
                 UsuarioDTO usuarioDTO = usuarioInterfaz.BuscaUsuarioPorEmail(emailUsuario).Result;
 
@@ -46,21 +49,55 @@ namespace ProyectoFinalDIW.Servicios
 					// Verificar la respuesta del servidor
 					if (response.IsSuccessStatusCode)
 					{
-						Console.WriteLine("Carrito creado exitosamente");
+                        // Log
+                        Util.LogInfo("CarritoImplementacion", "AgregaSuplemento", "Carrito creado correctamente");
 
                         return true;
 					}
 					else
 					{
-						Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                        // Log
+                        Util.LogError("CarritoImplementacion", "AgregaSuplemento", "No se ha podido crear el carrito");
+
 						return false;
 					}
 				}
             }
-            catch (Exception)
+            catch (AggregateException)
             {
+                // Log
+                Util.LogError("CarritoImplementacion", "AgregaSuplemento", "No se ha podido crear el carrito debido a un excepcion agregada");
                 return false;
-                throw;
+            }
+            catch (ArgumentNullException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "AgregaSuplemento", "No se ha podido crear el carrito debido a un argumento nulo");
+                return false;
+            }
+            catch (UriFormatException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "AgregaSuplemento", "No se ha podido crear el carrito debido a un formato incorrecto del URI");
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "AgregaSuplemento", "No se ha podido crear el carrito debido a una operacion invalida");
+                return false;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "AgregaSuplemento", "No se ha podido crear el carrito debido a un error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "AgregaSuplemento", "No se ha podido crear el carrito debido a la cancelacion de una tarea");
+                return false;
             }
         }
 
@@ -68,8 +105,11 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
-				// Configurar la solicitud HTTP
-				using (HttpClient client = new HttpClient())
+                // Log
+                Util.LogInfo("CarritoImplementacion", "BorraCarrito", "Ha entrado en BorraCarrito");
+
+                // Configurar la solicitud HTTP
+                using (HttpClient client = new HttpClient())
 				{
 					// Url a la que haremos el POST
 					Uri url = new Uri("https://localhost:7029/api/CarritoControlador/" + id_carrito);
@@ -80,19 +120,53 @@ namespace ProyectoFinalDIW.Servicios
 					// Verificar la respuesta del servidor
 					if (response.IsSuccessStatusCode)
 					{
-						Console.WriteLine("Carrito borrado exitosamente");
+                        // Log
+                        Util.LogInfo("CarritoImplementacion", "BorraCarrito", "Carrito borrado correctamente");
 
-						return true;
+                        return true;
 					}
 					else
 					{
-						Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
-						return false;
+                        // Log
+                        Util.LogInfo("CarritoImplementacion", "BorraCarrito", "No se ha podido borrar el carrito");
+                        return false;
 					}
 				}
             }
-            catch (Exception)
+            catch (AggregateException)
             {
+                // Log
+                Util.LogError("CarritoImplementacion", "BorraCarrito", "No se ha podido borrar el carrito debido a un excepcion agregada");
+                return false;
+            }
+            catch (ArgumentNullException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "BorraCarrito", "No se ha podido borrar el carrito debido a un argumento nulo");
+                return false;
+            }
+            catch (UriFormatException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "BorraCarrito", "No se ha podido borrar el carrito debido a un formato incorrecto del URI");
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "BorraCarrito", "No se ha podido borrar el carrito debido a una operacion invalida");
+                return false;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "BorraCarrito", "No se ha podido borrar el carrito debido a un error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "BorraCarrito", "No se ha podido borrar el carrito debido a la cancelacion de una tarea");
                 return false;
             }
         }
@@ -101,6 +175,9 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
+                // Log
+                Util.LogInfo("CarritoImplementacion", "ObtieneCarritoUsuario", "Ha entrado en ObtieneCarritoUsuario");
+
                 // Obtenemos el usuario por el email
                 UsuarioDTO usuarioDTO = usuarioInterfaz.BuscaUsuarioPorEmail(emailUsuario).Result;
 
@@ -136,8 +213,40 @@ namespace ProyectoFinalDIW.Servicios
                 // Devolvemos la lista filtrada
                 return listaCarritoFiltrado;
             }
-            catch (Exception)
+            catch (AggregateException)
             {
+                // Log
+                Util.LogError("CarritoImplementacion", "ObtieneCarritoUsuario", "No se ha podido obtener los carritos del usuario debido a un excepcion agregada");
+                return null;
+            }
+            catch (ArgumentNullException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "ObtieneCarritoUsuario", "No se ha podido obtener los carritos del usuario debido a un argumento nulo");
+                return null;
+            }
+            catch (UriFormatException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "ObtieneCarritoUsuario", "No se ha podido obtener los carritos del usuario debido a un formato incorrecto del URI");
+                return null;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "ObtieneCarritoUsuario", "No se ha podido obtener los carritos del usuario debido a una operacion invalida");
+                return null;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "ObtieneCarritoUsuario", "No se ha podido obtener los carritos del uusario debido a un error en la solicitud HTTP");
+                return null;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("CarritoImplementacion", "ObtieneCarritoUsuario", "No se ha podido obtener los carritos del usuario debido a la cancelacion de una tarea");
                 return null;
             }
         }
@@ -146,6 +255,9 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
+                // Log
+                Util.LogInfo("CarritoImplementacion", "ObtienePrecioTotalCarrito", "Ha entrado en ObtienePrecioTotalCarrito");
+
                 float total = 0;
                 // Recorremos la lista
                 foreach (var carrito in listaCarrito)
@@ -160,10 +272,11 @@ namespace ProyectoFinalDIW.Servicios
                 // Devolvemos el precio total
                 return total;
             }
-            catch (Exception)
+            catch (ArgumentNullException)
             {
+                // Log
+                Util.LogError("CarritoImplementacion", "ObtienePrecioTotalCarrito", "No se ha podido calcualr el precio total del carrito debido a un argumento nulo");
                 return 0;
-                throw;
             }
         }
     }

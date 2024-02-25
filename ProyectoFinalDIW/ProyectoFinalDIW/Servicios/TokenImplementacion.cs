@@ -12,11 +12,14 @@ namespace ProyectoFinalDIW.Servicios
     {
         public async Task<TokenDTO> ObtenerToken(string token)
         {
-            // URL de la API que deseas consultar
-            string apiUrl = "https://localhost:7029/api/TokenControlador/" + token;
-
             try
             {
+                // Log
+                Util.LogInfo("TokenImplementacion", "ObtenerToken", "Ha entrado en ObtenerToken");
+
+                // URL de la API que deseas consultar
+                string apiUrl = "https://localhost:7029/api/TokenControlador/" + token;
+
                 // Realiza la consulta GET
                 string responseData;
                 using (HttpClient client = new HttpClient())
@@ -49,19 +52,22 @@ namespace ProyectoFinalDIW.Servicios
                 Console.WriteLine("No hay coincidencia");
                 return null;
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
-                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error operación no válida");
+                // Log
+                Util.LogError("TokenImplementacion", "ObtenerToken", "No se ha podido obtener el token debido a una operacion invalida");
                 return null;
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException)
             {
-                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error en la solicitud HTTP");
+                // Log
+                Util.LogError("TokenImplementacion", "ObtenerToken", "No se ha podido obtener el token debido a un error en la solicitud HTTP");
                 return null;
             }
-            catch (TaskCanceledException e)
+            catch (TaskCanceledException)
             {
-                Console.WriteLine("[ERROR-AccesoImplementacion-ObtenerToken] Error la tarea fue cancelada");
+                // Log
+                Util.LogError("TokenImplementacion", "ObtenerToken", "No se ha podido obtener el token debido a la cancelacion de una tarea");
                 return null;
             }
         }

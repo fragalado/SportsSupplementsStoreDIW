@@ -32,10 +32,10 @@ namespace apiCProyectoFinal.Controllers
         /// <summary>
         /// Método que obtiene un suplemento por el id pasado por parámetros
         /// </summary>
-        /// <param name="id">Id del suplemento en la base de datos</param>
+        /// <param name="id">Id del suplemento a buscar</param>
         /// <returns>Devuelve un suplemento</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Suplemento>> GetSuplemento(long id)
+        public async Task<ActionResult<Suplemento>> GetSuplementoById(long id)
         {
             // Obtenemos el suplemento por el id
             var suplemento = await context.Suplementos.FindAsync(id);
@@ -50,13 +50,20 @@ namespace apiCProyectoFinal.Controllers
             return suplemento;
         }
 
+        /// <summary>
+        /// Método que actualiza un suplemento en la base de datos
+        /// </summary>
+        /// <param name="suplemento">Suplemento a actualizar</param>
+        /// <returns>Devuelve el estado</returns>
         [HttpPut]
         public async Task<IActionResult> PutSuplemento(Suplemento suplemento)
         {
+            // Marcamos el estado del suplemento como modificado para que EntityFramework realice la actualizacion
             context.Entry(suplemento).State = EntityState.Modified;
 
             try
             {
+                // Guardamos los cambios
                 await context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -67,15 +74,24 @@ namespace apiCProyectoFinal.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Método que crea un nuevo suplemento en la base de datos
+        /// </summary>
+        /// <param name="suplemento">Suplemento a crear</param>
+        /// <returns>Devuelve el suplemento creado</returns>
         [HttpPost]
         public async Task<ActionResult<Suplemento>> PostSuplemento(Suplemento suplemento)
         {
             try
             {
+                // Agregamos el suplemento
                 context.Suplementos.Add(suplemento);
+
+                // Guardamos los cambios
                 await context.SaveChangesAsync();
 
-                return CreatedAtAction("GetSuplemento", new { id = suplemento.id_suplemento }, suplemento);
+                // Devolvemos el suplemento creado
+                return CreatedAtAction("GetSuplementoById", new { id = suplemento.id_suplemento }, suplemento);
             }
             catch (Exception e)
             {
@@ -83,19 +99,29 @@ namespace apiCProyectoFinal.Controllers
             }
         }
 
+        /// <summary>
+        /// Método que elimina un suplemento en la base de datos por su id
+        /// </summary>
+        /// <param name="id">Id del suplemento a borrar</param>
+        /// <returns>Devuelve el estado</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSuplemento(long id)
         {
             try
             {
+                // Buscamos el suplemento
                 var suplemento = await context.Suplementos.FindAsync(id);
 
+                // Comprobamos si el suplemento existe
                 if (suplemento == null)
                 {
                     return NotFound();
                 }
 
+                // Eliminamos el suplemento
                 context.Suplementos.Remove(suplemento);
+
+                // Guardamos los cambios
                 await context.SaveChangesAsync();
 
                 return NoContent();

@@ -13,11 +13,13 @@ namespace ProyectoFinalDIW.Servicios
     {
         public async Task<List<SuplementoDTO>> ObtieneTodosLosSuplementos()
         {
-            // URL que se desea consultar
-            string apiUrl = "https://localhost:7029/api/SuplementoControlador";
-
             try
             {
+                // Log
+                Util.LogInfo("SuplementoImplementacion", "ObtieneTodosLosSuplementos", "Ha entrado en ObtieneTodosLosSuplementos");
+                
+                // URL que se desea consultar
+                string apiUrl = "https://localhost:7029/api/SuplementoControlador";
                 // Realiza la consulta GET
                 string responseData;
                 using (HttpClient client = new HttpClient())
@@ -44,30 +46,36 @@ namespace ProyectoFinalDIW.Servicios
                 // Devolvemos la lista
                 return listaSuplementos;
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-ObtieneTodosLosSuplementos] Error operación no válida");
+                // Log
+                Util.LogError("SuplementoImplementacion", "ObtieneTodosLosSuplementos", "No se ha podido agregar la orden debido a una operacion invalida");
                 return null;
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-ObtieneTodosLosSuplementos] Error en la solicitud HTTP");
+                // Log
+                Util.LogError("SuplementoImplementacion", "ObtieneTodosLosSuplementos", "No se ha podido agregar la orden debido a un error en la solicitud HTTP");
                 return null;
             }
-            catch (TaskCanceledException e)
+            catch (TaskCanceledException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-ObtieneTodosLosSuplementos] Error la tarea fue cancelada");
+                // Log
+                Util.LogError("SuplementoImplementacion", "ObtieneTodosLosSuplementos", "No se ha podido agregar la orden debido a la cancelacion de una tarea");
                 return null;
             }
         }
 
         public async Task<SuplementoDTO> BuscaSuplementoPorId(long id)
         {
-            // URL de la API que deseas consultar
-            string apiUrl = "https://localhost:7029/api/SuplementoControlador/" + id;
-
             try
             {
+                // Log
+                Util.LogInfo("SuplementoImplementacion", "BuscaSuplementoPorId", "Ha entrado en BuscaSuplementoPorId");
+
+                // URL de la API que deseas consultar
+                string apiUrl = "https://localhost:7029/api/SuplementoControlador/" + id;
+
                 // Realiza la consulta GET
                 string responseData;
                 using (HttpClient client = new HttpClient())
@@ -100,19 +108,25 @@ namespace ProyectoFinalDIW.Servicios
                 Console.WriteLine("No hay coincidencia");
                 return null;
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-BuscaSuplementoPorId] Error operación no válida");
+                // Log
+                Util.LogError("SuplementoImplementacion", "BuscaSuplementoPorId", "No se ha podido buscar el suplemento por el id debido a una operacion invalida");
+
                 return null;
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-BuscaSuplementoPorId] Error en la solicitud HTTP");
+                // Log
+                Util.LogError("SuplementoImplementacion", "BuscaSuplementoPorId", "No se ha podido buscar el suplemento por el id debido a un error en la solicitud HTTP");
+
                 return null;
             }
-            catch (TaskCanceledException e)
+            catch (TaskCanceledException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-BuscaSuplementoPorId] Error la tarea fue cancelada");
+                // Log
+                Util.LogError("SuplementoImplementacion", "BuscaSuplementoPorId", "No se ha podido buscar el suplemento por el id debido a la cancelacion de una tarea");
+
                 return null;
             }
         }
@@ -121,6 +135,9 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
+                // Log
+                Util.LogInfo("SuplementoImplementacion", "BorraSuplementoPorId", "Ha entrado en BorraSuplementoPorId");
+
                 // Buscamos el suplemento por el id
                 SuplementoDTO suplementoEncontrado = BuscaSuplementoPorId(id).Result;
 
@@ -144,30 +161,54 @@ namespace ProyectoFinalDIW.Servicios
                     // Verificar la respuesta del servidor
                     if (response.IsSuccessStatusCode)
                     {
-                        Console.WriteLine("SuplementoEncontrado eliminado exitosamente");
+                        // Log
+                        Util.LogInfo("SuplementoImplementacion", "BorraSuplementoPorId", "Suplemento eliminado correctamente");
 
                         return true;
                     }
                     else
                     {
-                        Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                        // Log
+                        Util.LogError("SuplementoImplementacion", "BorraSuplementoPorId", "No se ha podido eliminar el suplemento");
+
                         return false;
                     }
                 }
             }
-            catch (InvalidOperationException e)
+            catch (AggregateException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-BorraSuplementoPorId] Error operación no válida");
+                // Log
+                Util.LogError("SuplementoImplementacion", "BorraSuplementoPorId", "No se ha podido borrar el suplemento debido a un excepcion agregada");
                 return false;
             }
-            catch (HttpRequestException e)
+            catch (ArgumentNullException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-BorraSuplementoPorId] Error en la solicitud HTTP");
+                // Log
+                Util.LogError("SuplementoImplementacion", "BorraSuplementoPorId", "No se ha podido borrar el suplemento debido a un argumento nulo");
                 return false;
             }
-            catch (TaskCanceledException e)
+            catch (UriFormatException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-BorraSuplementoPorId] Error la tarea fue cancelada");
+                // Log
+                Util.LogError("SuplementoImplementacion", "BorraSuplementoPorId", "No se ha podido borrar el suplemento debido a un formato incorrecto del URI");
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "BorraSuplementoPorId", "No se ha podido borrar el suplemento debido a una operacion invalida");
+                return false;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "BorraSuplementoPorId", "No se ha podido borrar el suplemento debido a un error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "BorraSuplementoPorId", "No se ha podido borrar el suplemento debido a la cancelacion de una tarea");
                 return false;
             }
         }
@@ -176,6 +217,9 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
+                // Log
+                Util.LogInfo("SuplementoImplementacion", "ActualizaSuplemento", "Ha entrado en ActualizaSuplemento");
+
                 // Obtenemos el suplemento de la base de datos
                 SuplementoDTO suplementoEncontrado = BuscaSuplementoPorId(suplemento.Id_suplemento).Result;
 
@@ -202,30 +246,54 @@ namespace ProyectoFinalDIW.Servicios
                     // Verificar la respuesta del servidor
                     if (response.IsSuccessStatusCode)
                     {
-                        Console.WriteLine("Suplemento actualizado exitosamente");
+                        // Log
+                        Util.LogInfo("SuplementoImplementacion", "ActualizaSuplemento", "Suplemento actualizado correctamente");
 
                         return true;
                     }
                     else
                     {
-                        Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                        // Log
+                        Util.LogError("SuplementoImplementacion", "ActualizaSuplemento", "No se ha podido actualizar el suplemento");
+
                         return false;
                     }
                 }
             }
-            catch (InvalidOperationException e)
+            catch (AggregateException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-ActualizaSuplemento] Error operación no válida");
+                // Log
+                Util.LogError("SuplementoImplementacion", "ActualizaSuplemento", "No se ha podido actualizar el suplemento debido a un excepcion agregada");
                 return false;
             }
-            catch (HttpRequestException e)
+            catch (ArgumentNullException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-ActualizaSuplemento] Error en la solicitud HTTP");
+                // Log
+                Util.LogError("SuplementoImplementacion", "ActualizaSuplemento", "No se ha podido actualizar el suplemento debido a un argumento nulo");
                 return false;
             }
-            catch (TaskCanceledException e)
+            catch (UriFormatException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-ActualizaSuplemento] Error la tarea fue cancelada");
+                // Log
+                Util.LogError("SuplementoImplementacion", "ActualizaSuplemento", "No se ha podido actualizar el suplemento debido a un formato incorrecto del URI");
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "ActualizaSuplemento", "No se ha podido actualizar el suplemento debido a una operacion invalida");
+                return false;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "ActualizaSuplemento", "No se ha podido actualizar el suplemento debido a un error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "ActualizaSuplemento", "No se ha podido actualizar el suplemento debido a la cancelacion de una tarea");
                 return false;
             }
         }
@@ -234,6 +302,9 @@ namespace ProyectoFinalDIW.Servicios
         {
             try
             {
+                // Log
+                Util.LogInfo("SuplementoImplementacion", "AgregaSuplemento", "Ha entrado en AgregaSuplemento");
+
                 // Convertimos el suplemento a json
                 string suplementoJson = JsonConvert.SerializeObject(suplemento, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
@@ -249,30 +320,54 @@ namespace ProyectoFinalDIW.Servicios
                     // Verificar la respuesta del servidor
                     if (response.IsSuccessStatusCode)
                     {
-                        Console.WriteLine("Suplemento agregado exitosamente");
+                        // Log
+                        Util.LogInfo("SuplementoImplementacion", "AgregaSuplemento", "Suplemento agregado correctamente");
 
                         return true;
                     }
                     else
                     {
-                        Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
+                        // Log
+                        Util.LogError("SuplementoImplementacion", "AgregaSuplemento", "No se ha podido agregar el suplemento");
+
                         return false;
                     }
                 }
             }
-            catch (InvalidOperationException e)
+            catch (AggregateException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-AgregaSuplemento] Error operación no válida");
+                // Log
+                Util.LogError("SuplementoImplementacion", "AgregaSuplemento", "No se ha podido agregar el suplemento debido a un excepcion agregada");
                 return false;
             }
-            catch (HttpRequestException e)
+            catch (ArgumentNullException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-AgregaSuplemento] Error en la solicitud HTTP");
+                // Log
+                Util.LogError("SuplementoImplementacion", "AgregaSuplemento", "No se ha podido agregar el suplemento debido a un argumento nulo");
                 return false;
             }
-            catch (TaskCanceledException e)
+            catch (UriFormatException)
             {
-                Console.WriteLine("[ERROR-AdminImplementacion-AgregaSuplemento] Error la tarea fue cancelada");
+                // Log
+                Util.LogError("SuplementoImplementacion", "AgregaSuplemento", "No se ha podido agregar el suplemento debido a un formato incorrecto del URI");
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "AgregaSuplemento", "No se ha podido agregar el suplemento debido a una operacion invalida");
+                return false;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "AgregaSuplemento", "No se ha podido agregar el suplemento debido a un error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("SuplementoImplementacion", "AgregaSuplemento", "No se ha podido agregar el suplemento debido a la cancelacion de una tarea");
                 return false;
             }
         }

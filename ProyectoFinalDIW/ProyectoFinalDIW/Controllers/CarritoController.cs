@@ -22,34 +22,48 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve la vista</returns>
         public IActionResult VistaCarrito()
         {
-            // Controlamos si el usuario ha iniciado sesion o no
-            // Si no ha iniciado sesion redirigimos a la vista de login
-            if (!Util.ControlaSesion(HttpContext))
-                return RedirectToAction("VistaLogin", "Login");
+            try
+            {
+                // Log
+                Util.LogInfo("CarritoController", "VistaCarrito", "Ha entrado en VistaCarrito");
 
-            ViewData["acceso"] = HttpContext.Session.GetString("acceso");
+                // Controlamos si el usuario ha iniciado sesion o no
+                // Si no ha iniciado sesion redirigimos a la vista de login
+                if (!Util.ControlaSesion(HttpContext))
+                    return RedirectToAction("VistaLogin", "Login");
 
-            // Obtenemos el email del usuario iniciado
-            string email = HttpContext.Session.GetString("email")!;
+                ViewData["acceso"] = HttpContext.Session.GetString("acceso");
 
-            // Obtenemos el carrito del usuario
-            List<CarritoDTO> listaCarrito = carritoInterfaz.ObtieneCarritoUsuario(email).Result;
+                // Obtenemos el email del usuario iniciado
+                string email = HttpContext.Session.GetString("email")!;
 
-            // Obtenemos todos los suplementos para pasarlos a la vista
-            List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
+                // Obtenemos el carrito del usuario
+                List<CarritoDTO> listaCarrito = carritoInterfaz.ObtieneCarritoUsuario(email).Result;
 
-            // Obtenemos el precio total del carrito
-            float totalCarrito = carritoInterfaz.ObtienePrecioTotalCarrito(listaCarrito, listaSuplementos);
+                // Obtenemos todos los suplementos para pasarlos a la vista
+                List<SuplementoDTO> listaSuplementos = suplementoInterfaz.ObtieneTodosLosSuplementos().Result;
 
-            // Pasamos las listas a la vista a través de ViewBag
-            ViewBag.carritos = listaCarrito;
-			ViewBag.suplementos = listaSuplementos;
+                // Obtenemos el precio total del carrito
+                float totalCarrito = carritoInterfaz.ObtienePrecioTotalCarrito(listaCarrito, listaSuplementos);
 
-            // Pasamos el precio a la vista
-            ViewBag.precioTotal = totalCarrito;
+                // Pasamos las listas a la vista a través de ViewBag
+                ViewBag.carritos = listaCarrito;
+                ViewBag.suplementos = listaSuplementos;
 
-			// Devolvemos la vista
-			return View();
+                // Pasamos el precio a la vista
+                ViewBag.precioTotal = totalCarrito;
+
+                // Devolvemos la vista
+                return View();
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("CarritoController", "VistaCarrito", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
 
         /// <summary>
@@ -59,17 +73,31 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve una redireccion</returns>
         public ActionResult BorrarCarrito(int id)
         {
-            // Borramos el carrito
-            bool ok = carritoInterfaz.BorraCarrito(id);
+            try
+            {
+                // Log
+                Util.LogInfo("CarritoController", "BorrarCarrito", "Ha entrado en BorrarCarrito");
 
-            // Controlamos si se ha borrado correctamente o no
-            if (ok)
-                TempData["carritoBorrado"] = "true";
-            else
-                TempData["carritoBorrado"] = "false";
+                // Borramos el carrito
+                bool ok = carritoInterfaz.BorraCarrito(id);
 
-            // Redirigimos a la vista carrito
-            return RedirectToAction("VistaCarrito", "Carrito");
+                // Controlamos si se ha borrado correctamente o no
+                if (ok)
+                    TempData["carritoBorrado"] = "true";
+                else
+                    TempData["carritoBorrado"] = "false";
+
+                // Redirigimos a la vista carrito
+                return RedirectToAction("VistaCarrito", "Carrito");
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("CarritoController", "BorrarCarrito", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
     }
 }

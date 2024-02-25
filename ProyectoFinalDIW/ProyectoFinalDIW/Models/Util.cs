@@ -21,6 +21,9 @@ namespace ProyectoFinalDIW.Models
 
             try
             {
+                // Log
+                LogInfo("Util", "EncriptarContra", "Ha entrado en EncriptarContra");
+
                 using (SHA256 sha256 = SHA256.Create())
                 {
                     byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
@@ -33,23 +36,28 @@ namespace ProyectoFinalDIW.Models
             }
             catch (ArgumentNullException e)
             {
-                Console.WriteLine("[ERROR-Encriptado-EncriptarContra] Algoritmo nulo.");
+                // Log
+                LogError("Util", "EncriptarContra", "Algoritmo nulo");
             }
             catch (TargetInvocationException e)
             {
-                Console.WriteLine("[ERROR-Encriptado-EncriptarContra] Error durante la invocación del método.");
+                // Log
+                LogError("Util", "EncriptarContra", "durante la invocación del método");
             }
             catch (ObjectDisposedException e) 
             {
-                Console.WriteLine("[ERROR-Encriptado-EncriptarContra] Error el objeto está eliminado (disposed).");
+                // Log
+                LogError("Util", "EncriptarContra", "el objeto está eliminado (disposed)");
             }
             catch (FormatException e)
             {
-                Console.WriteLine("[ERROR-Encriptado-EncriptarContra] Error formato no válido.");
+                // Log
+                LogError("Util", "EncriptarContra", "formato no válido");
             }
             catch(ArgumentOutOfRangeException e)
             {
-                Console.WriteLine("[ERROR-Encriptado-EncriptarContra] Error valor del argumento fuera del rango permitido.");
+                // Log
+                LogError("Util", "EncriptarContra", "valor del argumento fuera del rango permitido");
             }
 
             return hexString.ToString();
@@ -64,6 +72,9 @@ namespace ProyectoFinalDIW.Models
         {
             try
             {
+                // Log
+                LogInfo("Util", "ControlaSesion", "Ha entrado en ControlaSesion");
+
                 // Obtenemos el acceso del contexto
                 string acceso = context.Session.GetString("acceso");
 
@@ -79,6 +90,8 @@ namespace ProyectoFinalDIW.Models
             }
             catch (Exception)
             {
+                // Log
+                LogError("Util", "ControlaSesion", "Se ha producido un error al controlar la sesion");
                 return false;
             }
         }
@@ -92,6 +105,9 @@ namespace ProyectoFinalDIW.Models
         {
             try
             {
+                // Log
+                LogInfo("Util", "ControlaSesionAdmin", "Ha entrado en ControlaSesionAdmin");
+
                 // Obtenemos el acceso del contexto
                 string acceso = context.Session.GetString("acceso");
 
@@ -107,6 +123,9 @@ namespace ProyectoFinalDIW.Models
             }
             catch (Exception)
             {
+                // Log
+                LogError("Util", "ControlaSesionAdmin", "Se ha producido un error al controlar la sesion para admin");
+
                 return false;
             }
         }
@@ -132,7 +151,7 @@ namespace ProyectoFinalDIW.Models
             }
             catch (Exception)
             {
-
+                Console.WriteLine("[ERROR-Util-LogInfo] Error al escribir info en fichero");
             }
         }
 
@@ -157,7 +176,7 @@ namespace ProyectoFinalDIW.Models
             }
             catch (Exception)
             {
-
+                Console.WriteLine("[ERROR-Util-LogError] Error al escribir error en fichero");
             }
         }
     }

@@ -20,8 +20,11 @@ namespace ProyectoFinalDIW.Servicios
 		{
 			try
 			{
-				// Obtenemos el usuario de la base de datos
-				UsuarioDTO usuarioDTO = usuarioInterfaz.BuscaUsuarioPorEmail(emailUsuario).Result;
+                // Log
+                Util.LogInfo("OrdenImplementacion", "ComprarCarritoUsuario", "Ha entrado en ComprarCarritoUsuario");
+
+                // Obtenemos el usuario de la base de datos
+                UsuarioDTO usuarioDTO = usuarioInterfaz.BuscaUsuarioPorEmail(emailUsuario).Result;
 
 				// Obtenemos los carritos del usuario
 				List<CarritoDTO> listaCarritos = carritoInterfaz.ObtieneCarritoUsuario(emailUsuario).Result;
@@ -84,9 +87,11 @@ namespace ProyectoFinalDIW.Servicios
 
 				return false;
 			}
-			catch (Exception)
+			catch (AggregateException)
 			{
-				return false;
+                // Log
+                Util.LogError("OrdenImplementacion", "ComprarCarritoUsuario", "No se ha podido comprar el carrito del usuario debido a una excepcion agregada");
+                return false;
 			}
 		}
 
@@ -97,13 +102,16 @@ namespace ProyectoFinalDIW.Servicios
 		/// <returns>Devuelve el objeto OrdenDTO devuelto o null en caso de error</returns>
 		private OrdenDTO AgregarOrden(OrdenDTO ordenDTO)
 		{
-			// Convertimos la ordena JSON
-			string ordenJson = JsonConvert.SerializeObject(ordenDTO, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-
 			try
 			{
-				// Variable donde guardaremos los datos de la respuesta
-				string responseData;
+                // Log
+                Util.LogInfo("OrdenImplementacion", "AgregarOrden", "Ha entrado en AgregarOrden");
+
+                // Convertimos la ordena JSON
+			    string ordenJson = JsonConvert.SerializeObject(ordenDTO, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                // Variable donde guardaremos los datos de la respuesta
+                string responseData;
 
 				// Configurar la solicitud HTTP
 				using (HttpClient client = new HttpClient())
@@ -117,10 +125,11 @@ namespace ProyectoFinalDIW.Servicios
 					// Verificar la respuesta del servidor
 					if (response.IsSuccessStatusCode)
 					{
-						Console.WriteLine("Orden creado exitosamente");
+                        // Log
+                        Util.LogInfo("OrdenImplementacion", "AgregarOrden", "Orden creada exitosamente");
 
-						// Obtenemos los datos de la respuesta
-						responseData = response.Content.ReadAsStringAsync().Result;
+                        // Obtenemos los datos de la respuesta
+                        responseData = response.Content.ReadAsStringAsync().Result;
 
 						// Convertimos los datos de la respuesta a un objeto OrdenDTO
 						OrdenDTO ordenDevuelta = JsonConvert.DeserializeObject<OrdenDTO>(responseData);
@@ -133,36 +142,49 @@ namespace ProyectoFinalDIW.Servicios
 					}
 					else
 					{
-						Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
-						return null;
+                        // Log
+                        Util.LogInfo("OrdenImplementacion", "AgregarOrden", "No se ha podido crear la orden correctamente");
+                        return null;
 					}
 				}
 			}
-			catch (ArgumentNullException)
-			{
-				return null;
-			}
-			catch (UriFormatException)
-			{
-				return null;
-			}
-			catch (AggregateException)
-			{
-				return null;
-			}
-			catch (InvalidOperationException) 
-			{
-				return null;
-			}
-			catch (HttpRequestException)
-			{
-				return null;
-			}
-			catch (TaskCanceledException)
-			{
-				return null;
-			}
-		}
+            catch (AggregateException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarOrden", "No se ha podido agregar la orden debido a un excepcion agregada");
+                return null;
+            }
+            catch (ArgumentNullException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarOrden", "No se ha podido agregar la orden debido a un argumento nulo");
+                return null;
+            }
+            catch (UriFormatException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarOrden", "No se ha podido agregar la orden debido a un formato incorrecto del URI");
+                return null;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarOrden", "No se ha podido agregar la orden debido a una operacion invalida");
+                return null;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarOrden", "No se ha podido agregar la orden debido a un error en la solicitud HTTP");
+                return null;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarOrden", "No se ha podido agregar la orden debido a la cancelacion de una tarea");
+                return null;
+            }
+        }
 
 		/// <summary>
 		/// Método que realiza el INSERT de un objeto RelOrdenCarritoDTO a la base de datos
@@ -171,13 +193,16 @@ namespace ProyectoFinalDIW.Servicios
 		/// <returns>Devuelve true si se ha insertado corretamente o false en caso contrario</returns>
 		private bool AgregarListaRelOrdenCarrito(List<RelOrdenCarritoDTO> listaRelOrdenCarritoDTO)
 		{
-			// Convertimos la ordena JSON
-			string listaRelOrdenCarritoJson = JsonConvert.SerializeObject(listaRelOrdenCarritoDTO, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-
 			try
 			{
-				// Configurar la solicitud HTTP
-				using (HttpClient client = new HttpClient())
+                // Log
+                Util.LogInfo("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "Ha entrado en AgregarListaRelOrdenCarrito");
+
+                // Convertimos la ordena JSON
+                string listaRelOrdenCarritoJson = JsonConvert.SerializeObject(listaRelOrdenCarritoDTO, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                // Configurar la solicitud HTTP
+                using (HttpClient client = new HttpClient())
 				{
 					// Url a la que haremos el POST
 					Uri url = new Uri("https://localhost:7029/api/RelOrdenCarritoControlador");
@@ -188,42 +213,56 @@ namespace ProyectoFinalDIW.Servicios
 					// Verificar la respuesta del servidor
 					if (response.IsSuccessStatusCode)
 					{
-						Console.WriteLine("Lista RelOrdenCarrito creado exitosamente");
+                        // Log
+                        Util.LogInfo("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "Lista RelOrdenCarrito creada correctamente");
 
-						return true;
+                        return true;
 					}
 					else
 					{
-						Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
-						return false;
+                        // Log
+                        Util.LogInfo("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "No se ha podido crear la lista RelOrdenCarrito correctamente");
+                        return false;
 					}
 				}
 			}
-			catch (ArgumentNullException)
-			{
-				return false;
-			}
-			catch (UriFormatException)
-			{
-				return false;
-			}
-			catch (AggregateException)
-			{
-				return false;
-			}
-			catch (InvalidOperationException)
-			{
-				return false;
-			}
-			catch (HttpRequestException)
-			{
-				return false;
-			}
-			catch (TaskCanceledException)
-			{
-				return false;
-			}
-		}
+            catch (AggregateException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "No se ha podido crear la lista RelOrdenCarrito debido a un excepcion agregada");
+                return false;
+            }
+            catch (ArgumentNullException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "No se ha podido crear la lista RelOrdenCarrito debido a un argumento nulo");
+                return false;
+            }
+            catch (UriFormatException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "No se ha podido crear la lista RelOrdenCarrito debido a un formato incorrecto del URI");
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "No se ha podido crear la lista RelOrdenCarrito debido a una operacion invalida");
+                return false;
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "No se ha podido crear la lista RelOrdenCarrito debido a un error en la solicitud HTTP");
+                return false;
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "AgregarListaRelOrdenCarrito", "No se ha podido crear la lista RelOrdenCarrito debido a la cancelacion de una tarea");
+                return false;
+            }
+        }
 
 		/// <summary>
 		/// Método que actualiza un carrito en la base de datos
@@ -231,13 +270,16 @@ namespace ProyectoFinalDIW.Servicios
 		/// <param name="carritoDTO">Objeto CarritoDTO a actualizar</param>
 		private void ActualizaCarrito(CarritoDTO carritoDTO)
 		{
-			// Convertimos el carrito a  JSON
-			string carritoJSON = JsonConvert.SerializeObject(carritoDTO, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-
 			try
 			{
-				// Configurar la solicitud HTTP
-				using (HttpClient client = new HttpClient())
+                // Log
+                Util.LogInfo("OrdenImplementacion", "ActualizaCarrito", "Ha entrado en ActualizaCarrito");
+
+                // Convertimos el carrito a  JSON
+                string carritoJSON = JsonConvert.SerializeObject(carritoDTO, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                // Configurar la solicitud HTTP
+                using (HttpClient client = new HttpClient())
 				{
 					// Url a la que haremos el PUT
 					Uri url = new Uri("https://localhost:7029/api/CarritoControlador");
@@ -248,32 +290,46 @@ namespace ProyectoFinalDIW.Servicios
 					// Verificar la respuesta del servidor
 					if (response.IsSuccessStatusCode)
 					{
-						Console.WriteLine("Carrito actualziado exitosamente");
-					}
+                        // Log
+                        Util.LogInfo("OrdenImplementacion", "ActualizaCarrito", "Carrito actualizado correctamente");
+                    }
 					else
 					{
-						Console.WriteLine($"Respuesta del servidor: {response.StatusCode} {response.ReasonPhrase}");
-					}
+                        // Log
+                        Util.LogInfo("OrdenImplementacion", "ActualizaCarrito", "No se ha podido actualizar el carrito");
+                    }
 				}
 			}
-			catch (ArgumentNullException)
-			{
-			}
-			catch (UriFormatException)
-			{
-			}
-			catch (AggregateException)
-			{
-			}
-			catch (InvalidOperationException)
-			{
-			}
-			catch (HttpRequestException)
-			{
-			}
-			catch (TaskCanceledException)
-			{
-			}
-		}
+            catch (AggregateException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "ActualizaCarrito", "No se ha podido actualizar el carrito debido a un excepcion agregada");
+            }
+            catch (ArgumentNullException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "ActualizaCarrito", "No se ha podido actualizar el carrito debido a un argumento nulo");
+            }
+            catch (UriFormatException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "ActualizaCarrito", "No se ha podido actualizar el carrito debido a un formato incorrecto del URI");
+            }
+            catch (InvalidOperationException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "ActualizaCarrito", "No se ha podido actualizar el carrito debido a una operacion invalida");
+            }
+            catch (HttpRequestException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "ActualizaCarrito", "No se ha podido actualizar el carrito debido a un error en la solicitud HTTP");
+            }
+            catch (TaskCanceledException)
+            {
+                // Log
+                Util.LogError("OrdenImplementacion", "ActualizaCarrito", "No se ha podido actualizar el carrito debido a la cancelacion de una tarea");
+            }
+        }
 	}
 }

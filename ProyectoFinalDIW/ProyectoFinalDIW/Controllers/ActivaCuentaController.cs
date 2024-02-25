@@ -22,14 +22,28 @@ namespace ProyectoFinalDIW.Controllers
         /// <returns>Devuelve la vista</returns>
         public IActionResult VistaConfirmaEmail()
         {
-            // Controlamos la sesion, si el usuario ha iniciado sesión redirigimos a Home
-            if (Util.ControlaSesion(HttpContext))
+            try
             {
-                return RedirectToAction("Index", "Home");
-            }
+                // Log
+                Util.LogInfo("ActivaCuentaController", "VistaConfirmaEmail", "Ha entrado en VistaConfirmaEmail");
 
-            // Si el usuario no ha iniciado sesión devolvemos la vista
-            return View();
+                // Controlamos la sesion, si el usuario ha iniciado sesión redirigimos a Home
+                if (Util.ControlaSesion(HttpContext))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                // Si el usuario no ha iniciado sesión devolvemos la vista
+                return View();
+            }
+            catch (Exception)
+            {
+                // Log
+                Util.LogError("ActivaCuentaController", "VistaConfirmaEmail", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
+            }
         }
 
         /// <summary>
@@ -42,6 +56,9 @@ namespace ProyectoFinalDIW.Controllers
         {
             try
             {
+                // Log
+                Util.LogInfo("ActivaCuentaController", "ConfirmaEmail", "Ha entrado en ConfirmaEmail");
+
                 // Obtenemos el token de la base de datos
                 TokenDTO tokenDto = tokenInterfaz.ObtenerToken(tokenForm).Result;
 
@@ -79,7 +96,11 @@ namespace ProyectoFinalDIW.Controllers
             }
             catch (Exception)
             {
-                return View("VistaConfirmaEmail");
+                // Log
+                Util.LogError("ActivaCuentaController", "ConfirmaEmail", "Se ha producido un error");
+
+                // Redirigimos a la vista de error
+                return RedirectToAction("VistaError", "Error");
             }
         }
     }
