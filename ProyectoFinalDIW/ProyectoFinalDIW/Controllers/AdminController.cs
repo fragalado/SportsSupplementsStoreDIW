@@ -309,7 +309,7 @@ namespace ProyectoFinalDIW.Controllers
                 Util.LogInfo("AdminController", "EditarUsuario", "Ha entrado en EditarUsuario");
 
                 // Controlamos los valores
-                if (usuario.Nombre_usuario.Length > 255 || usuario.Email_usuario.Length > 255)
+                if (usuario.Nombre_usuario.Length > 50 || usuario.Email_usuario.Length > 50)
                 {
                     TempData["mensajeActualizado"] = "false";
                     return RedirectToAction("VistaAdministracionUsuario", "Admin");
@@ -561,7 +561,7 @@ namespace ProyectoFinalDIW.Controllers
                 Util.LogInfo("AdminController", "AgregarUsuario", "Ha entrado en AgregarUsuario");
 
                 // Controlamos los valores
-                if (usuarioDTO.Nombre_usuario.Length > 255 || usuarioDTO.Psswd_usuario.Length > 255 || usuarioDTO.Email_usuario.Length > 255)
+                if (usuarioDTO.Nombre_usuario.Length > 50 || usuarioDTO.Psswd_usuario.Length > 255 || usuarioDTO.Email_usuario.Length > 50)
                 {
                     TempData["mensajeAgregado"] = "false";
                     return RedirectToAction("VistaAdministracionUsuario", "Admin");

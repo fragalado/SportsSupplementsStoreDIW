@@ -11,8 +11,10 @@ namespace DAL
         [Key] // Indica que es el PK
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Indica que es autoincrementable
         public long id_usuario { get; set; }
+        [MaxLength(50)]
         public string nombre_usuario { get; set; }
         public string tlf_usuario { get; set; }
+        [MaxLength(50)]
         public string email_usuario { get; set; }
         public string psswd_usuario { get; set; }
         public long id_acceso { get; set; }
